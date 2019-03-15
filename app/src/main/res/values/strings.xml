@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">PetAdoption</string>
+    <string name="facebook_app_id">155796575363652</string>
+    <string name="fb_login_protocol_scheme">fb155796575363652</string>
+    <string name="cancel_login" >Se Cancelo El inicio</string>
+    <string name="error_login">Ocurrio un error</string>
+
+
+    <string name="action_sign_in_short">Registro</string>
+    <string name="email">Correo</string>
+    <string name="minimum_password">Contraseña demasiado corta, ingrese un mínimo de 6 caracteres!</string>
+    <string name="auth_failed">Falló la autenticación, revise su correo electrónico y contraseña o regístrese</string>
+    <string name="change_email">Cambiar Correo</string>
+    <string name="change_password">Cambia la contraseña</string>
+    <string name="send_password_reset_email">Enviar contraseña,restablecer correo electrónico</string>
+    <string name="remove_user">Eliminar usuario</string>
+    <string name="new_pass">Nueva contraseña</string>
+    <string name="title_activity_profile">Firebase</string>
+    <string name="title_activity_login">Registrarse</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_name">Nombre completo</string>
+    <string name="btn_login">INICIAR SESIÓN</string>
+    <string name="prompt_password">Por favor, introduzca su contraseña</string>
+    <string name="btn_link_to_register">¿No es un miembro? ¡Regístrese ahora!</string>
+    <string name="btn_link_to_login">Ya registrado. Inicia sesión</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="btn_reset_password">Restablecer la contraseña</string>
+    <string name="btn_back"><![CDATA[<<Atras]]></string>
+    <string name="hint_new_email">Nuevo Email</string>
+    <string name="btn_change">Cambio</string>
+    <string name="btn_send">Enviar</string>
+    <string name="btn_remove">Retirar</string>
+    <string name="btn_sign_out">Desconectar</string>
+    <string name="lbl_forgot_password">¿Se te olvidó tu contraseña?</string>
+    <string name="forgot_password_msg">Solo necesitamos su ID de correo electrónico registrada para enviarle las instrucciones para restablecer su contraseña.</string>
+    <string name="email_id">Identificación de correo</string>
+    <string name="firebase_error_login">Error al iniciar sesión en Firebase</string>
+
+</resources>
