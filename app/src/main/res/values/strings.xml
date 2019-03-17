@@ -2,7 +2,7 @@
     <string name="app_name">PetAdoption</string>
     <string name="facebook_app_id">155796575363652</string>
     <string name="fb_login_protocol_scheme">fb155796575363652</string>
-    <string name="cancel_login" >Se Cancelo El inicio</string>
+    <string name="cancel_login">Se Cancelo El inicio</string>
     <string name="error_login">Ocurrio un error</string>
 
 
@@ -37,5 +37,17 @@
     <string name="forgot_password_msg">Solo necesitamos su ID de correo electrónico registrada para enviarle las instrucciones para restablecer su contraseña.</string>
     <string name="email_id">Identificación de correo</string>
     <string name="firebase_error_login">Error al iniciar sesión en Firebase</string>
+
+    <string name="Continue_Registro">Continue Registro</string>
+    <string name="Nombres">Nombres</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Tipo_De_Documento">Tipo De Documento</string>
+    <string name="Numero_De_Documento">Numero De Documento</string>
+    <string name="Departamento">Departamento</string>
+    <string name="Cidudad">Ciudad</string>
+    <string name="Numero_Telefonico">Numero Telefonico</string>
+    <string name="Correo">Correo</string>
+    <string name="Terminar">Terminar Registro</string>
+    
 
 </resources>
