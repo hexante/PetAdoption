@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //get firebase auth instance
-        FirebaseApp.initializeApp(this);
+
         auth = FirebaseAuth.getInstance();
         email = (TextView) findViewById(R.id.useremail);
 
@@ -171,32 +171,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Facebook
-        if (AccessToken.getCurrentAccessToken() == null) {
-            goLoginScreen();
-        }
-        FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (usuario != null) {
-            String name = usuario.getDisplayName();
-            String correo = usuario.getEmail();
-            Uri photoUrl = usuario.getPhotoUrl();
-            String uid = usuario.getUid();
-
-          //  nameTextView.setText(name);
-            email.setText(correo);
-          //  uidTextView.setText(uid);
-        } else {
-            goLoginScreen();
         }
-    }
+
 
 
 
 
     private void goLoginScreen() {
         Intent intent = new Intent(this, InicioActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();

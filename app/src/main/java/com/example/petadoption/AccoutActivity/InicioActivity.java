@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.petadoption.DatosUsuario;
 import com.example.petadoption.MainActivity;
 import com.example.petadoption.R;
 import com.facebook.AccessToken;
@@ -55,7 +56,6 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         //Get Firebase auth instance
-
 
         auth = FirebaseAuth.getInstance();
         callbackManager = CallbackManager.Factory.create();
@@ -127,8 +127,7 @@ public class InicioActivity extends AppCompatActivity {
                                         Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(InicioActivity.this, MainActivity.class);
-                                    intent.addFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    Intent intent = new Intent(InicioActivity.this, DatosUsuario.class);
                                     startActivity(intent);
                                     finish();
                                 }
@@ -205,7 +204,7 @@ public class InicioActivity extends AppCompatActivity {
 
     private void goMainScreen() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
         startActivity(intent);
     }
 

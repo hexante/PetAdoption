@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1072770831201-bpu1j9c2qfkkcn6u8jn5tkqq0a41e894.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petadoption",
+            "certificate_hash": "8e34809c0f7dc7af3337d029e123744635d02506"
+          }
+        },
+        {
           "client_id": "1072770831201-tvq2jk2m9bjk4825li1vsdrb73kv0tf1.apps.googleusercontent.com",
           "client_type": 3
         }

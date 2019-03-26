@@ -2,14 +2,14 @@
     <string name="app_name">PetAdoption</string>
     <string name="facebook_app_id">155796575363652</string>
     <string name="fb_login_protocol_scheme">fb155796575363652</string>
-    <string name="cancel_login" >Se Cancelo El inicio</string>
+    <string name="cancel_login">Se Cancelo El inicio</string>
     <string name="error_login">Ocurrio un error</string>
 
 
     <string name="action_sign_in_short">Registro</string>
     <string name="email">Correo</string>
-    <string name="minimum_password">Contraseña demasiado corta, ingrese un mínimo de 6 caracteres!</string>
-    <string name="auth_failed">Falló la autenticación, revise su correo electrónico y contraseña o regístrese</string>
+    <string name="minimum_password">Contraseña demasiado corta, ingrese un mínimo de 6 carácteres!</string>
+    <string name="auth_failed">Datos Invalidos,Verifique la información</string>
     <string name="change_email">Cambiar Correo</string>
     <string name="change_password">Cambia la contraseña</string>
     <string name="send_password_reset_email">Enviar contraseña,restablecer correo electrónico</string>
@@ -22,8 +22,8 @@
     <string name="hint_name">Nombre completo</string>
     <string name="btn_login">INICIAR SESIÓN</string>
     <string name="prompt_password">Por favor, introduzca su contraseña</string>
-    <string name="btn_link_to_register">¿No es un miembro? ¡Regístrese ahora!</string>
-    <string name="btn_link_to_login">Ya registrado. Inicia sesión</string>
+    <string name="btn_link_to_register">¡Registrarse ahora!</string>
+    <string name="btn_link_to_login">¿Ya estas registrado?.Acceda aquí</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
     <string name="btn_reset_password">Restablecer la contraseña</string>
@@ -34,8 +34,25 @@
     <string name="btn_remove">Retirar</string>
     <string name="btn_sign_out">Desconectar</string>
     <string name="lbl_forgot_password">¿Se te olvidó tu contraseña?</string>
-    <string name="forgot_password_msg">Solo necesitamos su ID de correo electrónico registrada para enviarle las instrucciones para restablecer su contraseña.</string>
+    <string name="forgot_password_msg">Ingrese el correo electrónico registrado para restablecer la contraseña</string>
     <string name="email_id">Identificación de correo</string>
     <string name="firebase_error_login">Error al iniciar sesión en Firebase</string>
+    <string name="Continue_Registro">Continue Registro</string>
+    <string name="Nombres">Nombres</string>
+    <string name="Numero_De_Documento">Numero De  Documento</string>
+    <string name="Departamento">Departamento</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Cidudad">Ciudad</string>
+    <string name="Correo">Correo</string>
+    <string name="Numero_Telefonico">Numero Telefonico</string>
+    <string name="Terminar">Terminar</string>
+
+
+    <string-array name="TipoDocumento">
+        <item>Seleccione</item>
+        <item>Cedula De Ciudadania</item>
+        <item>Nit</item>
+        <item>Tarjeta identida</item>
+    </string-array>
 
 </resources>

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.petadoption.DatosUsuario;
 import com.example.petadoption.MainActivity;
 import com.example.petadoption.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -90,7 +91,15 @@ public class RegitrarseActivity extends AppCompatActivity {
                                     Toast.makeText(RegitrarseActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(RegitrarseActivity.this, MainActivity.class));
+                                   // Toast.makeText(RegitrarseActivity.this, "Creo usuario" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                  // Intent intent = new Intent(RegitrarseActivity.this, MainActivity.class);
+                                 //   intent.addFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                 //   startActivity(intent);
+                                  //  finish();
+
+                                    Intent intent = new Intent(RegitrarseActivity.this, DatosUsuario.class);
+
+                                    startActivity(intent);
                                     finish();
                                 }
                             }
