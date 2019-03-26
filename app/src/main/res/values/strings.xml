@@ -49,10 +49,17 @@
 
 
     <string-array name="TipoDocumento">
-        <item>Seleccione</item>
-        <item>Cedula De Ciudadania</item>
+        <item>Tipo Documento</item>
+        <item>Cedula</item>
         <item>Nit</item>
         <item>Tarjeta identida</item>
     </string-array>
+
+    <string-array name="TipoUsuario">
+        <item>Tipo De Usuario</item>
+        <item>Usuario</item>
+        <item>Fundacion</item>
+    </string-array>
+
 
 </resources>
