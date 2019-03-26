@@ -130,7 +130,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
-        android:onClick="logout"
         android:text="@string/btn_sign_out"
         android:textColor="@android:color/white"
         android:textStyle="bold"

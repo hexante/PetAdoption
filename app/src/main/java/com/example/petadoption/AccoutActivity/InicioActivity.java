@@ -37,18 +37,10 @@ import java.util.Arrays;
 
 
 public class InicioActivity extends AppCompatActivity {
-
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
-    private FirebaseAuth.AuthStateListener firebaseAuthListener;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
-
-    private LoginButton loginButton;
-    private CallbackManager callbackManager;
-
-    private AccessTokenTracker accessTokenTracker;
-    private AccessToken accessToken;
 
 
     @Override
@@ -56,11 +48,7 @@ public class InicioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
         //Get Firebase auth instance
-
         auth = FirebaseAuth.getInstance();
-        callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-
 
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(InicioActivity.this, MainActivity.class));
@@ -127,7 +115,7 @@ public class InicioActivity extends AppCompatActivity {
                                         Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(InicioActivity.this, DatosUsuario.class);
+                                    Intent intent = new Intent(InicioActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
@@ -135,102 +123,5 @@ public class InicioActivity extends AppCompatActivity {
                         });
             }
         });
-        //Facebook
-
-
-    progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
-    callbackManager = CallbackManager.Factory.create();
-        accessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(
-                    AccessToken oldAccessToken,
-                    AccessToken currentAccessToken) {
-                // Set the access token using
-                // currentAccessToken when it's loaded or set.
-            }
-        };
-        // If the access token is available already assign it.
-        accessToken = AccessToken.getCurrentAccessToken();
-
-
-
-        loginButton.setReadPermissions(Arrays.asList("email"));
-
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-        @Override
-        public void onSuccess(LoginResult loginResult) {
-            handleFacebookAccessToken(loginResult.getAccessToken());
-        }
-
-        @Override
-        public void onCancel() {
-            Toast.makeText(getApplicationContext(), R.string.cancel_login, Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onError(FacebookException error) {
-            Toast.makeText(getApplicationContext(), R.string.error_login, Toast.LENGTH_SHORT).show();
-        }
-    });
-
-    firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user != null) {
-                goMainScreen();
-            }
-        }
-    };
-}
-
-    private void handleFacebookAccessToken(AccessToken accessToken) {
-        progressBar.setVisibility(View.VISIBLE);
-        loginButton.setVisibility(View.GONE);
-
-        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
-        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), R.string.firebase_error_login, Toast.LENGTH_LONG).show();
-                }
-                progressBar.setVisibility(View.GONE);
-                loginButton.setVisibility(View.VISIBLE);
-            }
-        });
     }
-
-    private void goMainScreen() {
-        Intent intent = new Intent(this, MainActivity.class);
-
-        startActivity(intent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        auth.addAuthStateListener(firebaseAuthListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        auth.removeAuthStateListener(firebaseAuthListener);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        accessTokenTracker.stopTracking();
-    }
-
-
 }

@@ -7,8 +7,8 @@
     tools:context=".AccoutActivity.InicioActivity">
 
     <LinearLayout
-        android:layout_width="408dp"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:orientation="vertical"
@@ -24,10 +24,10 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
             android:contentDescription=""
-            android:src="@mipmap/ic_launcher"
+            android:src="@mipmap/huella_400x400"
 
             tools:ignore="ContentDescription"
-            tools:srcCompat="@tools:sample/avatars[2]" />
+            tools:srcCompat="@mipmap/huella_400x400" />
 
 
         <EditText
@@ -62,17 +62,6 @@
             android:background="@color/colorAccent"
             android:text="@string/btn_login"
             android:textColor="@android:color/black" />
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="599dp" />
 
         <Button
             android:id="@+id/btn_reset_password"

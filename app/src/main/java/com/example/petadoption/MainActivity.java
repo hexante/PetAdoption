@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //get firebase auth instance
-
         auth = FirebaseAuth.getInstance();
         email = (TextView) findViewById(R.id.useremail);
 
@@ -168,32 +167,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-        //Facebook
-
-        }
-
-
-
-
-
-    private void goLoginScreen() {
-        Intent intent = new Intent(this, InicioActivity.class);
-        startActivity(intent);
-        finish();
     }
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        LoginManager.getInstance().logOut();
-        goLoginScreen();
-    }
-
-
-
-
-
-
 
     @SuppressLint("SetTextI18n")
     private void setDataToView(FirebaseUser user) {
@@ -267,4 +241,3 @@ public class MainActivity extends AppCompatActivity {
 // and yesss we have made it. WE HAVE MADE AN APP WITH LOGIN AND REGISTRATION
 // PLEASE DO LIKE AND SUBSCRIBE FOR MORE.
 //THANK YOU
-
