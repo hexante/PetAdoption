@@ -79,7 +79,7 @@ public class DatosUsuario extends AppCompatActivity {
                 String ciudad=CiudadU.getText().toString();
                 String Tipou = spinnerU.getSelectedItem().toString();
 
-a
+
                 if (!TextUtils.isEmpty(numerod)){
                     String id=USUARIOS.push().getKey();
                     UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
