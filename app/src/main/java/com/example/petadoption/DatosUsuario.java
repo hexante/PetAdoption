@@ -28,6 +28,7 @@ public class DatosUsuario extends AppCompatActivity {
 
     private DatabaseReference USUARIOS;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
