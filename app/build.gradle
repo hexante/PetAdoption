@@ -19,7 +19,7 @@ android {
     }
 }
 
-configurations.all{
+configurations.all {
     resolutionStrategy.force 'com.andoid.support:support-annotations:23.1.0'
 }
 

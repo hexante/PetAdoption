@@ -46,6 +46,12 @@
     <string name="Correo">Correo</string>
     <string name="Numero_Telefonico">Numero Telefonico</string>
     <string name="Terminar">Terminar</string>
+    <string name="Edad">Edad Mascota</string>
+    <string name="Color">Color</string>
+    <string name="Raza">Raza Mascota</string>
+    <string name="RazaMascota">Raza Mascota</string>
+    <string name="Clasedemascota">Clase de mascota</string>
+    <string name="Cancelar">Cancelar</string>
 
 
     <string-array name="TipoDocumento">
