@@ -1,6 +1,5 @@
 package com.example.petadoption;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.petadoption.AccoutActivity.InicioActivity;
+import com.example.petadoption.AccoutActivity.DatosMascotas;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -83,12 +82,13 @@ public class DatosUsuario extends AppCompatActivity {
                 if (!TextUtils.isEmpty(numerod)){
                     String id=USUARIOS.push().getKey();
                     UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
-                    USUARIOS.child("Usuarios").child(id).setValue(usuario);
+                    USUARIOS.child(Tipou).child(id).setValue(usuario);
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(DatosUsuario.this, InicioActivity.class);
-                    startActivity(intent);
-                    finish();
+                       Intent intent = new Intent(DatosUsuario.this, DatosMascotas.class);
+                        startActivity(intent);
+
+
                 }else{
                     Toast.makeText(DatosUsuario.this,"Debe Ingresar Numero De identidad",Toast.LENGTH_LONG).show();
                 }

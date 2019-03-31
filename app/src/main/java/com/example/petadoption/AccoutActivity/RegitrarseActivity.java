@@ -98,7 +98,6 @@ public class RegitrarseActivity extends AppCompatActivity {
                                   //  finish();
 
                                     Intent intent = new Intent(RegitrarseActivity.this, DatosUsuario.class);
-
                                     startActivity(intent);
                                     finish();
                                 }

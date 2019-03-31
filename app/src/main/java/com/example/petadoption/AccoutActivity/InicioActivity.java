@@ -99,7 +99,7 @@ public class InicioActivity extends AppCompatActivity {
                                         Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(InicioActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(InicioActivity.this, DatosMascotas.class);
                                     startActivity(intent);
                                     finish();
                                 }
