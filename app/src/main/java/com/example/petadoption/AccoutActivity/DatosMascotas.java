@@ -87,15 +87,16 @@ public class DatosMascotas extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spitamaño.setAdapter(adapter2);
 
+
         if (sexoM.getCheckedRadioButtonId()==R.id.RbHembra){
             Sexo="Hembra";
-        }else if(sexoM.getCheckedRadioButtonId()==R.id.RbMacho){
+        }if(sexoM.getCheckedRadioButtonId()==R.id.RbMacho){
             Sexo="Macho";
         }
 
         if (lesionM.getCheckedRadioButtonId()==R.id.RbSi){
             lesiones="Si";
-        }else if(lesionM.getCheckedRadioButtonId()==R.id.RbNo){
+        }if(lesionM.getCheckedRadioButtonId()==R.id.RbNo){
             lesiones="No";
         }
 

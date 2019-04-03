@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.petadoption.AccoutActivity.DatosMascotas;
+import com.example.petadoption.AccoutActivity.InterfazPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -85,7 +86,7 @@ public class DatosUsuario extends AppCompatActivity {
                     USUARIOS.child(Tipou).child(id).setValue(usuario);
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
 
-                       Intent intent = new Intent(DatosUsuario.this, DatosMascotas.class);
+                       Intent intent = new Intent(DatosUsuario.this, InterfazPrincipal.class);
                         startActivity(intent);
 
 
