@@ -65,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:completionHint="@string/RazaMascota"
                 android:contentDescription="Raza mascota"
+                android:hint="@string/RazaMascota"
                 android:popupBackground="@array/TamañoMascota" />
 
 

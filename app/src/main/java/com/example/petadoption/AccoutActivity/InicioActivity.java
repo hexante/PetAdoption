@@ -13,11 +13,13 @@ import android.widget.Toast;
 
 import com.example.petadoption.MainActivity;
 import com.example.petadoption.R;
+import com.facebook.FacebookSdk;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 
 public class InicioActivity extends AppCompatActivity {
@@ -33,7 +35,6 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(InicioActivity.this, MainActivity.class));
             finish();
@@ -99,7 +100,7 @@ public class InicioActivity extends AppCompatActivity {
                                         Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(InicioActivity.this, FundacionActivity.class);
+                                    Intent intent = new Intent(InicioActivity.this, InterfazPrincipal.class);
                                     startActivity(intent);
                                     finish();
                                 }
