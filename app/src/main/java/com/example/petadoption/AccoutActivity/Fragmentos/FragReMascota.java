@@ -1,14 +1,21 @@
 package com.example.petadoption.AccoutActivity.Fragmentos;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +43,11 @@ import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -55,10 +65,19 @@ public class FragReMascota extends Fragment {
     private ImageView picImageView;
     String Sexo,lesiones;
 
-    CameraPhoto cameraPhoto;
-    GalleryPhoto galleryPhoto;
-    private static final int CAMERA_REQUEST = 1;
-    private static final int GALLERY_REQUEST = 2;
+  //  CameraPhoto cameraPhoto;
+ //   GalleryPhoto galleryPhoto;
+ //   private static final int CAMERA_REQUEST = 1;
+ //   private static final int GALLERY_REQUEST = 2;
+
+    private String APP_DIRECTORY = "myPictureApp/";
+    private String MEDIA_DIRECTORY = APP_DIRECTORY + "media";
+    private String TEMPORAL_PECTURE_NAME = "temporal.jpg";
+
+    private final int PHOTO_CODE = 100;
+    private final int SELECT_PICTURE = 200;
+
+
 
     private DatabaseReference Mascotas;
 
@@ -79,6 +98,9 @@ public class FragReMascota extends Fragment {
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+
+
+        picImageView = (ImageView)  view.findViewById(R.id.picImageView);
 
         RazaM = (EditText) view.findViewById(R.id.autocomplete_raza);
         EdadM = (EditText) view.findViewById(R.id.EdadMascota);
@@ -156,29 +178,33 @@ public class FragReMascota extends Fragment {
 
 
 
+
+
+
         //**+++++++ inicio codigo para tomar las fotos
 
     // Los objetos de la librería que nos ayudarán en la tarea
-    cameraPhoto = new CameraPhoto(getActivity());
-    galleryPhoto = new GalleryPhoto(getActivity());
+   // cameraPhoto = new CameraPhoto(getActivity());
+    //    galleryPhoto = new GalleryPhoto(getActivity());
 
     // Array con las opciones para el diálogo que se abrirá al pulsar el botón "PIC"
-    final String[] items = new String[] {"Camera", "Gallery"};
+    final String[] items = new String[] {"Camara", "Gallery", "Cancelar"};
 
     // Creamos el diálogo
     ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, items);
     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Select image");
+        builder.setTitle("Seleccione imagen");
         builder.setAdapter(adapter3, new DialogInterface.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialog, int which) {
-            if (which == 0){
+        public void onClick(DialogInterface dialog, int seleccion) {
+            if (items[seleccion] == "Camara"){
                 // Opción Cámara
                 callCameraApp();
-                dialog.cancel();
-            }else{
+            }else if (items[seleccion] == "Gallery"){
                 // Opción Galería
-                startActivityForResult(galleryPhoto.openGalleryIntent(), GALLERY_REQUEST);
+                CargarImagen();
+            }else if (items[seleccion] == "Cancelar"){
+                dialog.dismiss();
             }
         }
     });
@@ -194,66 +220,58 @@ public class FragReMascota extends Fragment {
     });
 
     // Buscamos el ImageView por su ID y creamos una referencia al mismo
-    picImageView = (ImageView) view.findViewById(R.id.picImageView);
+
 
         return view;
 }
 
+    private void CargarImagen() {
+
+            Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            startActivityForResult(intent.createChooser(intent,"Seleccione la Aplicacion"),SELECT_PICTURE);
+
+    }
+
     private void callCameraApp(){
-        try {
-            // Lanzamos la actividad correspondiente a la Cámara, gracias a la librería.
-            startActivityForResult(cameraPhoto.takePhotoIntent(), CAMERA_REQUEST);
+        checkCameraPermission();
 
-            // Indicamos que queremos guardar la imagen tomada en la galería
-            cameraPhoto.addToGallery();
-        } catch (IOException e) {
-            Toast.makeText(getActivity(), "Something goes wrong while taking photos", Toast.LENGTH_SHORT).show();
-        }
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent,PHOTO_CODE);
+
     }
 
-    private void createImage(Bitmap bitmap){
-        picImageView.setImageBitmap(bitmap);
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK) {
-            if (requestCode == CAMERA_REQUEST) {
-                // Obtenemos el path de la imagen que hemos tomado
-                String photoPath = cameraPhoto.getPhotoPath();
-                try {
-                    // Creamos un bitmap a partir de la imagen y lo redimensionamos
-                    Bitmap imageBitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
+        switch (requestCode){
+            case PHOTO_CODE:
+                if (resultCode == RESULT_OK){
+                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                    picImageView.setImageBitmap(bitmap);
 
-                    // Aplicamos el Bitmap al ImageView
-                    createImage(imageBitmap);
-                } catch (FileNotFoundException e) {
-                    Toast.makeText(getActivity(), "Something goes wrong while loading photos", Toast.LENGTH_SHORT).show();
                 }
-            } else if (requestCode == GALLERY_REQUEST) {
-                // Creamos una ruta en formato Uri para los datos correspondientes a la imagen
-                Uri uri = data.getData();
+            break;
 
-                // Asignamos esa ruta al objeto de la librería
-                galleryPhoto.setPhotoUri(uri);
-
-                // Obtenemos la ruta completa para acceder a la imagen
-                String photoPath = galleryPhoto.getPath();
-                try {
-                    // Seguimos el mismo proceso que para la cámara
-                    Bitmap imageBitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
-                    createImage(imageBitmap);
-                } catch (FileNotFoundException e) {
-                    Toast.makeText(getActivity(), "Something goes wrong while choosing photos", Toast.LENGTH_SHORT).show();
+            case SELECT_PICTURE:
+                if (resultCode == RESULT_OK){
+                    Uri path = data.getData();
+                    picImageView.setImageURI(path);
                 }
-
-
+        }
             }
 
+    private void checkCameraPermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                getActivity(), Manifest.permission.CAMERA);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            Log.i("mensaje", "No se tiene permiso para la camara !.");
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, 225);
+        } else {
+            Log.i("mensaje", "Tienes permiso para usar la camara.");
 
         }
-    }
 
-}
+    } }
