@@ -4,23 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/mascotas"
     tools:context=".AccoutActivity.DatosMascotas">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_width="345dp"
+        android:layout_height="563dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73">
 
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@color/colorPrimaryDark"
-        android:gravity="fill"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin"
-        tools:ignore="MissingConstraints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
@@ -36,8 +47,8 @@
 
             <ImageView
                 android:id="@+id/picImageView"
-                android:layout_width="@dimen/logo_w_h"
-                android:layout_height="@dimen/logo_w_h"
+                android:layout_width="148dp"
+                android:layout_height="105dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="30dp"
                 android:contentDescription=""
@@ -65,7 +76,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:completionHint="@string/RazaMascota"
-                android:contentDescription="Raza mascota"
+                android:hint="@string/Raza"
                 android:popupBackground="@array/TamañoMascota" />
 
 

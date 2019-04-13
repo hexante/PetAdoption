@@ -4,128 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/mascotas"
     tools:context=".DatosUsuario">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="298dp"
+        android:layout_height="412dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="184dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <TextView
-            android:id="@+id/textView4"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/Continue_Registro"
-            android:textColor="@android:color/black"
-            android:textSize="30sp" />
+            android:background="@color/white"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="0dp">
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/Continue_Registro"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/NumeroDocumento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Numero_De_Documento"
-            android:inputType="number"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            <ImageView
+                android:id="@+id/FotoPerfilUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="157dp"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:contentDescription="TODO"
+                android:src="@drawable/com_facebook_profile_picture_blank_square" />
 
-        <EditText
-            android:id="@+id/NombreUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Nombres"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:entries="@array/TipoDocumento"
+                android:spinnerMode="dialog"
+                android:textColor="@android:color/black"
+                android:visibility="visible" />
 
-        <EditText
-            android:id="@+id/ApellidoUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Apellidos"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            <EditText
+                android:id="@+id/NumeroDocumento"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="@string/Numero_De_Documento"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/DepartamentoUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Departamento"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            <EditText
+                android:id="@+id/NombreUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:hint="@string/Nombres"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/CiudadUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Cidudad"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            <EditText
+                android:id="@+id/ApellidoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:hint="@string/Apellidos"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/DepartamentoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:hint="@string/Departamento"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/CiudadUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:hint="@string/Cidudad"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
 
+            <EditText
+                android:id="@+id/TelefonoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:hint="@string/Numero_Telefonico"
+                android:inputType="number"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/TelefonoUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Numero_Telefonico"
-            android:inputType="number"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            />
+            <EditText
+                android:id="@+id/CorreoUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:hint="@string/Correo"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/CorreoUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/Correo"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            <Spinner
+                android:id="@+id/spinTipoU"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:entries="@array/TipoUsuario"
+                android:spinnerMode="dropdown" />
 
-        <Spinner
-            android:id="@+id/spinTipoU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            <Button
+                android:id="@+id/btnTerminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="@string/Terminar"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/btnTerminar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="@string/Terminar"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
-
-       </LinearLayout>
-   </ScrollView>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

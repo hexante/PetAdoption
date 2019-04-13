@@ -187,5 +187,6 @@
             <!-- Link to Login Screen -->
 
         </LinearLayout>
-    </ScrollView>
+    </ScrollView
+        >
 </FrameLayout>

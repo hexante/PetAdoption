@@ -60,19 +60,11 @@ public class FragReMascota extends Fragment {
     private Spinner Spitamaño,SpiTipo;
     private EditText RazaM,EdadM,ColorM,descripcionLeM;
     private RadioGroup sexoM,lesionM;
-    private Button Registrar,Cancelar,Foto;
+    private Button Registrar,Cancelar,Foto,Reg;
     private FirebaseAuth auth;
     private ImageView picImageView;
     String Sexo,lesiones;
 
-  //  CameraPhoto cameraPhoto;
- //   GalleryPhoto galleryPhoto;
- //   private static final int CAMERA_REQUEST = 1;
- //   private static final int GALLERY_REQUEST = 2;
-
-    private String APP_DIRECTORY = "myPictureApp/";
-    private String MEDIA_DIRECTORY = APP_DIRECTORY + "media";
-    private String TEMPORAL_PECTURE_NAME = "temporal.jpg";
 
     private final int PHOTO_CODE = 100;
     private final int SELECT_PICTURE = 200;
@@ -91,6 +83,8 @@ public class FragReMascota extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        //return inflater.inflate(R.layout.fragment_frag_re_mascota, container, false);
+
+
 
        View view = inflater.inflate(R.layout.fragment_frag_re_mascota, container, false);
 
@@ -171,6 +165,15 @@ public class FragReMascota extends Fragment {
                     Toast.makeText(getActivity(), "Gato registrado con exito", Toast.LENGTH_LONG).show();
                 }
 
+
+            }
+        });
+
+        Cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InterfazPrincipal.class);
+                getActivity().startActivity(intent);
 
             }
         });

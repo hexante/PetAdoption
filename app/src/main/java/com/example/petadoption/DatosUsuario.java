@@ -1,6 +1,9 @@
 package com.example.petadoption;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,6 +29,9 @@ public class DatosUsuario extends AppCompatActivity {
             CiudadU,TelefonoU,CorreoU;
     private  Spinner spinner,spinnerU;
     private Button TerminarR;
+
+    private ImageView FotoPerfil;
+    private final int PHOTO_CODE = 100;
 
     private DatabaseReference USUARIOS;
 
@@ -45,6 +52,8 @@ public class DatosUsuario extends AppCompatActivity {
         CorreoU = (EditText) findViewById(R.id.CorreoUsuario);
         TerminarR = (Button) findViewById(R.id.btnTerminar);
 
+        FotoPerfil = (ImageView) findViewById(R.id.FotoPerfilUsuario);
+
         USUARIOS = FirebaseDatabase.getInstance().getReference("UsuariosApp");
 
          spinner = (Spinner) findViewById(R.id.spinner);
@@ -64,6 +73,14 @@ public class DatosUsuario extends AppCompatActivity {
         spinnerU.setAdapter(adapteru);
 
         CorreoU.setText(user.getEmail());
+
+        FotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,PHOTO_CODE);
+            }
+        });
 
         TerminarR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +103,7 @@ public class DatosUsuario extends AppCompatActivity {
                     USUARIOS.child(Tipou).child(id).setValue(usuario);
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
 
-                       Intent intent = new Intent(DatosUsuario.this, InterfazPrincipal.class);
+                       Intent intent = new Intent(DatosUsuario.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
 
 
@@ -98,6 +115,21 @@ public class DatosUsuario extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case PHOTO_CODE:
+                if (resultCode == RESULT_OK){
+                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                    FotoPerfil.setImageBitmap(bitmap);
+
+                }
+                break;
+        }
     }
 
 

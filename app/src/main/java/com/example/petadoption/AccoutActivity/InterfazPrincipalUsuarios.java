@@ -1,5 +1,6 @@
 package com.example.petadoption.AccoutActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.petadoption.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class InterfazPrincipalUsuarios extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,6 +64,9 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(InterfazPrincipalUsuarios.this, InicioActivity.class));
+            finish();
             return true;
         }
 

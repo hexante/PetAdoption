@@ -89,9 +89,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_interfaz_principal_usuarios">InterfazPrincipalUsuarios</string>
-
-
-
+    <string name="cerrar_secion">Cerrar Secion</string>
+    <string name="RegistrarMascotas">Registrar Mascotas</string>
+    <string name="BuscarMascotas">Buscar Mascotas</string>
 
 
 </resources>

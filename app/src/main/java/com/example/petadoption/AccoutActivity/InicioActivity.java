@@ -36,7 +36,7 @@ public class InicioActivity extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(InicioActivity.this, MainActivity.class));
+            startActivity(new Intent(InicioActivity.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             finish();
         }
 
@@ -54,14 +54,14 @@ public class InicioActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(InicioActivity.this, RegitrarseActivity.class));
+                startActivity(new Intent(InicioActivity.this, RegitrarseActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(InicioActivity.this, RecuperarContrasenaActivity.class));
+                startActivity(new Intent(InicioActivity.this, RecuperarContrasenaActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
             }
         });
 
@@ -91,7 +91,7 @@ public class InicioActivity extends AppCompatActivity {
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
-                                progressBar.setVisibility(View.GONE);
+                                progressBar.setVisibility(View.VISIBLE);
                                 if (!task.isSuccessful()) {
                                     // there was an error
                                     if (password.length() < 6) {
@@ -100,7 +100,7 @@ public class InicioActivity extends AppCompatActivity {
                                         Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(InicioActivity.this, InterfazPrincipal.class);
+                                    Intent intent = new Intent(InicioActivity.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(intent);
                                     finish();
                                 }

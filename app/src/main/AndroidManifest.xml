@@ -28,6 +28,7 @@
         <activity
             android:name=".AccoutActivity.InterfazPrincipal"
             android:label="@string/title_activity_interfaz_principal"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AccoutActivity.FundacionActivity" />
         <activity
@@ -42,12 +43,16 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccoutActivity.DatosMascotas" />
-        <activity android:name=".DatosUsuario" />
-        <activity android:name=".AccoutActivity.RecuperarContrasenaActivity" />
-        <activity android:name=".AccoutActivity.RegitrarseActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AccoutActivity.InicioActivity">
+        <activity android:name=".AccoutActivity.DatosMascotas"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DatosUsuario"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AccoutActivity.RecuperarContrasenaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AccoutActivity.RegitrarseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AccoutActivity.InicioActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

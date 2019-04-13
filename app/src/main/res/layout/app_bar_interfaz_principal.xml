@@ -10,10 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/RegistrarMascotas"
+            android:layout_width="274dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginEnd="67dp"
+            android:layout_marginRight="67dp"
+            android:layout_marginBottom="503dp"
+            android:text="@string/RegistrarMascotas" />
+
         <android.support.design.widget.AppBarLayout
+            android:id="@+id/ToolbarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ToolbarView"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.v7.widget.Toolbar
@@ -23,13 +35,28 @@
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:title="Loveadoption" />
+
         </android.support.design.widget.AppBarLayout>
 
         <RelativeLayout
+            android:id="@+id/contenedorFragmento"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/contenedorFragmento"
-            android:layout_below="@+id/ToolbarView"/>
+            android:layout_below="@+id/ToolbarView"
+            android:layout_marginTop="0dp">
+
+            <Button
+                android:id="@+id/BuscarMascotas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="151dp"
+                android:layout_marginLeft="151dp"
+                android:layout_marginTop="224dp"
+                android:layout_marginEnd="172dp"
+                android:layout_marginRight="172dp"
+                android:layout_marginBottom="459dp"
+                android:text="@string/BuscarMascotas" />
+        </RelativeLayout>
 
 
     </RelativeLayout>
