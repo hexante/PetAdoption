@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.petadoption.AccoutActivity.DatosMascotas;
+import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.AccoutActivity.InterfazPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -100,10 +101,10 @@ public class DatosUsuario extends AppCompatActivity {
                 if (!TextUtils.isEmpty(numerod)){
                     String id=USUARIOS.push().getKey();
                     UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
-                    USUARIOS.child(Tipou).child(id).setValue(usuario);
+                    USUARIOS.child(id).setValue(usuario);
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
 
-                       Intent intent = new Intent(DatosUsuario.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                       Intent intent = new Intent(DatosUsuario.this, InicioActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
 
 

@@ -16,6 +16,10 @@ public class UsuariosApp {
         TipoUsuario = tipousuarios;
     }
 
+    public UsuariosApp(){
+
+    }
+
     public String getIdUsuario() {
         return idUsuario;
     }
@@ -55,17 +59,44 @@ public class UsuariosApp {
     public String getTipoUsuario() {
         return TipoUsuario;
     }
-//  {
- //      "usuarios":{
- //          IdAutomatico: {
- //              "Nombres":TextoNombre,
- //              "Apellidos":TextoApellido,
- //              "Departamento":TextoDepartamento,
- //              "Ciudad": Textociudad,
- //              "NumeroTelefono": TextoTelefono,
- //              "Correo": TextoCorreo,
- //              "TipoDocumento": TextoTipo,
- //              "NumeroDocuemtno": textoNumero
- //      }}
- //  }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public void setNombres(String nombres) {
+        Nombres = nombres;
+    }
+
+    public void setApellidos(String apellidos) {
+        Apellidos = apellidos;
+    }
+
+    public void setDepartamento(String departamento) {
+        Departamento = departamento;
+    }
+
+    public void setCiudad(String ciudad) {
+        Ciudad = ciudad;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        NumeroTelefono = numeroTelefono;
+    }
+
+    public void setCorreo(String correo) {
+        Correo = correo;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        TipoDocumento = tipoDocumento;
+    }
+
+    public void setNumeroDocumento(String numeroDocumento) {
+        NumeroDocumento = numeroDocumento;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        TipoUsuario = tipoUsuario;
+    }
 }
