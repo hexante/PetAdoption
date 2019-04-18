@@ -39,9 +39,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.Registrar;
-import com.kosalgeek.android.photoutil.CameraPhoto;
-import com.kosalgeek.android.photoutil.GalleryPhoto;
-import com.kosalgeek.android.photoutil.ImageLoader;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -191,7 +189,7 @@ public class FragReMascota extends Fragment {
     //    galleryPhoto = new GalleryPhoto(getActivity());
 
     // Array con las opciones para el diálogo que se abrirá al pulsar el botón "PIC"
-    final String[] items = new String[] {"Camara", "Gallery", "Cancelar"};
+    final String[] items = new String[] {"Camara", "Galeria", "Cancelar"};
 
     // Creamos el diálogo
     ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, items);
@@ -203,7 +201,7 @@ public class FragReMascota extends Fragment {
             if (items[seleccion] == "Camara"){
                 // Opción Cámara
                 callCameraApp();
-            }else if (items[seleccion] == "Gallery"){
+            }else if (items[seleccion] == "Galeria"){
                 // Opción Galería
                 CargarImagen();
             }else if (items[seleccion] == "Cancelar"){

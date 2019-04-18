@@ -1,12 +1,17 @@
 package com.example.petadoption;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,13 +20,13 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.petadoption.AccoutActivity.DatosMascotas;
 import com.example.petadoption.AccoutActivity.InicioActivity;
-import com.example.petadoption.AccoutActivity.InterfazPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class DatosUsuario extends AppCompatActivity {
 
@@ -35,6 +40,7 @@ public class DatosUsuario extends AppCompatActivity {
     private final int PHOTO_CODE = 100;
 
     private DatabaseReference USUARIOS;
+    private StorageReference mStorege;
 
 
     @Override
@@ -43,6 +49,7 @@ public class DatosUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_datos_usuario);
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        checkCameraPermission();
 
         NombreU = (EditText) findViewById(R.id.NombreUsuario);
         ApellidoU = (EditText) findViewById(R.id.ApellidoUsuario);
@@ -78,10 +85,18 @@ public class DatosUsuario extends AppCompatActivity {
         FotoPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View v) {
+
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,PHOTO_CODE);
             }
         });
+
+        //Cargar foto a Storage en firebase
+
+
+
+
+
 
         TerminarR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +117,11 @@ public class DatosUsuario extends AppCompatActivity {
                     String id=USUARIOS.push().getKey();
                     UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
                     USUARIOS.child(id).setValue(usuario);
+
+
+
+
+
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
 
                        Intent intent = new Intent(DatosUsuario.this, InicioActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -133,8 +153,22 @@ public class DatosUsuario extends AppCompatActivity {
         }
     }
 
+    private void checkCameraPermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CAMERA);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            Log.i("mensaje", "No se tiene permiso para la camara !.");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 225);
+        } else {
+            Log.i("mensaje", "Tienes permiso para usar la camara.");
 
+        }
 
-
+    }
 
 }
+
+
+
+
+
