@@ -3,13 +3,7 @@
     package="com.example.petadoption">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
     <uses-feature android:name="android.hardware.camera" android:required="true" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -43,16 +37,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccoutActivity.DatosMascotas"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".DatosUsuario"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".AccoutActivity.RecuperarContrasenaActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".AccoutActivity.RegitrarseActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".AccoutActivity.InicioActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".AccoutActivity.DatosMascotas"  android:screenOrientation="portrait"/>
+        <activity android:name=".DatosUsuario"  android:screenOrientation="portrait"/>
+        <activity android:name=".AccoutActivity.RecuperarContrasenaActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".AccoutActivity.RegitrarseActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".AccoutActivity.InicioActivity"   android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

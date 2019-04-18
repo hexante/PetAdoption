@@ -39,6 +39,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.Registrar;
+import com.google.firebase.storage.FirebaseStorage;
 
 
 import java.io.File;
@@ -246,6 +247,7 @@ public class FragReMascota extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        FirebaseStorage storage = FirebaseStorage.getInstance();
 
         switch (requestCode){
             case PHOTO_CODE:

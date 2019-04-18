@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,12 +22,18 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.petadoption.AccoutActivity.InicioActivity;
+import com.google.android.gms.auth.api.signin.internal.Storage;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 public class DatosUsuario extends AppCompatActivity {
 
@@ -36,11 +43,17 @@ public class DatosUsuario extends AppCompatActivity {
     private  Spinner spinner,spinnerU;
     private Button TerminarR;
 
+    private String id,nombre,
+            apellido,numerod,
+            departamento,ciudad,
+            tipod,telefono,tipou,correo;
+
     private ImageView FotoPerfil;
     private final int PHOTO_CODE = 100;
 
     private DatabaseReference USUARIOS;
-    private StorageReference mStorege;
+    private StorageReference storageRef;
+    private Bitmap bitmap;
 
 
     @Override
@@ -60,7 +73,10 @@ public class DatosUsuario extends AppCompatActivity {
         CorreoU = (EditText) findViewById(R.id.CorreoUsuario);
         TerminarR = (Button) findViewById(R.id.btnTerminar);
 
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
         FotoPerfil = (ImageView) findViewById(R.id.FotoPerfilUsuario);
+
 
         USUARIOS = FirebaseDatabase.getInstance().getReference("UsuariosApp");
 
@@ -87,7 +103,10 @@ public class DatosUsuario extends AppCompatActivity {
            public void onClick(View v) {
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,PHOTO_CODE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, PHOTO_CODE);
+                }
+
             }
         });
 
@@ -102,27 +121,59 @@ public class DatosUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String nombre=NombreU.getText().toString();
-                String Apellido=ApellidoU.getText().toString();
-                String numerod=NumeroDocumentoU.getText().toString();
-                String tipod=spinner.getSelectedItem().toString();
-                String telefono=TelefonoU.getText().toString();
-                String correo=CorreoU.getText().toString();
-                String departamento=DepartamentoU.getText().toString();
-                String ciudad=CiudadU.getText().toString();
-                String Tipou = spinnerU.getSelectedItem().toString();
+                 nombre=NombreU.getText().toString();
+                 apellido=ApellidoU.getText().toString();
+                 numerod=NumeroDocumentoU.getText().toString();
+                 tipod=spinner.getSelectedItem().toString();
+                 telefono=TelefonoU.getText().toString();
+                 correo=CorreoU.getText().toString();
+                 departamento=DepartamentoU.getText().toString();
+                 ciudad=CiudadU.getText().toString();
+                 tipou = spinnerU.getSelectedItem().toString();
 
 
                 if (!TextUtils.isEmpty(numerod)){
-                    String id=USUARIOS.push().getKey();
-                    UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
-                    USUARIOS.child(id).setValue(usuario);
+                    id=USUARIOS.push().getKey();
 
+                    StorageReference FotoR = storageRef.child(" FotosUsuarios/"+id+".jpg");
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] datas = baos.toByteArray();
+                    UploadTask SubirFoto = FotoR.putBytes(datas);
 
+                    SubirFoto.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(getBaseContext(),"Subida con exito",Toast.LENGTH_LONG);
+                            UsuariosApp usuario = new UsuariosApp(id,nombre,apellido,departamento,ciudad,telefono,correo,tipod,numerod,tipou);
+                            USUARIOS.child(id).setValue(usuario);
+
+                        }
+                    });
+
+                //  storageRef.child(" FotosUsuarios/"+id+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                //      @Override
+                //      public void onSuccess(Uri uri) {
+                //
+                //          String foto = uri.toString();
+                //
+                //      }
+                //  }).addOnFailureListener(new OnFailureListener() {
+                //      @Override
+                //      public void onFailure(@NonNull Exception exception) {
+                //          Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
+                //      }
+                //  });
 
 
 
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
+
 
                        Intent intent = new Intent(DatosUsuario.this, InicioActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
@@ -144,10 +195,10 @@ public class DatosUsuario extends AppCompatActivity {
 
         switch (requestCode){
             case PHOTO_CODE:
-                if (resultCode == RESULT_OK){
-                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
-                    FotoPerfil.setImageBitmap(bitmap);
+                if (requestCode == PHOTO_CODE && resultCode == RESULT_OK){
 
+                    bitmap = (Bitmap)data.getExtras().get("data");
+                    FotoPerfil.setImageBitmap(bitmap);
                 }
                 break;
         }

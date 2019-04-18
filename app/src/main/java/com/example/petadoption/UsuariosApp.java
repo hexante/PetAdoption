@@ -20,6 +20,7 @@ public class UsuariosApp {
 
     }
 
+
     public String getIdUsuario() {
         return idUsuario;
     }
@@ -99,4 +100,5 @@ public class UsuariosApp {
     public void setTipoUsuario(String tipoUsuario) {
         TipoUsuario = tipoUsuario;
     }
+
 }

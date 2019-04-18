@@ -97,7 +97,6 @@ public class RegitrarseActivity extends AppCompatActivity {
                                  //   startActivity(intent);
                                   //  finish();
 
-                                    FirebaseAuth.getInstance().signOut();
 
                                     Intent intent = new Intent(RegitrarseActivity.this, DatosUsuario.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(intent);
