@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#AEB1B1</color>
     <color name="colorAccent">#0CAF8D</color>
 
-    <color name="bg_login">#26ae90</color>
+    <color name="bg_login">#73E5CB</color>
     <color name="bg_regster">#2e3237</color>
-    <color name="bg_main">#428bca</color>
+    <color name="bg_main">#6CAEE7</color>
     <color name="white">#FFFFFF</color>
     <color name="input_login">#222222</color>
     <color name="inpunt_login_hint">#999999</color>
@@ -15,5 +15,5 @@
     <color name="btn_login">#26ae90</color>
     <color name="btn_login_bg">#eceef1</color>
     <color name="lbl_name">#333333</color>
-    <color name="btn_logut_bg">#FF6861</color>
+    <color name="btn_logut_bg">#F51006</color>
 </resources>

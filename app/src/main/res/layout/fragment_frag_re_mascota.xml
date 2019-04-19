@@ -5,204 +5,189 @@
     android:layout_height="match_parent"
     tools:context=".AccoutActivity.Fragmentos.FragReMascota">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <ScrollView
-            android:layout_width="314dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
-            android:layout_marginTop="85dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginRight="45dp"
-            android:layout_marginBottom="89dp"
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Registro Mascotas"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
-            <LinearLayout
+
+            <ImageView
+                android:id="@+id/picImageView"
+                android:layout_width="@dimen/logo_w_h"
+                android:layout_height="@dimen/logo_w_h"
+                android:tag="0"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="30dp"
+                android:contentDescription=""
+                android:src="@mipmap/ic_launcher"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/avatars[2]" />
+
+            <Button
+                android:id="@+id/btnFoto"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:text="Foto" />
+
+            <Spinner
+                android:id="@+id/spinTipoMascota"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:entries="@array/TipoMascota"
+                android:spinnerMode="dropdown" />
+
+
+            <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/autocomplete_raza"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="fill"
-                android:orientation="vertical"
-                android:padding="@dimen/activity_horizontal_margin"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+                android:layout_height="wrap_content"
+                android:completionHint="@string/RazaMascota"
+                android:contentDescription="Raza mascota"
+                android:hint="@string/RazaMascota"
+                android:popupBackground="@array/TamañoMascota" />
 
-                <TextView
-                    android:id="@+id/textView3"
+
+            <Spinner
+                android:id="@+id/spinTamaño"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:entries="@array/TamañoMascota"
+                android:spinnerMode="dropdown" />
+
+            <EditText
+                android:id="@+id/EdadMascota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/Edad"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/Color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/Color"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Genero"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+
+            <RadioGroup
+                android:id="@+id/RadioG1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RbMacho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Registro Mascotas"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:text="Macho" />
 
-
-                <ImageView
-                    android:id="@+id/picImageView"
-                    android:layout_width="@dimen/logo_w_h"
-                    android:layout_height="@dimen/logo_w_h"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:contentDescription=""
-                    android:src="@mipmap/ic_launcher"
-                    tools:ignore="ContentDescription"
-                    tools:srcCompat="@tools:sample/avatars[2]" />
-
-                <Button
-                    android:id="@+id/btnFoto"
+                <RadioButton
+                    android:id="@+id/RbHembra"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:baselineAligned="false"
-                    android:text="Foto" />
-
-                <Spinner
-                    android:id="@+id/spinTipoMascota"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:entries="@array/TipoMascota"
-                    android:spinnerMode="dropdown" />
-
-
-                <EditText xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:id="@+id/autocomplete_raza"
-                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:completionHint="@string/RazaMascota"
-                    android:contentDescription="Raza mascota"
-                    android:hint="@string/RazaMascota"
-                    android:popupBackground="@array/TamañoMascota" />
+                    android:layout_weight="1"
+                    android:text="Hembra" />
+            </RadioGroup>
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Lesion Fisica?"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
-                <Spinner
-                    android:id="@+id/spinTamaño"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:entries="@array/TamañoMascota"
-                    android:spinnerMode="dropdown" />
+            <RadioGroup
+                android:id="@+id/RadioG2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/EdadMascota"
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/RbSi"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/Edad"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:text="Si" />
 
-                <EditText
-                    android:id="@+id/Color"
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/RbNo"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/Color"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:layout_weight="1"
+                    android:text="No" />
+            </RadioGroup>
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Genero"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+            <EditText
+                android:id="@+id/Text_descrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="describa la lesion..."
+                android:inputType="textMultiLine" />
 
+            <Button
+                android:id="@+id/Btn_Registrar"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorAccent"
+                android:text="@string/action_sign_in_short"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
-                <RadioGroup
-                    android:id="@+id/RadioG1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/RbMacho"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Macho" />
-
-                    <RadioButton
-                        android:id="@+id/RbHembra"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Hembra" />
-                </RadioGroup>
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Lesion Fisica?"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-
-                <RadioGroup
-                    android:id="@+id/RadioG2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/RbSi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Si" />
-
-                    <RadioButton
-                        android:id="@+id/RbNo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="No" />
-                </RadioGroup>
-
-                <EditText
-                    android:id="@+id/Text_descrip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="describa la lesion..."
-                    android:inputType="textMultiLine" />
-
-                <Button
-                    android:id="@+id/Btn_Registrar"
-                    style="?android:textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/colorAccent"
-                    android:text="@string/action_sign_in_short"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/Btn_Cancelar"
-                    style="?android:textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/btn_logut_bg"
-                    android:text="@string/Cancelar"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+            <Button
+                android:id="@+id/Btn_Cancelar"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/btn_logut_bg"
+                android:text="@string/Cancelar"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
 
-                <!-- Link to Login Screen -->
+            <!-- Link to Login Screen -->
 
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+        </LinearLayout>
+    </ScrollView
+        >
 </FrameLayout>

@@ -21,10 +21,6 @@
             "package_name": "com.example.firebase",
             "certificate_hash": "a681f2e30f81453034aa7cea9236cd9560170977"
           }
-        },
-        {
-          "client_id": "1072770831201-tvq2jk2m9bjk4825li1vsdrb73kv0tf1.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -33,20 +29,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "1072770831201-tvq2jk2m9bjk4825li1vsdrb73kv0tf1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     },
@@ -81,10 +70,6 @@
             "package_name": "com.example.petadoption",
             "certificate_hash": "a681f2e30f81453034aa7cea9236cd9560170977"
           }
-        },
-        {
-          "client_id": "1072770831201-tvq2jk2m9bjk4825li1vsdrb73kv0tf1.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -93,20 +78,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "1072770831201-tvq2jk2m9bjk4825li1vsdrb73kv0tf1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
