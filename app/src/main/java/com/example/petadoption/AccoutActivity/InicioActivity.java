@@ -44,8 +44,7 @@ public class InicioActivity extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(InicioActivity.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-            finish();
+            auth.signOut();
         }
 
         setContentView(R.layout.activity_inicio);
@@ -123,8 +122,6 @@ public class InicioActivity extends AppCompatActivity {
 
                                                 if(inputEmail.getText().toString().equals(Correo)) {
 
-                                                    Log.e("TipoUsuario: ", "" + TipoUsuario);
-                                                    Log.e("Datos: ", "" + snapshot.getValue());
 
                                                     if (TipoUsuario.equals("Usuario")) {
                                                         Intent intent = new Intent(InicioActivity.this, InterfazPrincipalUsuarios.class);

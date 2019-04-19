@@ -24,7 +24,6 @@
             android:label="@string/title_activity_interfaz_principal"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AccoutActivity.FundacionActivity" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
@@ -37,7 +36,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccoutActivity.DatosMascotas"  android:screenOrientation="portrait"/>
         <activity android:name=".DatosUsuario"  android:screenOrientation="portrait"/>
         <activity android:name=".AccoutActivity.RecuperarContrasenaActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".AccoutActivity.RegitrarseActivity"  android:screenOrientation="portrait"/>
