@@ -1,12 +1,8 @@
 package com.example.petadoption.AccoutActivity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,13 +15,7 @@ import android.view.MenuItem;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuFundacion;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragReMascota;
 import com.example.petadoption.R;
-import com.example.petadoption.UsuariosApp;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
+
 
 public class InterfazPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -76,7 +66,7 @@ public class InterfazPrincipal extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.Desconectar) {
             return true;
         }
 

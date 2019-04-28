@@ -2,14 +2,12 @@ package com.example.petadoption.AccoutActivity.Fragmentos;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -27,10 +25,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.petadoption.AccoutActivity.DatosMascotas;
-import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.AccoutActivity.InterfazPrincipal;
-import com.example.petadoption.BuildConfig;
 import com.example.petadoption.R;
 
 import com.google.firebase.auth.FirebaseAuth;

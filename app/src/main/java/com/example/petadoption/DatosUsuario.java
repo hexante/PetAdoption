@@ -81,12 +81,13 @@ public class DatosUsuario extends AppCompatActivity {
         adapteru.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerU.setAdapter(adapteru);
 
-       // CorreoU.setText(user.getEmail());
+        CorreoU.setText(user.getEmail());
 
         FotoPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View v) {
 
+                checkCameraPermission();
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,PHOTO_CODE);
             }
@@ -119,18 +120,12 @@ public class DatosUsuario extends AppCompatActivity {
                     UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
                     USUARIOS.child(id).setValue(usuario);
 
-
-
-
-
                     Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
-
                        Intent intent = new Intent(DatosUsuario.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(intent);
-
-
                 }else{
                     Toast.makeText(DatosUsuario.this,"Debe Ingresar Numero De identidad",Toast.LENGTH_LONG).show();
+
                 }
 
             }
