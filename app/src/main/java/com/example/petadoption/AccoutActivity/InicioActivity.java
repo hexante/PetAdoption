@@ -131,6 +131,9 @@ public class InicioActivity extends AppCompatActivity {
                                                         Intent intent = new Intent(InicioActivity.this, InterfazPrincipal.class);
                                                         startActivity(intent);
                                                         finish();
+                                                    }else
+                                                    {
+                                                        auth.signOut();
                                                     }
                                                 }
 

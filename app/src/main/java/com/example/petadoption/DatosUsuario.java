@@ -4,8 +4,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -22,26 +24,39 @@ import android.widget.Toast;
 
 import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.AccoutActivity.InterfazPrincipal;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 public class DatosUsuario extends AppCompatActivity {
 
     private EditText NombreU,ApellidoU,
             NumeroDocumentoU,DepartamentoU,
             CiudadU,TelefonoU,CorreoU;
-    private  Spinner spinner,spinnerU;
+    private  Spinner TipoDocumento,TipoUsuario;
     private Button TerminarR;
 
     private ImageView FotoPerfil;
     private final int PHOTO_CODE = 100;
 
+    private String id,nombre,
+            apellido,numerod,
+            departamento,ciudad,
+            tipod,telefono,tipou,correo;
+
+
+    private FirebaseAuth auth;
     private DatabaseReference USUARIOS;
-    private StorageReference mStorege;
+    private StorageReference storageRef;
+    private Bitmap bitmap;
 
 
     @Override
@@ -50,7 +65,8 @@ public class DatosUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_datos_usuario);
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        checkCameraPermission();
+        auth = FirebaseAuth.getInstance();
+
 
         NombreU = (EditText) findViewById(R.id.NombreUsuario);
         ApellidoU = (EditText) findViewById(R.id.ApellidoUsuario);
@@ -61,12 +77,14 @@ public class DatosUsuario extends AppCompatActivity {
         CorreoU = (EditText) findViewById(R.id.CorreoUsuario);
         TerminarR = (Button) findViewById(R.id.btnTerminar);
 
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
         FotoPerfil = (ImageView) findViewById(R.id.FotoPerfilUsuario);
 
         USUARIOS = FirebaseDatabase.getInstance().getReference("UsuariosApp");
 
-         spinner = (Spinner) findViewById(R.id.spinner);
-         spinnerU = (Spinner) findViewById(R.id.spinTipoU);
+        TipoDocumento = (Spinner) findViewById(R.id.spinner);
+        TipoUsuario = (Spinner) findViewById(R.id.spinTipoU);
 
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -74,12 +92,12 @@ public class DatosUsuario extends AppCompatActivity {
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        TipoDocumento.setAdapter(adapter);
 
         ArrayAdapter<CharSequence> adapteru = ArrayAdapter.createFromResource(this,
                 R.array.TipoUsuario, android.R.layout.simple_spinner_item);
         adapteru.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerU.setAdapter(adapteru);
+        TipoUsuario.setAdapter(adapteru);
 
         CorreoU.setText(user.getEmail());
 
@@ -89,7 +107,9 @@ public class DatosUsuario extends AppCompatActivity {
 
                 checkCameraPermission();
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,PHOTO_CODE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, PHOTO_CODE);
+                }
             }
         });
 
@@ -104,31 +124,91 @@ public class DatosUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String nombre=NombreU.getText().toString();
-                String Apellido=ApellidoU.getText().toString();
-                String numerod=NumeroDocumentoU.getText().toString();
-                String tipod=spinner.getSelectedItem().toString();
-                String telefono=TelefonoU.getText().toString();
-                String correo=CorreoU.getText().toString();
-                String departamento=DepartamentoU.getText().toString();
-                String ciudad=CiudadU.getText().toString();
-                String Tipou = spinnerU.getSelectedItem().toString();
+
+                 tipod=TipoDocumento.getSelectedItem().toString();
+                 numerod=NumeroDocumentoU.getText().toString();
+                 nombre=NombreU.getText().toString();
+                 apellido=ApellidoU.getText().toString();
+                 departamento=DepartamentoU.getText().toString();
+                 ciudad=CiudadU.getText().toString();
+                 telefono=TelefonoU.getText().toString();
+                 correo=CorreoU.getText().toString();
+                 tipou = TipoUsuario.getSelectedItem().toString();
 
 
-                if (!TextUtils.isEmpty(numerod)){
-                    String id=USUARIOS.push().getKey();
-                    UsuariosApp usuario = new UsuariosApp(id,nombre,Apellido,departamento,ciudad,telefono,correo,tipod,numerod,Tipou);
-                    USUARIOS.child(id).setValue(usuario);
-
-                    Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
-                       Intent intent = new Intent(DatosUsuario.this, InterfazPrincipal.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                        startActivity(intent);
+                if ("Tipo Documento".equals(tipod)){
+                    Toast.makeText(DatosUsuario.this,"Elija tipo de documento" , Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(DatosUsuario.this,"Debe Ingresar Numero De identidad",Toast.LENGTH_LONG).show();
+                    if (numerod.isEmpty()){
+                        Toast.makeText(DatosUsuario.this,"Campo Numero Documento vacio" , Toast.LENGTH_LONG).show();
+                    } else {
+                        if (nombre.isEmpty()){
+                            Toast.makeText(DatosUsuario.this,"Campo nombre vacio" , Toast.LENGTH_LONG).show();
+                        }else {
+                            if (apellido.isEmpty()){
+                                Toast.makeText(DatosUsuario.this,"Campo apellidos vacio" , Toast.LENGTH_LONG).show();
+                            }else {
+                                if (departamento.isEmpty()){
+                                    Toast.makeText(DatosUsuario.this,"Campo departamento vacio" , Toast.LENGTH_LONG).show();
+                                }else {
+                                    if (ciudad.isEmpty()){
+                                        Toast.makeText(DatosUsuario.this,"Campo ciudad vacio" , Toast.LENGTH_LONG).show();
+                                    }else {
+                                        if (telefono.isEmpty()){
+                                            Toast.makeText(DatosUsuario.this,"Campo telefono vacio" , Toast.LENGTH_LONG).show();
+                                        }else {
+                                            if (correo.isEmpty()){
+                                                Toast.makeText(DatosUsuario.this,"Campo correo vacio" , Toast.LENGTH_LONG).show();
+                                            }else {
+                                                if ("Tipo De Usuario".equals(tipou)){
+                                                    Toast.makeText(DatosUsuario.this,"Elija tipo de usuario " , Toast.LENGTH_LONG).show();
+                                                }else {
+                                                    if (bitmap != null){
+                                                     id=USUARIOS.push().getKey();
+
+                                                    StorageReference FotoR = storageRef.child(" FotosUsuarios/"+id+".jpg");
+                                                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                                                    byte[] datas = baos.toByteArray();
+
+                                                    UploadTask SubirFoto = FotoR.putBytes(datas);
+                                                    SubirFoto.addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception exception) {
+                                                            Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
+                                                        }
+                                                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                        @Override
+                                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                            Toast.makeText(getBaseContext(),"Subida con exito",Toast.LENGTH_LONG);
+                                                            UsuariosApp usuario = new UsuariosApp(id,nombre,apellido,departamento,ciudad,telefono,correo,tipod,numerod,tipou);
+                                                            USUARIOS.child(id).setValue(usuario);
+
+                                                        }
+                                                    });
+
+                                                    Toast.makeText(DatosUsuario.this,"usuario registrado con exito",Toast.LENGTH_LONG).show();
+                                                    Intent intent = new Intent(DatosUsuario.this, InicioActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                                    startActivity(intent);
+                                                    auth.signOut();
+                                                }else {
+                                                        Toast.makeText(DatosUsuario.this,"Por favor Tomar foto de perfil",Toast.LENGTH_LONG).show();}
+                                                }
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
 
                 }
 
-            }
+
+
+
         });
 
 
@@ -140,8 +220,8 @@ public class DatosUsuario extends AppCompatActivity {
 
         switch (requestCode){
             case PHOTO_CODE:
-                if (resultCode == RESULT_OK){
-                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                if (requestCode == PHOTO_CODE && resultCode == RESULT_OK){
+                    bitmap = (Bitmap)data.getExtras().get("data");
                     FotoPerfil.setImageBitmap(bitmap);
 
                 }

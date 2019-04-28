@@ -14,7 +14,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/FotoPerfilUsuario"
+        android:id="@+id/FotoPerfilPrincipalFundacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/nav_header_desc"
@@ -22,19 +22,15 @@
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <TextView
-        android:id="@+id/txtNombreU"
+        android:id="@+id/NombrePrincipalFundacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Harby Mina Marroquin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        tools:text="Harby Mina" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <TextView
-        android:id="@+id/txtEmail"
+        android:id="@+id/CorreoPrincipalFundacion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Harbymina8@gmail.com"
-        tools:text="Harbymina8@gmail.com" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

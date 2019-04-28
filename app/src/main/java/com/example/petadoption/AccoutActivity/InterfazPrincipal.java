@@ -1,6 +1,8 @@
 package com.example.petadoption.AccoutActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -9,16 +11,39 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuFundacion;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragReMascota;
 import com.example.petadoption.R;
+import com.example.petadoption.UsuariosApp;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 public class InterfazPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private StorageReference storageRef;
+    private DatabaseReference ValidarUsuarios;
+    private FirebaseAuth auth;
+
+    private String CorreoUsuario,IDusuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +51,87 @@ public class InterfazPrincipal extends AppCompatActivity
         setContentView(R.layout.activity_interfaz_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        auth = FirebaseAuth.getInstance();
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
+        ValidarUsuarios = FirebaseDatabase.getInstance().getReference();
+
+        CorreoUsuario = auth.getCurrentUser().getEmail();
+
+        Log.e("Correo","" + CorreoUsuario);
+
+
+
+        final NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        final View headerLayout = mNavigationView.getHeaderView(0);
+
+        final ImageView fotoPerfil = headerLayout.findViewById(R.id.FotoPerfilPrincipalFundacion);
+        final TextView nombre = headerLayout.findViewById(R.id.NombrePrincipalFundacion);
+        final TextView correo = headerLayout.findViewById(R.id.CorreoPrincipalFundacion);
+
+
+        ValidarUsuarios.child("UsuariosApp").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+
+                    UsuariosApp user = snapshot.getValue(UsuariosApp.class);
+                    final String Correo = user.getCorreo();
+                    IDusuario = user.getIdUsuario();
+                    final String NombreUsuario = user.getNombres();
+                    final String ApelldoUsuario= user.getApellidos();
+
+
+                    if(CorreoUsuario.equals(Correo)) {
+
+                        Log.e("IdUsuario: ", "" + IDusuario);
+//                        Log.e("Datos: ", "" + snapshot.getValue());
+
+                        storageRef.child(" FotosUsuarios/"+IDusuario+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Log.e("uri",""+uri);
+
+                                Glide.with(getApplicationContext())
+                                        .load(uri)
+                                        .into(fotoPerfil);
+                                nombre.setText(NombreUsuario+" "+ApelldoUsuario);
+                                correo.setText(Correo);
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
+                            }
+                        });
+
+
+
+                    }
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+
+            }
+        });
+
+
+
+
+
+
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuFundacion()).commit();
