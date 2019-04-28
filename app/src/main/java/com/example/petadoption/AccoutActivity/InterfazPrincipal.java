@@ -1,5 +1,6 @@
 package com.example.petadoption.AccoutActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -173,6 +174,10 @@ public class InterfazPrincipal extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.Desconectar) {
+
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(InterfazPrincipal.this, InicioActivity.class));
+            finish();
             return true;
         }
 

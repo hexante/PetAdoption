@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -21,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,14 +30,19 @@ import android.widget.Toast;
 import com.example.petadoption.AccoutActivity.InterfazPrincipal;
 import com.example.petadoption.R;
 
+import com.example.petadoption.UsuariosApp;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 
-
-
+import java.io.ByteArrayOutputStream;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -46,20 +53,33 @@ import static android.app.Activity.RESULT_OK;
 public class FragReMascota extends Fragment {
 
     private Spinner Spitamaño,SpiTipo;
+
     private EditText RazaM,EdadM,ColorM,descripcionLeM;
+
     private RadioGroup sexoM,lesionM;
+    private RadioButton Macho,Hembra,Lsi,Lno;
+
     private Button Registrar,Cancelar,Foto,Reg;
+
     private FirebaseAuth auth;
+
     private ImageView picImageView;
-    String Sexo,lesiones;
+
+    String Sexo,lesiones,Raza,Tamaño,
+            Edad,Lesion,Color,Descripcio_les,
+            Id_Fundacion,Genero,TipoM,Estado,idM;
 
 
     private final int PHOTO_CODE = 100;
     private final int SELECT_PICTURE = 200;
 
 
-
     private DatabaseReference Mascotas;
+    private StorageReference storageRef;
+    private Bitmap bitmap;
+    private Uri Fotogaleria;
+    private UploadTask SubirFoto;
+
 
     public FragReMascota() {
         // Required empty public constructor
@@ -80,6 +100,9 @@ public class FragReMascota extends Fragment {
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        final FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
+
 
 
         picImageView = (ImageView)  view.findViewById(R.id.picImageView);
@@ -90,6 +113,8 @@ public class FragReMascota extends Fragment {
         descripcionLeM = (EditText) view.findViewById(R.id.Text_descrip);
 
         sexoM = (RadioGroup) view.findViewById(R.id.RadioG1);
+        Macho = (RadioButton) view.findViewById(R.id.RbMacho) ;
+        Hembra = (RadioButton) view.findViewById(R.id.RbHembra) ;
         lesionM = (RadioGroup) view.findViewById(R.id.RadioG2);
 
         Foto = (Button) view.findViewById(R.id.btnFoto);
@@ -99,8 +124,6 @@ public class FragReMascota extends Fragment {
         Spitamaño = (Spinner) view.findViewById(R.id.spinTamaño);
         SpiTipo = (Spinner) view.findViewById(R.id.spinTipoMascota);
 
-        Sexo = "N/A";
-        lesiones = "N/A";
 
         Mascotas = FirebaseDatabase.getInstance().getReference("MascotasApp");
 
@@ -116,43 +139,106 @@ public class FragReMascota extends Fragment {
         Spitamaño.setAdapter(adapter2);
 
 
-        if (sexoM.getCheckedRadioButtonId()==R.id.RbHembra){
-            Sexo="Hembra";
-        }if(sexoM.getCheckedRadioButtonId()==R.id.RbMacho){
-            Sexo="Macho";
-        }
 
-        if (lesionM.getCheckedRadioButtonId()==R.id.RbSi){
-            lesiones="Si";
-        }if(lesionM.getCheckedRadioButtonId()==R.id.RbNo){
-            lesiones="No";
-        }
+        sexoM.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId==R.id.RbHembra){
+                    Sexo="Hembra";
+                }else if(checkedId==R.id.RbMacho){
+                    Sexo="Macho";
+
+                }}
+        });
+
+
+        lesionM.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId==R.id.RbSi){
+                    lesiones="Si";
+                }else if(checkedId==R.id.RbNo){
+                    lesiones="No";
+
+                }}
+        });
+
+
 
 
         Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String Raza= RazaM.getText().toString();
-                String Tamaño= Spitamaño.getSelectedItem().toString();
-                String Edad= EdadM.getText().toString();
-                String Lesion= lesiones;
-                String Color= ColorM.getText().toString() ;
-                String Descripcio_les= descripcionLeM.getText().toString();
-                String Id_Fundacion= user.getUid();
-                String Genero= Sexo;
-                String TipoM=  SpiTipo.getSelectedItem().toString();
-                String Estado= "en adopcion";
+                Raza = RazaM.getText().toString();
+                Tamaño = Spitamaño.getSelectedItem().toString();
+                Edad = EdadM.getText().toString();
+                Lesion = lesiones;
+                Color = ColorM.getText().toString() ;
+                Descripcio_les = descripcionLeM.getText().toString();
+                Id_Fundacion = user.getEmail();
+                Genero = Sexo;
+                TipoM =  SpiTipo.getSelectedItem().toString();
+                Estado = "en adopcion";
 
-                String idM=Mascotas.push().getKey();
-                MascotasApp Mascota = new MascotasApp(idM,Raza,Color,Edad,Genero,Lesion,Descripcio_les,Tamaño,Id_Fundacion,Estado);
-                Mascotas.child(TipoM).child(idM).setValue(Mascota);
-                if(TipoM.equals("Perro")) {
-                    Toast.makeText(getActivity(), "Perro registrado con exito", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getActivity(), "Gato registrado con exito", Toast.LENGTH_LONG).show();
+                idM=Mascotas.push().getKey();
+
+                if(idM.isEmpty()){
+                    Toast.makeText(getActivity(),"Nada",Toast.LENGTH_LONG).show();
+                }else {
+
+                    StorageReference FotoR = storageRef.child(" FotosMascotas/"+idM+".jpg");
+
+                    if (bitmap != null){
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] datas = baos.toByteArray();
+                    SubirFoto = FotoR.putBytes(datas);
+
+                        SubirFoto.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                Toast.makeText(getActivity(),"Hubo un error",Toast.LENGTH_LONG);
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                Toast.makeText(getActivity(),"Subida con exito",Toast.LENGTH_LONG);
+                                MascotasApp Mascota = new MascotasApp(idM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado);
+                                Mascotas.child(TipoM).child(idM).setValue(Mascota);
+
+                            }
+                        });
+                    }else {
+                        FotoR.putFile(Fotogaleria).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                Toast.makeText(getActivity(),"Subida con exito",Toast.LENGTH_LONG);
+                                MascotasApp Mascota = new MascotasApp(idM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado);
+                                Mascotas.child(TipoM).child(idM).setValue(Mascota);
+
+                            }
+                        });
+
+                    }
+
+
+
+                  //  MascotasApp Mascota = new MascotasApp(idM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado);
+                  //  Mascotas.child(TipoM).child(idM).setValue(Mascota);
+
+
+                    if (TipoM.equals("Perro")) {
+                        Toast.makeText(getActivity(), "Perro registrado con exito", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getActivity(), "Gato registrado con exito", Toast.LENGTH_LONG).show();
+                    }
+
+                    Intent intent = new Intent(getActivity(), InterfazPrincipal.class);
+                    getActivity().startActivity(intent);
                 }
-
 
             }
         });
@@ -237,22 +323,24 @@ public class FragReMascota extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode){
+        switch (requestCode) {
             case PHOTO_CODE:
-                if (resultCode == RESULT_OK){
-                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                if (resultCode == RESULT_OK) {
+                    bitmap = (Bitmap) data.getExtras().get("data");
                     picImageView.setImageBitmap(bitmap);
 
                 }
-            break;
+                break;
 
             case SELECT_PICTURE:
-                if (resultCode == RESULT_OK){
-                    Uri path = data.getData();
-                    picImageView.setImageURI(path);
+                if (resultCode == RESULT_OK) {
+                    Fotogaleria = data.getData();
+                    picImageView.setImageURI(Fotogaleria);
                 }
         }
-            }
+    }
+
+
 
     private void checkCameraPermission() {
         int permissionCheck = ContextCompat.checkSelfPermission(
