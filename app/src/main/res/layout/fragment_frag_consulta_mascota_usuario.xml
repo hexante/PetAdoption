@@ -28,8 +28,8 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/ConsultarMascotasUsuario"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
+            android:layout_width="367dp"
+            android:layout_height="match_parent" />
 
 
 

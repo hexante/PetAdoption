@@ -48,7 +48,7 @@ public class FragMenuUsuario extends Fragment {
 
         FragmentManager manager = getFragmentManager();
 
-        manager.beginTransaction().replace(R.id.contenedorFragmentoUsuario, fragmento).commit();
+        manager.beginTransaction().replace(R.id.contenedorFragmento, fragmento).commit();
     }
 
 }

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.petadoption.AccoutActivity.Fragmentos.FragConsultaMascotaUsuario;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuFundacion;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuUsuario;
 import com.example.petadoption.R;
@@ -54,6 +56,9 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         setContentView(R.layout.activity_interfaz_principal_usuarios);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuUsuario()).commit();
 
 
         auth = FirebaseAuth.getInstance();
@@ -111,32 +116,14 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
                                 Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
                             }
                         });
-
-
-
                     }
-
-
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-
             }
         });
 
-
-
-
-
-
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contenedorFragmentoUsuario,new FragMenuUsuario()).commit();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -145,8 +132,8 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-       // NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_usuario);
-       // navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_usuario);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -192,6 +179,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            CargarFragmentos(new FragConsultaMascotaUsuario());
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -208,4 +196,12 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private void CargarFragmentos(Fragment fragmento) {
+
+        FragmentManager manager = getSupportFragmentManager();
+
+        manager.beginTransaction().replace(R.id.contenedorFragmento, fragmento).commit();
+    }
+
+
 }

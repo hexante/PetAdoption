@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.petadoption.R;
@@ -28,8 +29,8 @@ public class AdatadorDeConsultaMascota extends RecyclerView.Adapter<AdatadorDeCo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos viewHolderDatos, int i) {
-
-        viewHolderDatos.asignarDatos(ListaDeDatos.get(i));
+         viewHolderDatos.Nombre.setText(ListaDeDatos.get(i).getRaza());
+         viewHolderDatos.Raza.setText(ListaDeDatos.get(i).DescripLesion);
 
     }
 
@@ -40,17 +41,17 @@ public class AdatadorDeConsultaMascota extends RecyclerView.Adapter<AdatadorDeCo
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
-        TextView dato;
+        TextView Nombre,Raza;
+        ImageView foto;
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
 
-            dato = itemView.findViewById(R.id.IdDato);
+            Nombre = itemView.findViewById(R.id.idRaza);
+            Raza = itemView.findViewById(R.id.infomascota);
+            foto = itemView.findViewById(R.id.IdFoto);
 
         }
 
-        public void asignarDatos(MascotasApp Datos) {
-            dato.setText((CharSequence) Datos);
-        }
     }
 }

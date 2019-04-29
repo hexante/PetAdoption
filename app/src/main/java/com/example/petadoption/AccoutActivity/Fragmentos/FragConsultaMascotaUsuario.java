@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,32 +50,43 @@ public class FragConsultaMascotaUsuario extends Fragment {
 
         ListaDeMascotas = new ArrayList<MascotasApp>();
 
-        ValidarMascotas.child("MascotasApp").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for ( DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-
-                    MascotasApp user = snapshot.getValue(MascotasApp.class);
-                    ListaDeMascotas.add(user);
-
-                }
-
-                AdatadorDeConsultaMascota adaptador = new AdatadorDeConsultaMascota(ListaDeMascotas);
-                recyclerView.setAdapter(adaptador);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+        LLenarMascotas();
 
 
 
-            }
-        });
+        AdatadorDeConsultaMascota adaptador = new AdatadorDeConsultaMascota(ListaDeMascotas);
+        recyclerView.setAdapter(adaptador);
 
 
 
         return view;
+    }
+
+    private void LLenarMascotas() {
+
+         ValidarMascotas.child("MascotasApp").addValueEventListener(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                 for ( DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
+
+                     MascotasApp user = snapshot.getValue(MascotasApp.class);
+                     ListaDeMascotas.add(user);
+
+
+                 }
+
+
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+
+             }
+         });
     }
 
 }
