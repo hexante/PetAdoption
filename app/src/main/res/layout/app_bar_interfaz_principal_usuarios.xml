@@ -26,10 +26,10 @@
         </android.support.design.widget.AppBarLayout>
 
         <RelativeLayout
+            android:id="@+id/contenedorFragmentoUsuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/contenedorFragmento"
-            android:layout_below="@+id/ToolbarView"/>
+            android:layout_below="@+id/ToolbarView" />
 
 
     </RelativeLayout>
