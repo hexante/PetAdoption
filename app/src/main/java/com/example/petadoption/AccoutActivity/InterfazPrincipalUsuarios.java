@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuFundacion;
+import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuUsuario;
 import com.example.petadoption.R;
 import com.example.petadoption.UsuariosApp;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -135,7 +136,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuFundacion()).commit();
+        fragmentManager.beginTransaction().replace(R.id.contenedorFragmentoUsuario,new FragMenuUsuario()).commit();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
