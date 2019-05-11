@@ -35,7 +35,7 @@ public class FragMenuUsuario extends Fragment {
         Consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CargarFragmentos(new FragConsultaMascotaUsuario());
+
             }
         });
 

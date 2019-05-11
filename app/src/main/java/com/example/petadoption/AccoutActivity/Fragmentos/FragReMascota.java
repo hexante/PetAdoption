@@ -120,17 +120,30 @@ public class FragReMascota extends Fragment {
         Spitamaño.setAdapter(adapter2);
 
 
-        if (sexoM.getCheckedRadioButtonId()==R.id.RbHembra){
-            Sexo="Hembra";
-        }if(sexoM.getCheckedRadioButtonId()==R.id.RbMacho){
-            Sexo="Macho";
-        }
+        sexoM.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-        if (lesionM.getCheckedRadioButtonId()==R.id.RbSi){
-            lesiones="Si";
-        }if(lesionM.getCheckedRadioButtonId()==R.id.RbNo){
-            lesiones="No";
-        }
+                if (checkedId==R.id.RbHembra){
+                    Sexo="Hembra";
+                }else if(checkedId==R.id.RbMacho){
+                    Sexo="Macho";
+
+                }}
+        });
+
+
+        lesionM.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (checkedId==R.id.RbSi){
+                    lesiones="Si";
+                }else if(checkedId==R.id.RbNo){
+                    lesiones="No";
+
+                }}
+        });
 
 
         Registrar.setOnClickListener(new View.OnClickListener() {
