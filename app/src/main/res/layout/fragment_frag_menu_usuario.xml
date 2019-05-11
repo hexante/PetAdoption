@@ -5,28 +5,36 @@
     android:layout_height="match_parent"
     tools:context=".AccoutActivity.Fragmentos.FragMenuUsuario">
 
-    <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
+
+        <!-- TODO: Update blank fragment layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-        <Button
-            android:id="@+id/btnConsultarMascotas"
-            android:layout_width="wrap_content"
-            android:layout_height="59dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="135dp"
-            android:layout_marginLeft="135dp"
-            android:layout_marginTop="296dp"
-            android:layout_marginEnd="132dp"
-            android:layout_marginRight="132dp"
-            android:layout_marginBottom="376dp"
-            android:text="Buscar Mascotas" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/btnConsultarMascotas"
+                android:layout_width="wrap_content"
+                android:layout_height="59dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="121dp"
+                android:layout_marginLeft="121dp"
+                android:layout_marginTop="74dp"
+                android:layout_marginEnd="133dp"
+                android:layout_marginRight="133dp"
+                android:layout_marginBottom="598dp"
+                android:text="Buscar Mascotas" />
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
 </FrameLayout>

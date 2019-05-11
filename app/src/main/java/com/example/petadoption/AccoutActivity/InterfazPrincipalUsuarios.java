@@ -23,8 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.petadoption.AccoutActivity.Fragmentos.FragConsultaMascotaUsuario;
-import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuFundacion;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuUsuario;
 import com.example.petadoption.R;
 import com.example.petadoption.UsuariosApp;
@@ -57,8 +55,6 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuUsuario()).commit();
 
 
         auth = FirebaseAuth.getInstance();
@@ -113,7 +109,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception exception) {
-                                Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
+                                Toast.makeText(getBaseContext(),"Hubo un error al cargar la foto",Toast.LENGTH_LONG);
                             }
                         });
                     }
@@ -123,6 +119,8 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuUsuario()).commit();
 
 
 
@@ -179,7 +177,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            CargarFragmentos(new FragConsultaMascotaUsuario());
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
