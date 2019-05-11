@@ -1,13 +1,13 @@
 package com.example.petadoption.AccoutActivity.Fragmentos;
 
 public class MascotasApp {
-    String IdMascota, Raza, Color, Edad, Genero, Lesion, DescripLesion, Tamaño, IdFundacion, Estado,Imagen;
+    String IdMascota, Raza, Color, Edad, Genero, Lesion, DescripLesion, Tamaño, IdFundacion, Estado,Imagen,Tipo;
 
 
     public MascotasApp() {
     }
 
-    public MascotasApp(String idMascota, String raza, String color, String edad, String genero, String lesion, String descripLesion, String tamaño, String idFundacion, String estado, String imagen) {
+    public MascotasApp(String idMascota, String raza, String color, String edad, String genero, String lesion, String descripLesion, String tamaño, String idFundacion, String estado, String imagen,String tipo) {
         IdMascota = idMascota;
         Raza = raza;
         Color = color;
@@ -19,6 +19,13 @@ public class MascotasApp {
         IdFundacion = idFundacion;
         Estado = estado;
         Imagen = imagen;
+        Tipo = tipo;
+    }
+
+    public String getTipo() { return Tipo;
+    }
+
+    public void setTipo(String tipo) { Tipo = tipo;
     }
 
     public String getImagen() {

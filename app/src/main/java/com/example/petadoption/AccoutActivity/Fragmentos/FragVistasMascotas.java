@@ -51,8 +51,8 @@ public class FragVistasMascotas extends Fragment {
         //mRef = mfirebaseDatabase.getReference("MascotasApp").child("Perro");
 
 
-        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("MascotasApp").child("Perro");
-        Query personsQuery = mRef.orderByKey();
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("MascotasApp");
+        Query personsQuery = mRef.orderByValue();
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<MascotasApp>().setQuery(personsQuery, MascotasApp.class).build();
 
 
