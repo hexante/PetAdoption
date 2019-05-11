@@ -58,7 +58,7 @@ public class FragMenuFundacion extends Fragment {
                         // will toast your selection
                        //showToast("Name: " + items[item]);
                         if(items[item].equals("Buscar Mascota")){
-                            CargarFragmentos(new FragReMascota());
+                            CargarFragmentos(new FragVistasMascotas());
                         }
                         if(items[item].equals("Solicitudes adopcion")){
                             CargarFragmentos(new FragReMascota());

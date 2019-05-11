@@ -65,7 +65,7 @@ public class InterfazPrincipal extends AppCompatActivity
 
 
 
-        final NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        final NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view_fundacion);
         final View headerLayout = mNavigationView.getHeaderView(0);
 
         final ImageView fotoPerfil = headerLayout.findViewById(R.id.FotoPerfilPrincipalFundacion);
@@ -144,7 +144,7 @@ public class InterfazPrincipal extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_fundacion);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
