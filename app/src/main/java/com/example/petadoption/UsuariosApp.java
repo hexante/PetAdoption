@@ -1,9 +1,9 @@
 package com.example.petadoption;
 
 public class UsuariosApp {
-    String idUsuario,Nombres,Apellidos,Departamento,Ciudad,NumeroTelefono,Correo,TipoDocumento,NumeroDocumento,TipoUsuario;
+    String idUsuario,Nombres,Apellidos,Departamento,Ciudad,NumeroTelefono,Correo,TipoDocumento,NumeroDocumento,TipoUsuario,Urimagen;
 
-    public UsuariosApp(String idUsuario, String nombres, String apellidos, String departamento, String ciudad, String numeroTelefono, String correo, String tipoDocumento, String numeroDocumento,String tipousuarios) {
+    public UsuariosApp(String idUsuario, String nombres, String apellidos, String departamento, String ciudad, String numeroTelefono, String correo, String tipoDocumento, String numeroDocumento, String tipoUsuario, String urimagen) {
         this.idUsuario = idUsuario;
         Nombres = nombres;
         Apellidos = apellidos;
@@ -13,16 +13,24 @@ public class UsuariosApp {
         Correo = correo;
         TipoDocumento = tipoDocumento;
         NumeroDocumento = numeroDocumento;
-        TipoUsuario = tipousuarios;
-    }
-
-    public UsuariosApp(){
+        TipoUsuario = tipoUsuario;
+        Urimagen = urimagen;
 
     }
 
+    public UsuariosApp() {
+    }
 
     public String getIdUsuario() {
         return idUsuario;
+    }
+
+    public String getUrimagen() {
+        return Urimagen;
+    }
+
+    public void setUrimagen(String urimagen) {
+        Urimagen = urimagen;
     }
 
     public String getNombres() {

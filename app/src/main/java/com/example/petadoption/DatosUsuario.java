@@ -22,10 +22,13 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.petadoption.AccoutActivity.Fragmentos.MascotasApp;
 import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.AccoutActivity.InterfazPrincipal;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -101,17 +104,7 @@ public class DatosUsuario extends AppCompatActivity {
 
         CorreoU.setText(user.getEmail());
 
-        FotoPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-           public void onClick(View v) {
 
-                checkCameraPermission();
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intent, PHOTO_CODE);
-                }
-            }
-        });
 
         //Cargar foto a Storage en firebase
 
@@ -166,23 +159,34 @@ public class DatosUsuario extends AppCompatActivity {
                                                     if (bitmap != null){
                                                      id=USUARIOS.push().getKey();
 
-                                                    StorageReference FotoR = storageRef.child(" FotosUsuarios/"+id+".jpg");
+
+                                                    final StorageReference FotoR = storageRef.child(" FotosUsuarios/"+id+".jpg");
                                                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                                                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                                                     byte[] datas = baos.toByteArray();
 
-                                                    UploadTask SubirFoto = FotoR.putBytes(datas);
+                                                    final UploadTask SubirFoto = FotoR.putBytes(datas);
                                                     SubirFoto.addOnFailureListener(new OnFailureListener() {
                                                         @Override
                                                         public void onFailure(@NonNull Exception exception) {
                                                             Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
                                                         }
                                                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
                                                         @Override
                                                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
                                                             Toast.makeText(getBaseContext(),"Subida con exito",Toast.LENGTH_LONG);
-                                                            UsuariosApp usuario = new UsuariosApp(id,nombre,apellido,departamento,ciudad,telefono,correo,tipod,numerod,tipou);
-                                                            USUARIOS.child(id).setValue(usuario);
+                                                            FotoR.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Uri> task) {
+                                                                    String uriFoto = task.getResult().toString();
+                                                                    Log.e("LinkDeDescarga","" + uriFoto);
+                                                                    UsuariosApp usuario = new UsuariosApp(id,nombre,apellido,departamento,ciudad,telefono,correo,tipod,numerod,tipou,uriFoto);
+                                                                    USUARIOS.child(id).setValue(usuario);
+
+                                                                }
+                                                            });
 
                                                         }
                                                     });
@@ -209,6 +213,18 @@ public class DatosUsuario extends AppCompatActivity {
 
 
 
+        });
+
+        FotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                checkCameraPermission();
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, PHOTO_CODE);
+                }
+            }
         });
 
 
