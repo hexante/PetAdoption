@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +38,7 @@ public class BusquedaMascotasU extends Fragment {
     FirebaseDatabase bmfirebaseDatabase;
     private FirebaseRecyclerAdapter<MascotasApp, viewHolder> bmPeopleRVAdapter;
     private GridLayoutManager glm;
-
-
+    private View.OnClickListener listener;
 
 
     @Override
@@ -45,6 +46,7 @@ public class BusquedaMascotasU extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_busqueda_mascotas_u, container, false);
+
 
         bmrecyclerView = view.findViewById(R.id.Recycler3);
         glm = new GridLayoutManager(getActivity(), 2);
@@ -68,7 +70,7 @@ public class BusquedaMascotasU extends Fragment {
 
                 holder.SetDetail(getActivity(), model.getRaza(), model.getEdad(), model.getDescripLesion(), model.getImagen());
 
-                if(position%3!=0){
+                if (position % 3 != 0) {
                     holder.itemView.setBackgroundColor(Color.BLUE);
                 } else {
                     holder.itemView.setBackgroundColor(Color.GREEN);
@@ -81,6 +83,8 @@ public class BusquedaMascotasU extends Fragment {
             public viewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.now, viewGroup, false);
+
+
                 return new viewHolder(view);
 
 
@@ -91,14 +95,15 @@ public class BusquedaMascotasU extends Fragment {
 
         return view;
     }
+
     @Override
-    public void onStart () {
+    public void onStart() {
         super.onStart();
         bmPeopleRVAdapter.startListening();
     }
 
     @Override
-    public void onStop () {
+    public void onStop() {
         super.onStop();
         bmPeopleRVAdapter.stopListening();
     }
@@ -110,8 +115,7 @@ public class BusquedaMascotasU extends Fragment {
         manager.beginTransaction().replace(R.id.contenedorFragmento, fragmento).commit();
     }
 
-    }
-
+}
 
 
 

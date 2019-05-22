@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PetAdoption</string>
+    <string name="app_name">LoveAdoption</string>
     <string name="facebook_app_id">155796575363652</string>
     <string name="fb_login_protocol_scheme">fb155796575363652</string>
     <string name="cancel_login">Se Cancelo El inicio</string>

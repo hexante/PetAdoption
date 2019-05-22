@@ -10,8 +10,8 @@
         android:layout_height="match_parent">
 
         <ScrollView
-            android:layout_width="332dp"
-            android:layout_height="523dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -29,11 +29,12 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="fill"
                 android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp">
@@ -44,7 +45,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Registro Mascotas"
-                    android:textColor="@android:color/black"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
 
@@ -55,7 +61,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="30dp"
                     android:contentDescription=""
-                    android:src="@mipmap/ic_launcher"
+                    android:src="@mipmap/logo2"
                     android:tag="0"
                     tools:ignore="ContentDescription"
                     tools:srcCompat="@tools:sample/avatars[2]" />
@@ -65,6 +71,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:baselineAligned="false"
+                    android:shadowColor="#111111"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
                     android:text="Foto" />
 
                 <Spinner
@@ -72,6 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
                     android:entries="@array/TipoMascota"
+                    android:textStyle="bold"
                     android:spinnerMode="dropdown" />
 
 
@@ -82,6 +95,13 @@
                     android:completionHint="@string/RazaMascota"
                     android:contentDescription="Raza mascota"
                     android:hint="@string/RazaMascota"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
                     android:popupBackground="@array/TamañoMascota" />
 
 
@@ -90,6 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
                     android:entries="@array/TamañoMascota"
+                    android:textStyle="bold"
                     android:spinnerMode="dropdown" />
 
                 <EditText
@@ -98,8 +119,14 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/Edad"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
                     android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
                     android:textSize="18sp" />
 
                 <EditText
@@ -108,8 +135,14 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/Color"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
                     android:inputType="textPersonName"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
                     android:textSize="18sp" />
 
                 <TextView
@@ -118,7 +151,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Genero"
-                    android:textColor="@android:color/black"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
                     android:textSize="18sp" />
 
 
@@ -131,6 +169,7 @@
                         android:id="@+id/RbMacho"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:text="Macho" />
 
                     <RadioButton
@@ -138,6 +177,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="Hembra" />
                 </RadioGroup>
 
@@ -147,7 +187,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Lesion Fisica?"
-                    android:textColor="@android:color/black"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
                     android:textSize="18sp" />
 
                 <RadioGroup
@@ -159,6 +205,7 @@
                         android:id="@+id/RbSi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:text="Si" />
 
                     <RadioButton
@@ -166,6 +213,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="No" />
                 </RadioGroup>
 
@@ -175,6 +223,13 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="describa la lesion..."
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
                     android:inputType="textMultiLine" />
 
                 <Button
@@ -185,7 +240,11 @@
                     android:layout_marginTop="16dp"
                     android:background="@color/colorAccent"
                     android:text="@string/action_sign_in_short"
-                    android:textColor="@android:color/black"
+                    android:shadowColor="#070707"
+                    android:shadowDy="4"
+                    android:shadowDx="4"
+                    android:shadowRadius="6"
+                    android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
                 <Button
@@ -196,7 +255,11 @@
                     android:layout_marginTop="16dp"
                     android:background="@color/btn_logut_bg"
                     android:text="@string/Cancelar"
-                    android:textColor="@android:color/black"
+                    android:shadowColor="#070707"
+                    android:shadowDy="4"
+                    android:shadowDx="4"
+                    android:shadowRadius="6"
+                    android:textColor="@android:color/white"
                     android:textStyle="bold" />
 
 

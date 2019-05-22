@@ -83,7 +83,8 @@ public class FragMenuFundacion extends Fragment {
 
     private void CargarFragmentos(Fragment fragmento) {
 
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager;
+        manager = getFragmentManager();
 
         manager.beginTransaction().replace(R.id.contenedorFragmento, fragmento).commit();
     }

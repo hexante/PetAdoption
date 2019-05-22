@@ -39,7 +39,7 @@ public class FragMenuUsuario extends Fragment {
         View view = inflater.inflate(R.layout.fragment_frag_menu_usuario, container, false);
 
         Consultar = (Button) view.findViewById(R.id.btnConsultarMascotas);
-        fundaciones = (Button) view.findViewById(R.id.btnBfundaciones);
+       // fundaciones = (Button) view.findViewById(R.id.btnBfundaciones);
 
         Consultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,14 +50,14 @@ public class FragMenuUsuario extends Fragment {
             }
         });
 
-        fundaciones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                CargarFragmentos(new FragVistaUsuario());
-
-            }
-        });
+ //    fundaciones.setOnClickListener(new View.OnClickListener() {
+ //        @Override
+ //        public void onClick(View v) {
+ //
+ //            CargarFragmentos(new FragVistaUsuario());
+ //
+ //        }
+ //    });
 
 
 
