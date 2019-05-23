@@ -2,6 +2,9 @@ package com.example.petadoption.AccoutActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -11,17 +14,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.example.petadoption.AccoutActivity.Fragmentos.AdoptarMascota;
 import com.example.petadoption.AdoptarMascotas;
 import com.example.petadoption.R;
 import com.squareup.picasso.Picasso;
 
-
-import static android.support.v4.content.ContextCompat.startActivity;
-
 public class viewHolder extends RecyclerView.ViewHolder {
 
     View mView;
+    TextView Raza,Edad,Descripcion;
+    ImageView Fotomasc;
+    String Imagen;
     private Context context;
 
 
@@ -40,7 +42,14 @@ public class viewHolder extends RecyclerView.ViewHolder {
                         Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-               itemView.getContext().startActivity(new Intent(itemView.getContext(), AdoptarMascota.class));
+                Intent intent = new Intent(itemView.getContext(), AdoptarMascotas.class);
+                BitmapDrawable bitmap = ((BitmapDrawable)Fotomasc.getDrawable());
+                intent.putExtra("Raza",  Raza.getText());
+                intent.putExtra("Edad",  Edad.getText());
+                intent.putExtra("Descripcion",  Descripcion.getText());
+                intent.putExtra("Fotomasc", Imagen);
+
+                itemView.getContext().startActivity(intent);
 
             }
         });
@@ -48,15 +57,16 @@ public class viewHolder extends RecyclerView.ViewHolder {
 
     public void SetDetail(Context ctm, String raza,String edad, String descripcion, String imagen){
 
-        TextView Raza = mView.findViewById(R.id.mRazam);
-        TextView Edad = mView.findViewById(R.id.medad);
-        TextView Descripcion = mView.findViewById(R.id.mdescripcion);
-        ImageView Fotomasc = mView.findViewById(R.id.mfotomas);
+         Raza = mView.findViewById(R.id.mRazam);
+         Edad = mView.findViewById(R.id.medad);
+         Descripcion = mView.findViewById(R.id.mdescripcion);
+         Fotomasc = mView.findViewById(R.id.mfotomas);
 
+        Imagen = imagen;
         Raza.setText(raza);
         Edad.setText(edad);
         Descripcion.setText(descripcion);
-        Picasso.get().load(imagen).into(Fotomasc);
+        Picasso.get().load(Imagen).into(Fotomasc);
 
 
 
