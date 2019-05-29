@@ -56,14 +56,14 @@ import static android.app.Activity.RESULT_OK;
 public class FragReMascota extends Fragment {
 
     private Spinner Spitamaño,SpiTipo;
-    private EditText RazaM,EdadM,ColorM,descripcionLeM;
+    private EditText RazaM,EdadM,ColorM,descripcionLeM,NombreMascota;
     private RadioGroup sexoM,lesionM;
     private RadioButton Macho,Hembra,Lsi,Lno;
     private Button Registrar,Cancelar,Foto,Reg;
     private FirebaseAuth auth;
     private ImageView picImageView;
 
-    String Sexo,lesiones,Raza,Tamaño,
+    String NombreM,Sexo,lesiones,Raza,Tamaño,
             Edad,Lesion,Color,Descripcio_les,
             Id_Fundacion,Genero,TipoM,Estado,idM;
 
@@ -107,6 +107,7 @@ public class FragReMascota extends Fragment {
         EdadM = (EditText) view.findViewById(R.id.EdadMascota);
         ColorM = (EditText) view.findViewById(R.id.Color);
         descripcionLeM = (EditText) view.findViewById(R.id.Text_descrip);
+        NombreMascota = (EditText) view.findViewById(R.id.txtNombreMascota);
 
         sexoM = (RadioGroup) view.findViewById(R.id.RadioG1);
         Macho = (RadioButton) view.findViewById(R.id.RbMacho) ;
@@ -167,6 +168,7 @@ public class FragReMascota extends Fragment {
             @Override
             public void onClick(View v) {
 
+                NombreM = NombreMascota.getText().toString();
                 Raza = RazaM.getText().toString();
                 Tamaño = Spitamaño.getSelectedItem().toString();
                 Edad = EdadM.getText().toString();
@@ -211,7 +213,7 @@ public class FragReMascota extends Fragment {
                                     public void onComplete(@NonNull Task<Uri> task) {
                                         String uriFoto = task.getResult().toString();
                                         Log.e("LinkDeDescarga","" + uriFoto);
-                                        MascotasApp Mascota = new MascotasApp(idM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado, uriFoto,TipoM);
+                                        MascotasApp Mascota = new MascotasApp(idM,NombreM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado, uriFoto,TipoM);
                                         Mascotas.child(idM).setValue(Mascota);
                                     }
                                 });
@@ -229,7 +231,7 @@ public class FragReMascota extends Fragment {
                                     public void onComplete(@NonNull Task<Uri> task) {
                                        String uriFoto = task.getResult().toString();
                                         Log.e("LinkDeDescarga","" + uriFoto);
-                                        MascotasApp Mascota = new MascotasApp(idM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado, uriFoto,TipoM);
+                                        MascotasApp Mascota = new MascotasApp(idM,NombreM, Raza, Color, Edad, Genero, Lesion, Descripcio_les, Tamaño, Id_Fundacion, Estado, uriFoto,TipoM);
                                         Mascotas.child(idM).setValue(Mascota);
                                     }
                                 });

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.example.petadoption.AccoutActivity.Fragmentos.MascotasApp;
 import com.example.petadoption.AdoptarMascotas;
 import com.example.petadoption.R;
 import com.squareup.picasso.Picasso;
@@ -24,6 +25,7 @@ public class viewHolder extends RecyclerView.ViewHolder {
     TextView Raza,Edad,Descripcion;
     ImageView Fotomasc;
     String Imagen;
+    MascotasApp model;
     private Context context;
 
 
@@ -42,30 +44,37 @@ public class viewHolder extends RecyclerView.ViewHolder {
                         Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                Intent intent = new Intent(itemView.getContext(), AdoptarMascotas.class);
-                BitmapDrawable bitmap = ((BitmapDrawable)Fotomasc.getDrawable());
-                intent.putExtra("Raza",  Raza.getText());
-                intent.putExtra("Edad",  Edad.getText());
-                intent.putExtra("Descripcion",  Descripcion.getText());
-                intent.putExtra("Fotomasc", Imagen);
+              Intent intent = new Intent(itemView.getContext(), AdoptarMascotas.class);
 
-                itemView.getContext().startActivity(intent);
+              intent.putExtra("NombreMascota", model.getNombreMascota());
+              intent.putExtra("Raza",  model.getRaza());
+              intent.putExtra("Edad",  model.getEdad());
+              intent.putExtra("Tamaño", model.getTamaño());
+              intent.putExtra("Descripcion",  model.getDescripLesion());
+              intent.putExtra("Fotomasc", model.getImagen());
+              intent.putExtra("Fundacion", model.getIdFundacion());
+              intent.putExtra("IdMascota",model.getIdMascota());
+
+
+              itemView.getContext().startActivity(intent);
 
             }
         });
     }
 
-    public void SetDetail(Context ctm, String raza,String edad, String descripcion, String imagen){
+    public void SetDetail(MascotasApp modelo){
 
-         Raza = mView.findViewById(R.id.mRazam);
-         Edad = mView.findViewById(R.id.medad);
-         Descripcion = mView.findViewById(R.id.mdescripcion);
-         Fotomasc = mView.findViewById(R.id.mfotomas);
+        model = modelo;
 
-        Imagen = imagen;
-        Raza.setText(raza);
-        Edad.setText(edad);
-        Descripcion.setText(descripcion);
+        Raza = mView.findViewById(R.id.mRazam);
+        Edad = mView.findViewById(R.id.medad);
+        Descripcion = mView.findViewById(R.id.mdescripcion);
+        Fotomasc = mView.findViewById(R.id.mfotomas);
+
+        Imagen = model.getImagen();
+        Raza.setText(model.getRaza());
+        Edad.setText(model.getEdad());
+        Descripcion.setText(model.getDescripLesion());
         Picasso.get().load(Imagen).into(Fotomasc);
 
 

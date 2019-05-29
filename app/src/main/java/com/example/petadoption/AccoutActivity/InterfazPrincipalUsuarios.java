@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.petadoption.AccoutActivity.Fragmentos.BusquedaMascotasU;
 import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuUsuario;
 import com.example.petadoption.R;
 import com.example.petadoption.UsuariosApp;
@@ -43,6 +44,8 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
     private StorageReference storageRef;
     private DatabaseReference ValidarUsuarios;
     private FirebaseAuth auth;
+
+    Boolean adoptar,cancelar;
 
     private TextView nombre,correo;
 
@@ -119,8 +122,17 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
+        final Intent intent = getIntent();
+
+        cancelar = intent.getBooleanExtra("cancelar",false);
+
+        if ( cancelar == true){
+            CargarFragmentos(new BusquedaMascotasU());
+        }else {
+
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuUsuario()).commit();
+        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuUsuario()).commit();}
 
 
 
@@ -194,7 +206,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private void CargarFragmentos(Fragment fragmento) {
+    public void CargarFragmentos(Fragment fragmento) {
 
         FragmentManager manager = getSupportFragmentManager();
 

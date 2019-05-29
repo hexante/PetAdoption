@@ -71,13 +71,13 @@
         <item>Pequeña</item>
         <item>Mediana</item>
         <item>Grande</item>
-        <item>Gigante</item>
     </string-array>
 
     <string-array name="TipoMascota">
         <item>Perro</item>
         <item>Gato</item>
     </string-array>
+
     <string name="title_activity_interfaz_principal">InterfazPrincipal</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -92,6 +92,15 @@
     <string name="cerrar_secion">Cerrar Secion</string>
     <string name="RegistrarMascotas">Registrar Mascotas</string>
     <string name="BuscarMascotas">Buscar Mascotas</string>
+
+
+    <string-array name="ActividadEconomica">
+        <item>Actividad economica</item>
+        <item>Independiente</item>
+        <item>Empleado</item>
+        <item>Pensionado</item>
+        <item>Ama de casa</item>
+    </string-array>
 
 
 </resources>

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +44,10 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
+         final FirebaseUser userapp = FirebaseAuth.getInstance().getCurrentUser();
+
+
+
         if (auth.getCurrentUser() != null) {
             auth.signOut();
         }
@@ -133,6 +138,7 @@ public class InicioActivity extends AppCompatActivity {
                                                         finish();
                                                     }else
                                                     {
+                                                        userapp.delete();
                                                         auth.signOut();
                                                     }
                                                 }

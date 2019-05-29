@@ -112,7 +112,7 @@ public class FragVistasMascotas extends Fragment {
                 @Override
                 protected void onBindViewHolder(@NonNull viewHolder holder, int position, @NonNull MascotasApp model) {
 
-                    holder.SetDetail(getActivity(), model.getRaza(), model.getEdad(), model.getDescripLesion(), model.getImagen());
+                    holder.SetDetail(model);
 
                     if(position%3!=0){
                         holder.itemView.setBackgroundColor(Color.MAGENTA);

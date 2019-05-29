@@ -40,6 +40,7 @@ public class FragVistaUsuario extends Fragment {
     FirebaseDatabase mfirebaseDatabase;
     private FirebaseRecyclerAdapter<UsuariosApp, viewHolderUsers> uPeopleRVAdapter;
     private GridLayoutManager glm;
+    private UsuariosApp model2;
 
 
 
@@ -47,7 +48,7 @@ public class FragVistaUsuario extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_vista_usuario, container, false);
+        final View view = inflater.inflate(R.layout.fragment_vista_usuario, container, false);
 
 
         urecyclerView = view.findViewById(R.id.Recycler2);
@@ -67,24 +68,30 @@ public class FragVistaUsuario extends Fragment {
         uPeopleRVAdapter = new FirebaseRecyclerAdapter<UsuariosApp, viewHolderUsers>(personsOptions) {
             @NonNull
             @Override
-            public viewHolderUsers onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            public  viewHolderUsers onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
 
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.nowusers, viewGroup, false);
                 return new viewHolderUsers(view);
+
 
             }
 
             @Override
             protected void onBindViewHolder(@NonNull viewHolderUsers holder, int position, @NonNull UsuariosApp model) {
 
-                holder.SetDetail(getActivity(), model.getNombres(), model.getCorreo(), model.getNumeroTelefono(), model.getUrimagen());
+                model2 = model;
 
-                if(position%3!=0){
-                    holder.itemView.setBackgroundColor(Color.LTGRAY);
-                } else {
-                    holder.itemView.setBackgroundColor(Color.DKGRAY);
+                if (model.getTipoUsuario().equals("Fundacion") ) {
+                    holder.SetDetail(model);
+
+                    if (position % 3 != 0) {
+                        holder.itemView.setBackgroundColor(Color.LTGRAY);
+                    } else {
+                        holder.itemView.setBackgroundColor(Color.DKGRAY);
+                    }
+
                 }
-
             }
 
         };

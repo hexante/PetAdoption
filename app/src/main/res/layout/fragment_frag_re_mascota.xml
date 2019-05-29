@@ -65,6 +65,21 @@
                     android:textColor="@android:color/white"
                     android:text="Foto" />
 
+                <EditText
+                    android:id="@+id/txtNombreMascota"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:completionHint="Nombre Mascota"
+                    android:contentDescription="Nombre Mascot"
+                    android:hint="Nombre Mascota"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"/>
+
                 <Spinner
                     android:id="@+id/spinTipoMascota"
                     android:layout_width="match_parent"
@@ -208,15 +223,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="describa la lesion..."
+                    android:hint="Descripcion de la mascota"
+                    android:inputType="textMultiLine"
                     android:shadowColor="#31D3BF"
-                    android:shadowDy="2"
                     android:shadowDx="2"
+                    android:shadowDy="2"
                     android:shadowRadius="4"
-                    android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
-                    android:inputType="textMultiLine" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/Btn_Registrar"
