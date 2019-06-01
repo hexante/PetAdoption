@@ -14,7 +14,8 @@
     app:cardUseCompatPadding="true"
     app:contentPadding="5dp"
     card_view:cardCornerRadius="10dp"
-    card_view:cardElevation="4dp">
+    card_view:cardElevation="4dp"
+    >
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"

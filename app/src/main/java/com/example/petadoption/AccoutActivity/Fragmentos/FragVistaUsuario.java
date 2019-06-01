@@ -61,7 +61,7 @@ public class FragVistaUsuario extends Fragment {
 
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("UsuariosApp");
-        Query personsQuery = mRef.orderByKey();
+        Query personsQuery = mRef.orderByChild("tipoUsuario").equalTo("Fundacion");
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<UsuariosApp>().setQuery(personsQuery,UsuariosApp.class).build();
 
 
@@ -82,7 +82,6 @@ public class FragVistaUsuario extends Fragment {
 
                 model2 = model;
 
-                if (model.getTipoUsuario().equals("Fundacion") ) {
                     holder.SetDetail(model);
 
                     if (position % 3 != 0) {
@@ -91,7 +90,7 @@ public class FragVistaUsuario extends Fragment {
                         holder.itemView.setBackgroundColor(Color.DKGRAY);
                     }
 
-                }
+
             }
 
         };

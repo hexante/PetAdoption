@@ -59,7 +59,7 @@ public class BusquedaMascotasU extends Fragment {
 
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("MascotasApp");
-        Query personsQuery = mRef.orderByValue();
+        Query personsQuery = mRef.orderByChild("estado").equalTo("en adopcion");
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<MascotasApp>().setQuery(personsQuery, MascotasApp.class).build();
 
 
