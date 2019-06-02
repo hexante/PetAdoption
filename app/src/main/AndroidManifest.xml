@@ -19,14 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DatosDeAdopcion"></activity>
-        <activity android:name=".AdoptarMascotas" />
+        <activity android:name=".TerminosCondiciones"></activity>
+        <activity android:name=".VistaUsuario.DatosDeAdopcion" />
+        <activity android:name=".VistaUsuario.AdoptarMascotas" />
         <activity
-            android:name=".AccoutActivity.InterfazPrincipalUsuarios"
+            android:name=".VistaUsuario.InterfazPrincipalUsuarios"
             android:label="@string/title_activity_interfaz_principal_usuarios"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AccoutActivity.InterfazPrincipal"
+            android:name=".VistaFundacion.InterfazPrincipal"
             android:label="@string/title_activity_interfaz_principal"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -43,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DatosUsuario"
+            android:name=".AccoutActivity.DatosUsuario"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AccoutActivity.RecuperarContrasenaActivity"

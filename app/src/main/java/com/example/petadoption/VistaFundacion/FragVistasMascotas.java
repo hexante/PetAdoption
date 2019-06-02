@@ -1,4 +1,4 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.VistaFundacion;
 
 
 import android.graphics.Color;
@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 
-import com.example.petadoption.AccoutActivity.viewHolderMascFund;
+import com.example.petadoption.Firebase.MascotasApp;
 import com.example.petadoption.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,8 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
-
-import java.util.Random;
 
 
 /**

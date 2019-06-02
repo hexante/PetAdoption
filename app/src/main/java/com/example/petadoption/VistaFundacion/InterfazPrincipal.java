@@ -1,32 +1,29 @@
-package com.example.petadoption.AccoutActivity;
+package com.example.petadoption.VistaFundacion;
 
 import android.content.Intent;
-
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.petadoption.AccoutActivity.Fragmentos.BusquedaMascotasU;
-import com.example.petadoption.AccoutActivity.Fragmentos.FragMenuUsuario;
+import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.R;
-import com.example.petadoption.UsuariosApp;
+import com.example.petadoption.Firebase.UsuariosApp;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,26 +35,22 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class InterfazPrincipalUsuarios extends AppCompatActivity
+
+public class InterfazPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private StorageReference storageRef;
     private DatabaseReference ValidarUsuarios;
     private FirebaseAuth auth;
 
-    Boolean adoptar,cancelar;
-
-    private TextView nombre,correo;
-
     private String CorreoUsuario,IDusuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interfaz_principal_usuarios);
+        setContentView(R.layout.activity_interfaz_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         auth = FirebaseAuth.getInstance();
@@ -71,12 +64,12 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
 
 
-         final NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view_usuario);
-         final View headerLayout = mNavigationView.getHeaderView(0);
+        final NavigationView mNavigationView = (NavigationView) findViewById(R.id.nav_view_fundacion);
+        final View headerLayout = mNavigationView.getHeaderView(0);
 
-        final ImageView  fotoPerfil = headerLayout.findViewById(R.id.FotoPerfilUsuarioPrincipal);
-        final TextView nombre = headerLayout.findViewById(R.id.NombreUsuarioPrincipal);
-        final TextView correo = headerLayout.findViewById(R.id.CorreoUsuarioPrincipal);
+        final ImageView fotoPerfil = headerLayout.findViewById(R.id.FotoPerfilPrincipalFundacion);
+        final TextView nombre = headerLayout.findViewById(R.id.NombrePrincipalFundacion);
+        final TextView correo = headerLayout.findViewById(R.id.CorreoPrincipalFundacion);
 
 
         ValidarUsuarios.child("UsuariosApp").addValueEventListener(new ValueEventListener() {
@@ -100,7 +93,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
                         storageRef.child(" FotosUsuarios/"+IDusuario+".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                 Log.e("uri",""+uri);
+                                Log.e("uri",""+uri);
 
                                 Glide.with(getApplicationContext())
                                         .load(uri)
@@ -112,28 +105,36 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception exception) {
-                                Toast.makeText(getBaseContext(),"Hubo un error al cargar la foto",Toast.LENGTH_LONG);
+                                Toast.makeText(getBaseContext(),"Hubo un error",Toast.LENGTH_LONG);
                             }
                         });
+
+
+
                     }
+
+
+
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+
             }
         });
 
-        final Intent intent = getIntent();
 
-        cancelar = intent.getBooleanExtra("cancelar",false);
 
-        if ( cancelar == true){
-            CargarFragmentos(new BusquedaMascotasU());
-        }else {
+
+
+
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuUsuario()).commit();}
-
+        fragmentManager.beginTransaction().replace(R.id.contenedorFragmento,new FragMenuFundacion()).commit();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -142,7 +143,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_usuario);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_fundacion);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -159,7 +160,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.interfaz_principal_usuarios, menu);
+        getMenuInflater().inflate(R.menu.interfaz_principal, menu);
         return true;
     }
 
@@ -172,8 +173,9 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.Desconectar) {
+
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(InterfazPrincipalUsuarios.this, InicioActivity.class));
+            startActivity(new Intent(InterfazPrincipal.this, InicioActivity.class));
             finish();
             return true;
         }
@@ -188,9 +190,9 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-
+            CargarFragmentos(new FragReMascota());
         } else if (id == R.id.nav_gallery) {
+
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -206,12 +208,16 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    public void CargarFragmentos(Fragment fragmento) {
+
+    private void CargarFragmentos(Fragment fragmento) {
 
         FragmentManager manager = getSupportFragmentManager();
 
         manager.beginTransaction().replace(R.id.contenedorFragmento, fragmento).commit();
     }
+
+    //***Traer Correo Y nombre de la base de datos****
+
 
 
 }

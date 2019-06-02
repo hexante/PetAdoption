@@ -1,4 +1,4 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.VistaFundacion;
 
 
 import android.Manifest;
@@ -27,10 +27,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.petadoption.AccoutActivity.InterfazPrincipal;
+import com.example.petadoption.Firebase.MascotasApp;
 import com.example.petadoption.R;
 
-import com.example.petadoption.UsuariosApp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -372,4 +371,5 @@ public class FragReMascota extends Fragment {
 
         }
 
-    } }
+    }
+}

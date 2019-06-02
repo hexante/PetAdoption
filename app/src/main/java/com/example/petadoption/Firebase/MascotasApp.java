@@ -1,4 +1,4 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.Firebase;
 
 public class MascotasApp {
     String IdMascota,NombreMascota, Raza, Color, Edad, Genero, Lesion, DescripLesion, Tamaño, IdFundacion, Estado,Imagen,Tipo;

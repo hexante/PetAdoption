@@ -1,4 +1,4 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.VistaFundacion;
 
 
 import android.graphics.Color;
@@ -6,17 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
 
-import com.example.petadoption.AccoutActivity.viewHolder;
+import com.example.petadoption.Firebase.MascotasApp;
+import com.example.petadoption.VistaUsuario.viewHolder;
 import com.example.petadoption.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

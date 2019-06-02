@@ -1,4 +1,4 @@
-package com.example.petadoption;
+package com.example.petadoption.VistaUsuario;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.petadoption.AccoutActivity.InterfazPrincipalUsuarios;
+import com.example.petadoption.Firebase.DatosDeAdopcionApp;
+import com.example.petadoption.R;
+import com.example.petadoption.Firebase.SolicitudMascotaApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

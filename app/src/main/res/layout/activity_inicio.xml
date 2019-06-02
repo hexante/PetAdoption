@@ -103,16 +103,38 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dip"
                     android:background="@null"
-                    android:text="@string/btn_link_to_register"
-                    android:textStyle="bold"
                     android:shadowColor="#FD111111"
-                    android:shadowDy="4"
                     android:shadowDx="4"
+                    android:shadowDy="4"
                     android:shadowRadius="6"
+                    android:text="@string/btn_link_to_register"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="15dp"
+                    android:textStyle="bold"
                     tools:ignore="SpUsage" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="86dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null" />
+
+                    <Button
+                        android:id="@+id/btnTerminos"
+                        android:background="@null"
+                        android:layout_width="273dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Terminos y Condiciones" />
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

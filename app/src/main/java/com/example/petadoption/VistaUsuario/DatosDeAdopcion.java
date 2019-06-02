@@ -1,4 +1,4 @@
-package com.example.petadoption;
+package com.example.petadoption.VistaUsuario;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,9 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.petadoption.AccoutActivity.InterfazPrincipalUsuarios;
+import com.example.petadoption.Firebase.DatosDeAdopcionApp;
+import com.example.petadoption.R;
+import com.example.petadoption.Firebase.SolicitudMascotaApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;

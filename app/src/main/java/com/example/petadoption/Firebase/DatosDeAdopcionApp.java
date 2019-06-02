@@ -1,4 +1,4 @@
-package com.example.petadoption;
+package com.example.petadoption.Firebase;
 
 public class DatosDeAdopcionApp {
     String IdDatos,Nombres,Telefono,Direccion,Barrio,ActividadEconomica,TuboMascota,Usuario;

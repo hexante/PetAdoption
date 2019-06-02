@@ -1,10 +1,9 @@
-package com.example.petadoption;
+package com.example.petadoption.AccoutActivity;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -12,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,9 +20,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.petadoption.AccoutActivity.Fragmentos.MascotasApp;
-import com.example.petadoption.AccoutActivity.InicioActivity;
-import com.example.petadoption.AccoutActivity.InterfazPrincipal;
+import com.example.petadoption.R;
+import com.example.petadoption.Firebase.UsuariosApp;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

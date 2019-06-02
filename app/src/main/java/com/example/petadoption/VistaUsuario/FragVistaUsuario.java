@@ -1,4 +1,4 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.VistaUsuario;
 
 
 import android.graphics.Color;
@@ -12,13 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
 
-import com.example.petadoption.AccoutActivity.viewHolderUsers;
-import com.example.petadoption.AccoutActivity.viewHolder;
-import com.example.petadoption.DatosUsuario;
+import com.example.petadoption.VistaUsuario.viewHolderUsers;
 import com.example.petadoption.R;
-import com.example.petadoption.UsuariosApp;
+import com.example.petadoption.Firebase.UsuariosApp;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;

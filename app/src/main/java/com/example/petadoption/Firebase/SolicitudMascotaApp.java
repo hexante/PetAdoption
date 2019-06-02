@@ -1,4 +1,4 @@
-package com.example.petadoption;
+package com.example.petadoption.Firebase;
 
 public class SolicitudMascotaApp {
 

@@ -1,7 +1,11 @@
 package com.example.petadoption.AccoutActivity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,10 +16,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.petadoption.MainActivity;
 import com.example.petadoption.R;
-import com.example.petadoption.UsuariosApp;
-import com.facebook.FacebookSdk;
+import com.example.petadoption.TerminosCondiciones;
+import com.example.petadoption.Firebase.UsuariosApp;
+import com.example.petadoption.VistaFundacion.InterfazPrincipal;
+import com.example.petadoption.VistaUsuario.InterfazPrincipalUsuarios;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,21 +32,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
 
 public class InicioActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     private DatabaseReference ValidarUsuarios;
     private ProgressBar progressBar;
-    private Button btnSignup, btnLogin, btnReset;
+    private Button btnSignup, btnLogin, btnReset,terminos;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+
+        checkCameraPermission();
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
          final FirebaseUser userapp = FirebaseAuth.getInstance().getCurrentUser();
@@ -52,6 +57,9 @@ public class InicioActivity extends AppCompatActivity {
             auth.signOut();
         }
 
+
+
+
         setContentView(R.layout.activity_inicio);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
@@ -59,6 +67,18 @@ public class InicioActivity extends AppCompatActivity {
         btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
+
+        terminos = (Button) findViewById(R.id.btnTerminos);
+
+
+
+        terminos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioActivity.this, TerminosCondiciones.class);
+                startActivity(intent);
+            }
+        });
 
         ValidarUsuarios = FirebaseDatabase.getInstance().getReference();
 
@@ -161,5 +181,18 @@ public class InicioActivity extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    private void checkCameraPermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.CAMERA);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            Log.i("mensaje", "No se tiene permiso para la camara !.");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 225);
+        } else {
+            Log.i("mensaje", "Tienes permiso para usar la camara.");
+
+        }
+
     }
 }
