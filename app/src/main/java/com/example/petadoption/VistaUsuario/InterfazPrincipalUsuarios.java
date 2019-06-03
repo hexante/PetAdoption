@@ -23,7 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.petadoption.VistaFundacion.BusquedaMascotasU;
 import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.R;
 import com.example.petadoption.Firebase.UsuariosApp;

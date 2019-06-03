@@ -1,4 +1,4 @@
-package com.example.petadoption.VistaFundacion;
+package com.example.petadoption.VistaUsuario;
 
 
 import android.graphics.Color;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.petadoption.Firebase.MascotasApp;
-import com.example.petadoption.VistaUsuario.viewHolder;
 import com.example.petadoption.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

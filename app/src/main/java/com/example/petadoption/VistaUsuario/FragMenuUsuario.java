@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.example.petadoption.R;
-import com.example.petadoption.VistaFundacion.BusquedaMascotasU;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,7 +60,7 @@ public class FragMenuUsuario extends Fragment {
 
 
 
-        final String[] items = new String[] {"Crear Anuncio", "Ver Anuncios", "Cancelar"};
+        final String[] items = new String[] {"Crear Anuncio","Anuncios","Mis Anuncios", "Cancelar"};
 
         // Creamos el diálogo
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, items);
@@ -71,12 +70,11 @@ public class FragMenuUsuario extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int seleccion) {
                 if (items[seleccion] == "Crear Anuncio"){
-
-
-
                     CargarFragmentos(new CrearMascotaPerdida());
-                }else if (items[seleccion] == "Ver Anuncios"){
-                    // Opción Galería
+                }else if (items[seleccion] == "Anuncios"){
+
+                }else if (items[seleccion] == "Mis Anuncios") {
+                    CargarFragmentos(new ListaDeMisAnuncios());
                 }else if (items[seleccion] == "Cancelar"){
                     dialog.dismiss();
                 }

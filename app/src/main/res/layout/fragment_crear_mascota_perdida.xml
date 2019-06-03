@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/descripcion_perdida_lugar_fecha_hora_motivo"
-            android:inputType="textPersonName" />
+            android:inputType="textMultiLine"/>
 
         <EditText
             android:id="@+id/txtContactoPerdida"
