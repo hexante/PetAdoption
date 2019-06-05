@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdoptarMascotas"></activity>
+        <activity android:name=".AdoptarMascotas" />
         <activity
             android:name=".AccoutActivity.InterfazPrincipalUsuarios"
             android:label="@string/title_activity_interfaz_principal_usuarios"

@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnChangePassword = (Button) findViewById(R.id.change_password_button);
 
+
         btnRemoveUser = (Button) findViewById(R.id.remove_user_button);
 
         changePassword = (Button) findViewById(R.id.changePass);

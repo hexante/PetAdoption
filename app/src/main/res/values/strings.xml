@@ -23,6 +23,12 @@
     <string name="btn_login">INICIAR SESIÓN</string>
     <string name="prompt_password">Por favor, introduzca su contraseña</string>
     <string name="btn_link_to_register">¡Registrarse ahora!</string>
+    <string name="btn_link_terminos_condiciones">Ver terminos y condiciones ></string>
+    <string name="Text_soporte">Envìanos tus comentarios, quejas o sugerencias a nuestro correo electrònico</string>
+    <string name="btn_Correo_Electronico">soporteloveadoption@gmail.com > </string>
+    <string name="Redes_Sociales">Nuestras redes sociales</string>
+    <string name="Compartir_redes">Compartir</string>
+    String Telefono="3185550069";
     <string name="btn_link_to_login">¿Ya estas registrado?.Acceda aquí</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
@@ -92,6 +98,9 @@
     <string name="cerrar_secion">Cerrar Secion</string>
     <string name="RegistrarMascotas">Registrar Mascotas</string>
     <string name="BuscarMascotas">Buscar Mascotas</string>
+    <string name="title_activity__ver__terminos__condiciones">Activity_Ver_Terminos_Condiciones
+    </string>
+    <string name="title_activity_ver__terminos__condiciones">Ver_Terminos_Condiciones</string>
 
 
 </resources>
