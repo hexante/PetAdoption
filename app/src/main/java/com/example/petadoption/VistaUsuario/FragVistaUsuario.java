@@ -1,4 +1,4 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.VistaUsuario;
 
 
 import android.graphics.Color;
@@ -12,13 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RatingBar;
 
-import com.example.petadoption.AccoutActivity.viewHolderUsers;
-import com.example.petadoption.AccoutActivity.viewHolder;
-import com.example.petadoption.DatosUsuario;
+import com.example.petadoption.VistaUsuario.viewHolderUsers;
 import com.example.petadoption.R;
-import com.example.petadoption.UsuariosApp;
+import com.example.petadoption.Firebase.UsuariosApp;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +37,7 @@ public class FragVistaUsuario extends Fragment {
     FirebaseDatabase mfirebaseDatabase;
     private FirebaseRecyclerAdapter<UsuariosApp, viewHolderUsers> uPeopleRVAdapter;
     private GridLayoutManager glm;
+    private UsuariosApp model2;
 
 
 
@@ -47,7 +45,7 @@ public class FragVistaUsuario extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_vista_usuario, container, false);
+        final View view = inflater.inflate(R.layout.fragment_vista_usuario, container, false);
 
 
         urecyclerView = view.findViewById(R.id.Recycler2);
@@ -60,30 +58,35 @@ public class FragVistaUsuario extends Fragment {
 
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("UsuariosApp");
-        Query personsQuery = mRef.orderByKey();
+        Query personsQuery = mRef.orderByChild("tipoUsuario").equalTo("Fundacion");
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<UsuariosApp>().setQuery(personsQuery,UsuariosApp.class).build();
 
 
         uPeopleRVAdapter = new FirebaseRecyclerAdapter<UsuariosApp, viewHolderUsers>(personsOptions) {
             @NonNull
             @Override
-            public viewHolderUsers onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            public  viewHolderUsers onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
 
                 View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.nowusers, viewGroup, false);
                 return new viewHolderUsers(view);
+
 
             }
 
             @Override
             protected void onBindViewHolder(@NonNull viewHolderUsers holder, int position, @NonNull UsuariosApp model) {
 
-                holder.SetDetail(getActivity(), model.getNombres(), model.getCorreo(), model.getNumeroTelefono(), model.getUrimagen());
+                model2 = model;
 
-                if(position%3!=0){
-                    holder.itemView.setBackgroundColor(Color.LTGRAY);
-                } else {
-                    holder.itemView.setBackgroundColor(Color.DKGRAY);
-                }
+                    holder.SetDetail(model);
+
+                    if (position % 3 != 0) {
+                        holder.itemView.setBackgroundColor(Color.LTGRAY);
+                    } else {
+                        holder.itemView.setBackgroundColor(Color.DKGRAY);
+                    }
+
 
             }
 

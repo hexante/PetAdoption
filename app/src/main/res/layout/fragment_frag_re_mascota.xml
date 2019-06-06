@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccoutActivity.Fragmentos.FragReMascota">
+    tools:context=".VistaFundacion.FragReMascota">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,21 +11,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="35dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="43dp"
-            android:layout_marginRight="43dp"
-            android:layout_marginBottom="128dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
+            android:layout_height="match_parent">
 
 
             <LinearLayout
@@ -78,6 +64,21 @@
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:text="Foto" />
+
+                <EditText
+                    android:id="@+id/txtNombreMascota"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:completionHint="Nombre Mascota"
+                    android:contentDescription="Nombre Mascot"
+                    android:hint="Nombre Mascota"
+                    android:shadowColor="#31D3BF"
+                    android:shadowDy="2"
+                    android:shadowDx="2"
+                    android:shadowRadius="4"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"/>
 
                 <Spinner
                     android:id="@+id/spinTipoMascota"
@@ -222,15 +223,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="describa la lesion..."
+                    android:hint="Descripcion de la mascota"
+                    android:inputType="textMultiLine"
                     android:shadowColor="#31D3BF"
-                    android:shadowDy="2"
                     android:shadowDx="2"
+                    android:shadowDy="2"
                     android:shadowRadius="4"
-                    android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
-                    android:inputType="textMultiLine" />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/Btn_Registrar"

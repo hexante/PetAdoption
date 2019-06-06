@@ -1,6 +1,5 @@
-package com.example.petadoption.AccoutActivity;
+package com.example.petadoption.VistaUsuario;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -8,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.petadoption.R;
+import com.example.petadoption.Firebase.UsuariosApp;
 import com.squareup.picasso.Picasso;
 
 public class viewHolderUsers extends RecyclerView.ViewHolder {
@@ -20,17 +20,17 @@ public class viewHolderUsers extends RecyclerView.ViewHolder {
         mView = itemView;
     }
 
-    public void SetDetail(Context ctm, String Nombre, String Telefono,String Correo,String imagen){
+    public void SetDetail(UsuariosApp model){
 
         TextView nombre = mView.findViewById(R.id.mNombre);
         TextView telefono = mView.findViewById(R.id.mTelefono);
         TextView email = mView.findViewById(R.id.mEmail);
         ImageView Fotofun = mView.findViewById(R.id.mfotofun);
 
-        nombre.setText(Nombre);
-        telefono.setText(Telefono);
-        email.setText(Correo);
-        Picasso.get().load(imagen).into(Fotofun);
+        nombre.setText(model.getNombres()+ model.getApellidos());
+        telefono.setText(model.getNumeroTelefono());
+        email.setText(model.getCorreo());
+        Picasso.get().load(model.getUrimagen()).into(Fotofun);
 
 
 

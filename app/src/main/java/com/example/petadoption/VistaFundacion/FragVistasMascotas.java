@@ -1,9 +1,7 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.VistaFundacion;
 
 
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -11,22 +9,21 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 
-import com.example.petadoption.AccoutActivity.viewHolder;
+import com.example.petadoption.Firebase.MascotasApp;
 import com.example.petadoption.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
-
-import java.util.Random;
 
 
 /**
@@ -41,10 +38,11 @@ public class FragVistasMascotas extends Fragment {
     FloatingActionButton BTF;
     RecyclerView mrecyclerView;
     FirebaseDatabase mfirebaseDatabase;
-    private FirebaseRecyclerAdapter<MascotasApp, viewHolder> mPeopleRVAdapter;
+    private FirebaseRecyclerAdapter<MascotasApp, viewHolderMascFund> mPeopleRVAdapter;
     private GridLayoutManager glm;
     private RatingBar rt;
 
+    private FirebaseAuth auth;
 
 
     @Override
@@ -52,6 +50,9 @@ public class FragVistasMascotas extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_frag_vistas_mascotas, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        final FirebaseUser userapp = FirebaseAuth.getInstance().getCurrentUser();
 
         BTF = view.findViewById(R.id.botonflotante);
         /*rt = (RatingBar) view.findViewById(R.id.ratingBar2);
@@ -103,16 +104,16 @@ public class FragVistasMascotas extends Fragment {
 
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("MascotasApp");
-        Query personsQuery = mRef.orderByValue();
+        Query personsQuery = mRef.orderByChild("idFundacion").equalTo(userapp.getEmail());
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<MascotasApp>().setQuery(personsQuery, MascotasApp.class).build();
 
 
 
-            mPeopleRVAdapter = new FirebaseRecyclerAdapter<MascotasApp, viewHolder>(personsOptions) {
+            mPeopleRVAdapter = new FirebaseRecyclerAdapter<MascotasApp, viewHolderMascFund>(personsOptions) {
                 @Override
-                protected void onBindViewHolder(@NonNull viewHolder holder, int position, @NonNull MascotasApp model) {
+                protected void onBindViewHolder(@NonNull viewHolderMascFund holder, int position, @NonNull MascotasApp model) {
 
-                    holder.SetDetail(getActivity(), model.getRaza(), model.getEdad(), model.getDescripLesion(), model.getImagen());
+                    holder.SetDetail(model);
 
                     if(position%3!=0){
                         holder.itemView.setBackgroundColor(Color.MAGENTA);
@@ -124,10 +125,10 @@ public class FragVistasMascotas extends Fragment {
 
                 @NonNull
                 @Override
-                public viewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                public viewHolderMascFund onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
                     View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.now, viewGroup, false);
-                    return new viewHolder(view);
+                    return new viewHolderMascFund(view);
 
 
                 }

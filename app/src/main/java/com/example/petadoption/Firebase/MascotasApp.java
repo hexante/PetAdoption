@@ -1,14 +1,15 @@
-package com.example.petadoption.AccoutActivity.Fragmentos;
+package com.example.petadoption.Firebase;
 
 public class MascotasApp {
-    String IdMascota, Raza, Color, Edad, Genero, Lesion, DescripLesion, Tamaño, IdFundacion, Estado,Imagen,Tipo;
+    String IdMascota,NombreMascota, Raza, Color, Edad, Genero, Lesion, DescripLesion, Tamaño, IdFundacion, Estado,Imagen,Tipo;
 
 
     public MascotasApp() {
     }
 
-    public MascotasApp(String idMascota, String raza, String color, String edad, String genero, String lesion, String descripLesion, String tamaño, String idFundacion, String estado, String imagen,String tipo) {
+    public MascotasApp(String idMascota,String nombremascota, String raza, String color, String edad, String genero, String lesion, String descripLesion, String tamaño, String idFundacion, String estado, String imagen,String tipo) {
         IdMascota = idMascota;
+        NombreMascota = nombremascota;
         Raza = raza;
         Color = color;
         Edad = edad;
@@ -20,6 +21,14 @@ public class MascotasApp {
         Estado = estado;
         Imagen = imagen;
         Tipo = tipo;
+    }
+
+    public String getNombreMascota() {
+        return NombreMascota;
+    }
+
+    public void setNombreMascota(String nombreMascota) {
+        NombreMascota = nombreMascota;
     }
 
     public String getTipo() { return Tipo;
