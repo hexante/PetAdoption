@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerTerminosCondiciones">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="0dp">
+
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:inputType="textMultiLine"
+                android:text=" Términos y Condiciones de la Aplicación Móvil LoveAdoption
+REGLAMENTO DE USO DEL APLICATIVO MÓVIL LOVEADOPTION (PERSONAS NATURALES Y PERSONAS JURÍDICAS)\\n
+
+
+El presente documento establece las condiciones mediante las cuales se regirá el uso de la aplicación móvil: LoveAdoption (en adelante la aplicación), la cual es operada por La administracion de LoveAdoption, entidad constituida en Colombia y domiciliada en la ciudad de Cali. La aplicación funcionará como un nuevo canal para la participación y colaboración de los ciudadanos de la ciudad de Santiago de Cali y fundaciones de animales de dicha ciudad con el objeto de facilitar el acceso a los servicios y canales de información del LoveAdoption.
+El usuario se compromete a leer los términos y condiciones aquí establecidas, previamente a la descarga de la aplicación, por tanto, en caso de realizar la instalación se entiende que cuenta con el conocimiento integral de este documento y la consecuente aceptación de la totalidad de sus estipulaciones. El Usuario reconoce que el ingreso de su información personal, y los demás datos sobre información de animales de compañía  que serán parte del contenido de la aplicación, la realizan de manera voluntaria, quienes optan por acceder a esta aplicación en Colombia o desde fuera del territorio nacional, lo hacen por iniciativa propia y son responsables del cumplimiento de las leyes locales y nacionales, en la medida en que dichas leyes sean aplicables en su correspondiente país.
+En caso de que se acceda por parte de menores de edad, deben contar con la supervisión de un adulto en todo momento desde la descarga y durante el uso de la aplicación, en el evento en que no se cumpla esta condición, le agradecemos no hacer uso de la aplicación.
+ALCANCE Y USO
+En la aplicación se pondrá a disposición del USUARIO información y/o permitirá la realización de las transacciones determinadas o habilitadas por las fundaciones de animales para cada servicio en particular. Los administradores de LOVEADOPTION podrá adicionar, modificar o eliminar las funcionalidades en cualquier momento, lo cual acepta el usuario mediante la instalación de la aplicación. En todo caso, al momento de realizar dichas modificaciones se notificarán al usuario a través de las notificaciones de la aplicación móvil vía sistemas de mensajes del dispositivo móvil.
+Los tiempos de respuesta, tramites y demás solicitudes efectuadas por el usuario mediante la aplicación serán procesadas de conformidad con las especificaciones y tiempos de respuesta acordes a la cantidad de solicitudes en espera de cada servicio activo de las fundaciones de animales. El usuario acepta y autoriza que los registros electrónicos de las actividades que realice en la aplicación constituyen plena prueba de los mismos.
+REQUISITOS PARA USO
+El usuario deberá contar con un dispositivo móvil inteligente (Smartphone) o Tableta con sistema operativo Android, cualquiera de estos con acceso a internet, ambos seguros y confiables. Los administradores de LOVEADOPTION, no serán responsable por la seguridad de los equipos Smartphone propiedad de los usuarios utilizados para el acceso al canal, ni por la disponibilidad del servicio en los dispositivos en los cuales se descargue la aplicación.
+En la forma permitida por la ley, los materiales de la aplicación se suministran sin garantía de ningún género, expresa o implícita, incluyendo sin limitación las garantías de calidad satisfactoria, comerciabilidad, adecuación para un fin particular o no infracción, por tanto, los administradores de LOVEADOPTION no garantizan el funcionamiento adecuado en los distintos dispositivos en los cuales se haga uso de la aplicación.
+Para acceder a los servicios del aplicativo, EL CLIENTE contará con Usuario y Clave, que lo identifica en su relación con la aplicación de adopción de animales de compañía LOVEADOPTION.
+OBLIGACIONES DE LOS USUARIOS
+El Usuario se obliga a usar la aplicación y los contenidos encontrados en ella de una manera diligente, correcta, lícita y en especial, se compromete a NO realizar las conductas descritas a continuación:
+(a) Utilizar los contenidos de forma, con fines o efectos contrarios a la ley, a la moral y a las buenas costumbres generalmente aceptadas o al orden público;
+(b) Reproducir, copiar, representar, utilizar, distribuir, transformar o modificar los contenidos de la aplicación, por cualquier procedimiento o sobre cualquier soporte, total o parcial, o permitir el acceso del público a través de cualquier modalidad de comunicación pública;
+(c) Utilizar los contenidos de cualquier manera que entrañen un riesgo de daño o inutilización de la aplicación o de los contenidos o de terceros;
+(d) Suprimir, eludir o manipular el derecho de autor y demás datos identificativos de los derechos de autor incorporados a los contenidos, así como los dispositivos técnicos de protección, o cualesquiera mecanismos de información que pudieren tener los contenidos;
+(e) Emplear los contenidos y, en particular, la información de cualquier clase obtenida a través de la aplicación para distribuir, transmitir, remitir, modificar, rehusar o reportar la publicidad o los contenidos de esta con fines de venta directa o con cualquier otra clase de finalidad comercial, mensajes no solicitados dirigidos a una pluralidad de personas con independencia de su finalidad, así como comercializar o divulgar de cualquier modo dicha información;
+(f) No permitir que terceros ajenos a usted usen la aplicación móvil con su clave;
+g) Utilizar la aplicación y los contenidos con fines lícitos y/o ilícitos, contrarios a lo establecido en estos Términos y Condiciones, o al uso mismo de la aplicación, que sean lesivos de los derechos e intereses de terceros, o que de cualquier forma puedan dañar, inutilizar, sobrecargar o deteriorar la aplicación y los contenidos o impedir la normal utilización o disfrute de esta y de los contenidos por parte de los usuarios.
+h) No intentará engañar de ninguna manera con el material que publique.
+i) No publicará ninguna imagen sexual explícita u otro material.
+
+PARTICIPACIÓN DENTRO DEL APLICATIVO MÓVIL LOVEADOPTION
+Por el hecho de ingresar al Aplicativo Móvil LoveAdoption y para garantizar el buen y adecuado uso del mismo, el usuario reconoce que la administración de LoveAdoption se reserva el derecho de: - Negar el registro a cualquier persona, en cualquier momento y por cualquier razón. - Incluir o no en el Aplicativo Móvil LoveAdoption el material recibido de los usuarios a su criterio.
+En el caso de incluirlo, podrá mantener en el Aplicativo Móvil LoveAdoption dicho material por el lapso que considere pertinente o modificarlo. - Remover, sin que sea obligatorio, contenidos que a juicio de la administración de LoveAdoption sean ilegales, ofensivos, difamatorios o que de cualquier otra forma violen éstas Condiciones de Uso. Así mismo, podrán ser retirados los contenidos que violen derechos de propiedad intelectual, a solicitud de éste. - Utilizar la información personal y/o contenidos suministrados por los Usuarios de acuerdo con las Condiciones de Uso del Aplicativo Móvil LoveAdoption.
+Las fundaciones de animales se organizan en orden alfabetico de acuerdo a la búsqueda que realice el usuario que consulta. Los animales disponibles para adopción se presentan en orden aleatorio para ofrecer una oportunidad equivalente a todos los animales etc. LoveAdoption también se reserva el derecho de modificaciones, anulación y verificación de la información registrada en las listas y su ordenamiento.
+- Definir el proceso para cada una de las funciones de colaboración y apoyo de los usuarios dentro de la aplicación. LoveAdoption es una herramienta que brindará la posibilidad de registrarse en cada uno de los servicios ofrecidos y posterior a este proceso se realizará la verificación requerida por las fundaciones registradas con el fin de aceptar o no los diferentes requerimientos, estos procesos se desarrollan de forma mecánica por el personal de las fundaciones de animales, el cual da la aceptación o no del requerimiento en la aplicación, por lo anterior la administracion de LoveAdoption se reserva el derecho de automatizar o no los procesos de aprobación de cada uno de las solicitudes y actividades dentro de la aplicación LoveAdoption.
+REGISTRO Y PARTICIPACIÓN DEL USUARIO.
+Por el hecho de ingresar al Aplicativo Móvil LoveAdoption y para garantizar el buen y adecuado uso de la misma, el Usuario deberá cumplir con lo siguiente:
+- Haber proporcionado su propia información de contacto personal y no la información de contacto de un tercero.
+- Ser responsable por cualquier actividad que se lleve a cabo bajo su registro.
+- Ser responsable de la seguridad de su contraseña.
+- No abusar, acosar, amenazar o intimidar a otros usuarios del Aplicativo Móvil Distrito LoveAdoption o al personal de las fundaciones de animales que ofrecen su servicio.
+ - No usar la aplicación Móvil LoveAdoption como medio para desarrollar actividades ilegales o no autorizadas tanto en Colombia, como en cualquier otro país.
+- Ser el único responsable por su conducta y por el contenido de textos, gráficos, fotos, videos o cualquier otro tipo de información de la cual haga uso o incluya en el Aplicativo Móvil LoveAdoption.
+- Abstenerse de enviar correo electrónico no deseado (SPAM) a otros usuarios de este Aplicativo Móvil LoveAdoption, así como también de transmitirles virus o cualquier código/software de naturaleza destructiva.
+La administración de LoveAdoption no será responsable por el incumplimiento por parte del usuario de las reglas anteriores, y el usuario mantendrá a LoveAdoption indemne por todo concepto en caso de violación de las mismas.
+
+PROPIEDAD INTELECTUAL
+Todo el material informático, gráfico, publicitario, fotográfico, de multimedia, audiovisual y de diseño, así como todos los contenidos, textos y bases de datos puestos a su disposición en esta aplicación están protegidos por derechos de autor y/o propiedad industrial cuyo titular es LoveAdoption, o sus entidades filiales, vinculadas o subsidiarias, en algunos casos, de terceros que han autorizado su uso o explotación. Igualmente, el uso en la aplicación de algunos materiales de propiedad de terceros se encuentra expresamente autorizado por la ley o por dichos terceros.
+Todos los contenidos en la aplicación están protegidos por las normas sobre derecho de autor y por todas las normas nacionales e internacionales que le sean aplicables. Exceptuando lo expresamente estipulado en estos Términos y Condiciones, queda prohibido todo acto de copia, reproducción, modificación, creación de trabajos derivados, venta o distribución, exhibición de los contenidos de esta aplicación, de manera o por medio alguno, incluyendo, más no limitado a, medios electrónicos, mecánicos, de fotocopiado, de grabación o de cualquier otra índole, sin el permiso previo y por escrito de la administracion de LoveAdoption o del titular de los respectivos derechos.
+En ningún caso estos Términos y Condiciones confieren derechos, licencias ni autorizaciones para realizar los actos anteriormente prohibidos. Cualquier uso no autorizado de los contenidos constituirá una violación del presente documento y a las normas vigentes sobre derechos de autor, a las normas vigentes nacionales e internacionales sobre Propiedad Industrial, y a cualquier otra que sea aplicable.
+LICENCIA PARA COPIAR PARA USO PERSONAL
+Usted podrá leer, visualizar, imprimir y descargar el material únicamente de sus registros en el aplicativo. Ninguna parte de la aplicación podrá ser reproducida o transmitida o almacenada en otro sitio web o en otra forma de sistema de recuperación electrónico. Ya sea que se reconozca específicamente o no, las marcas comerciales, las marcas de servicio y los logos visualizados en esta aplicación pertenecen al grupo de instituciones vinculadas, o certificadas, o reguladas o autorizadas por la administracion de LoveAdoption, sus socios u otros terceros.
+La administracion de LoveAdoption no interfiere, no toma decisiones, ni garantiza las relaciones que los usuarios lleguen a sostener, o las vinculaciones con terceros que aparezcan como fundaciones de animales.
+
+USO DE INFORMACIÓN Y PRIVACIDAD
+Con la descarga de la APP usted acepta y autoriza que la administracion de LoveAdoption, utilice sus datos en calidad de responsable del tratamiento para fines derivados de la ejecución de la APP. La administracion de LoveAdoption informa que podrá ejercer sus derechos a conocer, actualizar, rectificar y suprimir su información personal; así como el derecho a revocar el consentimiento otorgado para el tratamiento de datos personales previstos en la ley 1581 de 2012, , siendo voluntario responder preguntas sobre información sensible o de menores de edad.
+De conformidad a lo anterior autoriza el tratamiento de su información en los términos señalados, y transfiere a la administracion de LoveAdoption de manera total, y sin limitación mis derechos de imagen y patrimoniales de autor, de manera voluntaria, previa, explicita, informada e inequívoca.
+
+RESPONSABILIDAD DE LOVEADOPTION.
+La administracion de LoveAdoption procurará garantizar disponibilidad, continuidad o buen funcionamiento de la aplicación.
+La administracion de LoveAdoption podrá bloquear, interrumpir o restringir el acceso a esta cuando lo considere necesario para el mejoramiento de la aplicación o por dada de baja de la misma. Se recomienda al Usuario tomar medidas adecuadas y actuar diligentemente al momento de acceder a la aplicación, como por ejemplo, contar con programas de protección, antivirus, para manejo de malware, spyware y herramientas similares.
+La administracion de LoveAdoption no controla ni garantiza la ausencia de virus ni de otros elementos en los contenidos que puedan producir alteraciones en su sistema informático (software y hardware) o en los documentos electrónicos y ficheros almacenados en su sistema informático. En consecuencia, con lo anterior, La administracion de LoveAdoption no se hará responsable de ningún daño ocasionado en virtud de cualquier alteración que se haya efectuado a los materiales o archivos de descarga suministrados directamente por la aplicación.
+ La administración de LoveAdoption no será responsable por:
+a) cualquier incumplimiento, o retraso en la realización de cualquiera de nuestras obligaciones que sea causado por sucesos fuera de nuestro control razonable, por Fuerza mayor o caso fortuito;
+b) Por la pérdida, extravío o hurto de su dispositivo móvil que implique el acceso de terceros a la aplicación móvil;
+c) Por errores en la digitación o accesos por parte del usuario;
+d) Por los perjuicios, lucro cesante, daño emergente, morales, y en general sumas a cargo de la administracion de LoveAdoption, por los retrasos, no procesamiento de información, o suspensión del servicio de la aplicación, o del servicio del operador móvil, o de información de terceros o daños en los dispositivos móviles.
+La administracion de LoveAdoption no será responsable por las condiciones de los animales que sean registrados y/o gestionados a través del sistema  de registro de animales en adopción ni tampoco por el cumplimiento en la entrega, reconocimiento, reporte, o cuidado del animal que se registró. No se hará responsable de ninguna pérdida o daños, directos o indirectos, que surjan debido a que la aplicación LoveAdoption no este disponible en cualquier momento. La administracion de LoveAdoption no es responsable de la interpretación de la información por parte del usuario, con respecto a los animales y servicios como por ejemplo cual es la raza adecuada de los animales. Entendemos que cuando participas en línea, puede ser difícil visualizar el tamaño y las características reales de un elemento, incluso sobre las dimensiones aproximadas de los animales que se proporcionan. Por lo tanto, al realizar su registro y/o requerimiento, certifíquese de que está seguro de que los animales o servicios que ha seleccionado de hecho son los que espera aplicar.
+DENEGACIÓN Y RETIRADA DEL ACCESO A LA APLICACIÓN
+En el Evento en que un Usuario incumpla estos Términos y Condiciones, o cualesquiera otras disposiciones que resulten de aplicación, La administracion de LoveAdoption podrá suspender su acceso a la aplicación.
+TÉRMINOS Y CONDICIONES
+El Usuario acepta expresamente los Términos y Condiciones, siendo condición esencial para la utilización de la aplicación. En el evento en que se encuentre en desacuerdo con estos Términos y Condiciones, solicitamos abandonar la aplicación inmediatamente. La administracion de LoveAdoption podrá modificar los presentes términos y condiciones, avisando a los usuarios de la aplicación mediante la difusión de las modificaciones por algún medio electrónico, redes sociales, mensajes de la aplicación, SMS y/o correo electrónico, lo cual se entenderá aceptado por el usuario si éste continua con el uso de la aplicación.
+JURISDICCIÓN
+Estos términos y condiciones y todo lo que tenga que ver con esta aplicación, se rigen por las leyes de colombianas. Para cualquier efecto legal o judicial, el lugar de las presentes condiciones es la ciudad de Cali, República de Colombia, y cualquier controversia que surja de su interpretación o aplicación se someterá a los jueces de la República de Colombia.
+USO DE INFORMACIÓN NO PERSONAL
+La administracion de LoveAdoption también recolecta información no personal en forma agregada para seguimiento de datos como el número total de descargas de la aplicación. Utilizamos esta información, que permanece en forma agregada, para entender el comportamiento de la aplicación.
+USO DE DIRECCIONES IP
+Una dirección de Protocolo de Internet (IP) es un conjunto de números que se asigna automáticamente a su o dispositivo móvil cuando usted accede a su proveedor de servicios de internet, o a través de la red de área local (LAN) de su organización o la red de área amplia (WAN) de su operador de servicio o cualquier otro canal. Los servidores web automáticamente identifican su dispositivo móvil por la dirección IP asignada a él durante su sesión en línea.
+La administracion de LoveAdoption podrá recolectar direcciones IP para propósitos de administración de sistemas y para auditar el uso de nuestro aplicativo, todo lo anterior de acuerdo con la autorización de protección de datos que se suscribe para tal efecto. Normalmente no vinculamos la dirección IP de un usuario con la información personal de ese usuario, lo que significa que cada sesión de usuario se registra, pero el usuario sigue siendo anónimo para nosotros. Sin embargo, podemos usar las direcciones IP para identificar a los usuarios de nuestro sitio cuando sea necesario con el objeto de para exigir el cumplimiento de los términos de uso de la aplicación, del sitio, o para proteger nuestro servicio, sitio u otros usuarios.
+
+ "
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </ScrollView>
+    </LinearLayout>
+
+</FrameLayout>

@@ -24,8 +24,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.petadoption.AccoutActivity.InicioActivity;
+import com.example.petadoption.AcercaDeNosotros;
 import com.example.petadoption.R;
 import com.example.petadoption.Firebase.UsuariosApp;
+import com.example.petadoption.VistaFundacion.FragMenuFundacion;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -193,18 +195,13 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-CargarFragmentos(new MisDatosDeAdopcion());
+            CargarFragmentos(new FragMenuUsuario());
         } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        }
+        else if (id == R.id.nav_slideshow)  {
+            CargarFragmentos(new AcercaDeNosotros());
+        }else if (id == R.id.nav_misdatos){
+            CargarFragmentos(new MisDatosDeAdopcion());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
