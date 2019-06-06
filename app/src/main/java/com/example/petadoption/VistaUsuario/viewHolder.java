@@ -38,11 +38,7 @@ public class viewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
 
-                int position = getAdapterPosition();
 
-                Snackbar.make(v, "Click detected on item " + position,
-                        Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
 
               Intent intent = new Intent(itemView.getContext(), AdoptarMascotas.class);
 
@@ -61,6 +57,8 @@ public class viewHolder extends RecyclerView.ViewHolder {
             }
         });
     }
+
+
 
     public void SetDetail(MascotasApp modelo){
 

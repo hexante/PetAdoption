@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VistaUsuario.MisDatosDeAdopcion">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Formulario Para Solicitud De Adopcion"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtNombreSolicitud2"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:ems="10"
+                android:hint="@string/Nombres" />
+
+            <EditText
+                android:id="@+id/txtTelefonoSolicitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/Numero_Telefonico"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/txtDireccionSolicitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Direccion de recidencia"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/txtBarrioSolicitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Barrio"
+                android:inputType="textPersonName" />
+
+            <Spinner
+                android:id="@+id/SpinnerActivadadSolicitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:id="@+id/checkMascotaSolicitud2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A Tenido Mascotas?" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnEnviarSolicitud2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Guardar" />
+
+                <Button
+                    android:id="@+id/btnCancelarSolicitud2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cancelar" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

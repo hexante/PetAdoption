@@ -37,6 +37,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import static android.R.id.home;
+
 public class InterfazPrincipalUsuarios extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -54,8 +56,9 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interfaz_principal_usuarios);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarUsurio);
         setSupportActionBar(toolbar);
+
 
 
 
@@ -159,25 +162,28 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.interfaz_principal_usuarios, menu);
+
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.Desconectar) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(InterfazPrincipalUsuarios.this, InicioActivity.class));
-            finish();
-            return true;
+        switch (item.getItemId()) {
+            case R.id.Desconectar:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(InterfazPrincipalUsuarios.this, InicioActivity.class));
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -188,7 +194,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-
+CargarFragmentos(new MisDatosDeAdopcion());
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

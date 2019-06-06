@@ -38,11 +38,33 @@ public class FragMenuUsuario extends Fragment {
         fundaciones = (Button) view.findViewById(R.id.btnBfundaciones);
         MascotasPerdidas = (Button) view.findViewById(R.id.btnMascotasPerdidasUsuario);
 
+
+
+
+        final String[] BusquedaMascota = new String[] {"Perros","Gatos", "Cancelar"};
+
+        // Creamos el diálogo
+        ArrayAdapter<String> TipoMascota = new ArrayAdapter<String>(getActivity(), android.R.layout.select_dialog_item, BusquedaMascota);
+        AlertDialog.Builder builderTipo = new AlertDialog.Builder(getActivity());
+        builderTipo.setTitle("Que Tipo?");
+        builderTipo.setAdapter(TipoMascota, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface MenuTipoMascota, int seleccion) {
+                if (BusquedaMascota[seleccion] == "Perros"){
+                    CargarFragmentos(new BuscarPerroUsuario());
+                }else if (BusquedaMascota[seleccion] == "Gatos"){
+                    CargarFragmentos(new BusquedaMascotasU());
+                }else if (BusquedaMascota[seleccion] == "Cancelar"){
+                    MenuTipoMascota.dismiss();
+                }
+            }
+        });
+        final AlertDialog MenuTipoMascota = builderTipo.create();
         Consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                CargarFragmentos(new BusquedaMascotasU());
+                MenuTipoMascota.show();
 
             }
         });
@@ -72,7 +94,7 @@ public class FragMenuUsuario extends Fragment {
                 if (items[seleccion] == "Crear Anuncio"){
                     CargarFragmentos(new CrearMascotaPerdida());
                 }else if (items[seleccion] == "Anuncios"){
-
+                    CargarFragmentos(new ListaDeAnunciosPerdida());
                 }else if (items[seleccion] == "Mis Anuncios") {
                     CargarFragmentos(new ListaDeMisAnuncios());
                 }else if (items[seleccion] == "Cancelar"){
@@ -95,9 +117,6 @@ public class FragMenuUsuario extends Fragment {
     private void CargarFragmentos(Fragment fragmento) {
 
         FragmentManager manager = getFragmentManager();
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().remove(this).commit();
-
         manager.beginTransaction().replace(R.id.contenedorFragmento, fragmento).commit();
     }
 

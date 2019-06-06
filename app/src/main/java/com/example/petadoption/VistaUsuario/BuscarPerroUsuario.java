@@ -5,11 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -24,10 +25,10 @@ import com.google.firebase.database.Query;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BusquedaMascotasU extends Fragment {
+public class BuscarPerroUsuario extends Fragment {
 
 
-    public BusquedaMascotasU() {
+    public BuscarPerroUsuario() {
         // Required empty public constructor
     }
 
@@ -41,11 +42,8 @@ public class BusquedaMascotasU extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_busqueda_mascotas_u, container, false);
-
-
+        View view = inflater.inflate(R.layout.fragment_buscar_perro_usuario, container, false);
         bmrecyclerView = view.findViewById(R.id.Recycler3);
         glm = new GridLayoutManager(getActivity(), 2);
         bmrecyclerView.setLayoutManager(glm);
@@ -56,10 +54,9 @@ public class BusquedaMascotasU extends Fragment {
 
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("MascotasApp");
-        Query personsQuery = mRef.orderByChild("tipo").equalTo("Gato");
+        Query personsQuery = mRef.orderByChild("tipo").equalTo("Perro");
 
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<MascotasApp>().setQuery(personsQuery, MascotasApp.class).build();
-
 
 
         bmPeopleRVAdapter = new FirebaseRecyclerAdapter<MascotasApp, viewHolder>(personsOptions) {
@@ -107,7 +104,16 @@ public class BusquedaMascotasU extends Fragment {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: //hago un case por si en un futuro agrego mas opciones
+                Log.i("ActionBar", "Atrás!");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 }
-
-
-
