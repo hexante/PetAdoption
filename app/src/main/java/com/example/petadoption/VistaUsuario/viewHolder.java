@@ -3,13 +3,10 @@ package com.example.petadoption.VistaUsuario;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.example.petadoption.Firebase.MascotasApp;
 import com.example.petadoption.R;
@@ -62,18 +59,24 @@ public class viewHolder extends RecyclerView.ViewHolder {
 
     public void SetDetail(MascotasApp modelo){
 
-        model = modelo;
+        if (modelo.getEstado().equals("en adopcion")){
+             mView.setVisibility(View.VISIBLE);
 
-        Raza = mView.findViewById(R.id.mRazam);
-        Edad = mView.findViewById(R.id.medad);
-        Descripcion = mView.findViewById(R.id.mdescripcion);
-        Fotomasc = mView.findViewById(R.id.mfotomas);
+              model = modelo;
 
-        Imagen = model.getImagen();
-        Raza.setText(model.getRaza());
-        Edad.setText(model.getEdad());
-        Descripcion.setText(model.getDescripLesion());
-        Picasso.get().load(Imagen).into(Fotomasc);
+               Raza = mView.findViewById(R.id.mRazam);
+               Edad = mView.findViewById(R.id.medad);
+               Descripcion = mView.findViewById(R.id.mdescripcion);
+               Fotomasc = mView.findViewById(R.id.mfotomas);
+
+               Imagen = model.getImagen();
+                Raza.setText(model.getRaza());
+               Edad.setText(model.getEdad());
+               Descripcion.setText(model.getDescripLesion());
+                Picasso.get().load(Imagen).into(Fotomasc);
+        }else {
+            mView.setVisibility(View.INVISIBLE);       }
+
 
 
 

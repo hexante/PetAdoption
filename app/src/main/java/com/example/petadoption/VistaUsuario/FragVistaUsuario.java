@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.petadoption.VistaUsuario.viewHolderUsers;
 import com.example.petadoption.R;
 import com.example.petadoption.Firebase.UsuariosApp;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;

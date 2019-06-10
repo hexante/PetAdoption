@@ -33,17 +33,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:hint="@string/hint_email"
                     android:drawableLeft="@drawable/ic_email_black_24dp"
                     android:drawablePadding="20dp"
+                    android:hint="@string/hint_email"
                     android:inputType="textEmailAddress"
                     android:shadowColor="#FD111111"
-                    android:shadowDy="4"
                     android:shadowDx="4"
+                    android:shadowDy="4"
                     android:shadowRadius="6"
-                    android:textStyle="bold"
                     android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white" />
+                    android:textColorHint="@android:color/white"
+                    android:textStyle="bold" />
 
 
                 <EditText
@@ -72,13 +72,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dip"
                     android:background="@color/colorAccent"
-                    android:text="@string/btn_login"
-                    android:textStyle="bold"
+                    android:enabled="false"
                     android:shadowColor="#FD111111"
-                    android:shadowDy="4"
                     android:shadowDx="4"
+                    android:shadowDy="4"
                     android:shadowRadius="6"
-                    android:textColor="@android:color/white" />
+                    android:text="@string/btn_login"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btn_reset_password"
@@ -120,19 +121,23 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/checkBox"
-                        android:layout_width="86dp"
+                        android:id="@+id/AceptarTerminos"
+                        android:layout_width="82dp"
                         android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:background="@null" />
+                        android:background="@color/colorAccent" />
 
                     <Button
                         android:id="@+id/btnTerminos"
-                        android:background="@null"
-                        android:layout_width="273dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Terminos y Condiciones" />
+                        android:background="@color/colorAccent"
+                        android:shadowColor="#FD111111"
+                        android:text="Acepto Terminos y
+                                        Condiciones"
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -141,9 +146,13 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center|bottom"
+        android:layout_width="62dp"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="bottom|center"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:visibility="gone"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="142dp"

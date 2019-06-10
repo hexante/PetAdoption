@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.example.petadoption.Firebase.MascotasPerdidasApp;
 import com.example.petadoption.R;
-import com.example.petadoption.VistaUsuario.MiAnuncioPerdida;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;

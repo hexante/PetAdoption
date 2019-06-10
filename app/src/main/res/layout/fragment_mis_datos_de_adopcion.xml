@@ -27,9 +27,10 @@
             <TextView
                 android:id="@+id/txtNombreSolicitud2"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/Nombres" />
+                android:hint="@string/Nombres"
+                android:textSize="26sp" />
 
             <EditText
                 android:id="@+id/txtTelefonoSolicitud2"

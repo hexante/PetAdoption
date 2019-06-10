@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,33 +77,36 @@ public class MisDatosDeAdopcion extends Fragment {
 
         MascotaTubo = (CheckBox) view.findViewById(R.id.checkMascotaSolicitud2);
 
-        DatosDeAdoptante = FirebaseDatabase.getInstance().getReference().child("DatosDeAdopcionApp");
-        Query DatosQuery = DatosDeAdoptante.orderByChild("usuario").equalTo(auth.getCurrentUser().getEmail());
+        DatosDeAdoptante = FirebaseDatabase.getInstance().getReference();
 
-if (DatosQuery == null){
-
-        DatosQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        DatosDeAdoptante.child("DatosDeAdopcionApp").orderByChild("usuario")
+                .equalTo(auth.getCurrentUser().getEmail())
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DatosDeAdopcionApp datos = dataSnapshot.getValue(DatosDeAdopcionApp.class);
-                Nombre.setText(datos.getNombres());
-                Telefono.setText(datos.getTelefono());
-                Direccion.setText(datos.getDireccion());
-                Barrio.setText(datos.getBarrio());
-                ActividadEconomica.setTransitionName(datos.getActividadEconomica());
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    DatosDeAdopcionApp user = snapshot.getValue(DatosDeAdopcionApp.class);
+                    final String Correo = user.getUsuario();
+
+                    if(Correo.equals(auth.getCurrentUser().getEmail())) {
+                        Nombre.setText(user.getNombres());
+                        Telefono.setText(user.getTelefono());
+                        Direccion.setText(user.getDireccion());
+                        Barrio.setText(user.getBarrio());
+                    }else {
+                        startActivity(new Intent(getContext(), DatosDeAdopcion.class));
+                    }
+                }
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(getContext(),"no hay datos",Toast.LENGTH_LONG).show();
             }
-        });}else {
+        });
 
-
-
-        }
 
 
 

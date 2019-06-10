@@ -33,7 +33,7 @@ public class DatosDeAdopcion extends AppCompatActivity {
     private CheckBox MascotaTubo;
 
     private FirebaseAuth auth;
-    private DatabaseReference Solicitud,DatosDeAdoptante;
+    private DatabaseReference Solicitud,DatosDeAdoptante,mascota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,8 @@ public class DatosDeAdopcion extends AppCompatActivity {
         DatosDeAdoptante = FirebaseDatabase.getInstance().getReference("DatosDeAdopcionApp");
 
         Solicitud = FirebaseDatabase.getInstance().getReference("SolicitudMascotaApp");
+
+        mascota = FirebaseDatabase.getInstance().getReference("MascotasApp");
 
 
         ArrayAdapter<CharSequence> adapteru = ArrayAdapter.createFromResource(this,
@@ -106,6 +108,7 @@ public class DatosDeAdopcion extends AppCompatActivity {
 
                 SolicitudMascotaApp SolicitudAdopcion = new SolicitudMascotaApp(IdsolicitudAdiopcion,usuario,fundacion,idMascota,"Pendiente");
                 Solicitud.child(IdsolicitudAdiopcion).setValue(SolicitudAdopcion);
+                mascota.child(idMascota).child("estado").setValue("Pendiente");
 
 
                 Intent volver = new Intent(DatosDeAdopcion.this, InterfazPrincipalUsuarios.class);
