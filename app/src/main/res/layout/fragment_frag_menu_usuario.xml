@@ -31,10 +31,9 @@
             android:text="Buscar Mascotas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.427"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.072" />
+            app:layout_constraintVertical_bias="0.083" />
 
         <Button
             android:id="@+id/btnBfundaciones"
@@ -52,10 +51,10 @@
             android:text="FUNDACIONES"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnConsultarMascotas"
-            app:layout_constraintVertical_bias="0.076" />
+            app:layout_constraintVertical_bias="0.075" />
 
         <Button
             android:id="@+id/btnMascotasPerdidasUsuario"
@@ -66,14 +65,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="332dp"
+            android:layout_marginBottom="8dp"
             android:text="Mascotas Perdidas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnBfundaciones"
-            app:layout_constraintVertical_bias="0.965" />
+            app:layout_constraintVertical_bias="0.109" />
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

@@ -51,7 +51,7 @@ public class AdoptarMascotas extends AppCompatActivity {
 
 
         AdoptarMascota = (Button) findViewById(R.id.btnAdoptarMascota);
-        Cancelar = (Button) findViewById(R.id.btnCancelar);
+        Cancelar = (Button) findViewById(R.id.btnCancelarEvent);
 
         final Intent intent = getIntent();
 
