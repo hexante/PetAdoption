@@ -80,11 +80,12 @@ public class FragVistaUsuario extends Fragment {
 
                     holder.SetDetail(model);
 
-                    if (position % 3 != 0) {
-                        holder.itemView.setBackgroundColor(Color.LTGRAY);
-                    } else {
-                        holder.itemView.setBackgroundColor(Color.DKGRAY);
-                    }
+                if(position%3!=0){
+                    holder.itemView.setBackgroundColor(Color.rgb(165,214,167));
+                } else {
+                    holder.itemView.setBackgroundColor(Color.rgb(129,199,132));
+                }
+
 
 
             }
