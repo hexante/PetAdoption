@@ -157,7 +157,7 @@ public class MisDatosDeAdopcion extends Fragment {
                     Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
                 }else {
                     DatosDeAdopcionApp datosadoptante = new DatosDeAdopcionApp(idSolicitud,nombres,telefono,direccion,barrio,actividadEconomica,tuboMascota,usuario);
-                    DatosDeAdoptante.child(idSolicitud).setValue(datosadoptante);
+                    DatosDeAdoptante.child("DatosDeAdopcionApp").child(idSolicitud).setValue(datosadoptante);
                     Toast.makeText(getContext(),"Datos actualizados correctamente",Toast.LENGTH_LONG).show();
 
                     Intent volver = new Intent(getContext(), InterfazPrincipalUsuarios.class);
