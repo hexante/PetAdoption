@@ -54,10 +54,12 @@
                         android:layout_width="34dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="Nombre :" />
 
                     <TextView
                         android:id="@+id/txtNombreMascota"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -74,9 +76,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="Edad :" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:id="@+id/txtEdadMascota"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -94,9 +98,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="Raza :" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:id="@+id/txtRazaMascota"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -114,9 +120,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="Tamaño :" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:id="@+id/txtTamañoMascota"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -129,6 +137,7 @@
                     android:id="@+id/txtDescripcionMascota"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
+                    android:textStyle="bold"
                     android:text="Descripcion :" />
 
                 <LinearLayout
@@ -141,9 +150,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:text="Fundacion :" />
 
                     <TextView
+                        android:textStyle="bold"
                         android:id="@+id/txtFundacion"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -157,6 +168,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:textStyle="bold"
                         android:id="@+id/btnAdoptarMascota"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -164,6 +176,7 @@
                         android:text="Adoptar" />
 
                     <Button
+                        android:textStyle="bold"
                         android:id="@+id/btnCancelarEvent"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

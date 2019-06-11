@@ -115,6 +115,7 @@
     <string name="Fecha_evento">Fecha del evento</string>
     <string name="Descripcion_evento">Descripcion del evento</string>
     <string name="Lugar_evento">Lugar del evento</string>
+    <string name="direccion_de_residencia">Direccion de residencia</string>
 
 
 </resources>
