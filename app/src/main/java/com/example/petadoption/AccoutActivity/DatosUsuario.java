@@ -178,7 +178,6 @@ public class DatosUsuario extends AppCompatActivity {
                                                                 @Override
                                                                 public void onComplete(@NonNull Task<Uri> task) {
                                                                     String uriFoto = task.getResult().toString();
-                                                                    Log.e("LinkDeDescarga","" + uriFoto);
                                                                     UsuariosApp usuario = new UsuariosApp(id,nombre,apellido,departamento,ciudad,telefono,correo,tipod,numerod,tipou,uriFoto);
                                                                     USUARIOS.child(id).setValue(usuario);
 

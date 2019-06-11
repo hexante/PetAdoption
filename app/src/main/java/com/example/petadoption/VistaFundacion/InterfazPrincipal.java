@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,8 +23,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.AcercaDeNosotros;
-import com.example.petadoption.R;
 import com.example.petadoption.Firebase.UsuariosApp;
+import com.example.petadoption.MiCuenta;
+import com.example.petadoption.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -193,6 +194,7 @@ public class InterfazPrincipal extends AppCompatActivity
         if (id == R.id.nav_camera) {
             CargarFragmentos(new FragMenuFundacion());
         } else if (id == R.id.nav_gallery) {
+            CargarFragmentos(new MiCuenta());
         }
         else if (id == R.id.nav_slideshow)  {
             CargarFragmentos(new AcercaDeNosotros());

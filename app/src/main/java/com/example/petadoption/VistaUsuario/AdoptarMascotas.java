@@ -98,7 +98,6 @@ public class AdoptarMascotas extends AppCompatActivity {
                             Log.e("usuario",nuevasolicitud.getUsuario());
 
                             if (nuevasolicitud.getUsuario().equals(CorreoUsuario)){
-                                Toast.makeText(AdoptarMascotas.this,"ya tienes los datos",Toast.LENGTH_LONG).show();
 
                                 String IdsolicitudAdiopcion = Solicitud.push().getKey();
 
@@ -112,7 +111,6 @@ public class AdoptarMascotas extends AppCompatActivity {
                                 startActivity(vista);
 
                             }else {
-                                Toast.makeText(AdoptarMascotas.this,"otro usuarios",Toast.LENGTH_LONG).show();
                                 Intent vista = new Intent(AdoptarMascotas.this, DatosDeAdopcion.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                 vista.putExtra("Fundacion",Fundacion.getText().toString());
                                 startActivity(vista);
