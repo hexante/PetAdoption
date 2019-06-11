@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#45c7b3"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp"
+    app:contentPadding="5dp"
+    app:cardUseCompatPadding="true"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    app:cardPreventCornerOverlap="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTTip"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:text="TextView"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imaTip"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtdesTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="146dp"
+                        android:text="TextView" />
+
+                    <TextView
+                        android:id="@+id/Autip"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:text="TextView" />
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

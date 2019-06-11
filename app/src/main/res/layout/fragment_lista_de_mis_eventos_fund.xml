@@ -9,7 +9,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/MisEventosRecycler"
-        android:layout_width="396dp"
-        android:layout_height="593dp" />
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:background="#daf7a6" />
 
 </FrameLayout>

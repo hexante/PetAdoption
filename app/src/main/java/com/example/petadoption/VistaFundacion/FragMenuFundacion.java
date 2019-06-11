@@ -18,7 +18,7 @@ import com.example.petadoption.R;
  */
 public class FragMenuFundacion extends Fragment {
 
-    private Button Consultar,Registrar,Eventos;
+    private Button Consultar,Registrar,Eventos,Tips;
 
 
 
@@ -36,6 +36,7 @@ public class FragMenuFundacion extends Fragment {
         Consultar = (Button) view.findViewById(R.id.BtnConsultar);
         Registrar = (Button) view.findViewById(R.id.btnRegistrarMascotas);
         Eventos = (Button) view.findViewById(R.id.btnEventos);
+        Tips = (Button) view.findViewById(R.id.btnTips);
 
         Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +97,34 @@ public class FragMenuFundacion extends Fragment {
 
             }
         });
+
+        Tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final CharSequence[] items = { "Crear Tip", "Mis Tips"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Que Hacer");
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        // will toast your selection
+                        //showToast("Name: " + items[item]);
+                        if(items[item].equals("Crear Tip")){
+                            CargarFragmentos(new CrearTipFundacion());
+                        }
+                        if(items[item].equals("Mis Tips")){
+                            CargarFragmentos(new ListadeMisTipFund());
+                        }
+                        dialog.dismiss();
+
+                    }
+                }).show();
+
+            }
+        });
+
 
         return view;
     }

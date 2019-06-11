@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="220dp"
-    app:cardBackgroundColor="#faa"
+    app:cardBackgroundColor="#45c7b3"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp"
     app:contentPadding="5dp"

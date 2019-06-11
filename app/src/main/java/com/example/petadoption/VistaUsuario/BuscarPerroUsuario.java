@@ -65,10 +65,10 @@ public class BuscarPerroUsuario extends Fragment {
 
                 holder.SetDetail(model);
 
-                if (position % 3 != 0) {
-                    holder.itemView.setBackgroundColor(Color.BLUE);
+                if(position%2!=0){
+                    holder.itemView.setBackgroundColor(Color.rgb(165,214,167));
                 } else {
-                    holder.itemView.setBackgroundColor(Color.GREEN);
+                    holder.itemView.setBackgroundColor(Color.rgb(129,199,132));
                 }
 
             }

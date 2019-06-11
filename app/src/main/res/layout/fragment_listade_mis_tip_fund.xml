@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VistaUsuario.BusquedaMascotasU">
+    tools:context=".VistaFundacion.ListadeMisTipFund">
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/Recycler3"
+        android:id="@+id/RecyclertipFund"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#daf7a6"/>
-
-</android.support.design.widget.CoordinatorLayout>
+        android:background="#00c9cb"/>
+</FrameLayout>

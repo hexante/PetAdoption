@@ -115,6 +115,10 @@
     <string name="Fecha_evento">Fecha del evento</string>
     <string name="Descripcion_evento">Descripcion del evento</string>
     <string name="Lugar_evento">Lugar del evento</string>
+    <string name="titulotip">Titulo del tip</string>
+    <string name="Descripciontip">Descripcion del tip</string>
+    <string name="Escribatip">Escriba su tip</string>
+    <string name="titulostip">Titulo Tip</string>
 
 
 </resources>
