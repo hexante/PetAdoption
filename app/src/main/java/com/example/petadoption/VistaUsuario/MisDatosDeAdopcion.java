@@ -2,10 +2,8 @@ package com.example.petadoption.VistaUsuario;
 
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +17,12 @@ import android.widget.Toast;
 
 import com.example.petadoption.Firebase.DatosDeAdopcionApp;
 import com.example.petadoption.R;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 /**
@@ -50,6 +46,8 @@ public class MisDatosDeAdopcion extends Fragment {
             telefono,direccion,barrio,
             actividadEconomica,tuboMascota,
             fundacion,usuario,Mascota,idMascota;
+
+    private DatosDeAdopcionApp Usuario;
 
     private FirebaseAuth auth;
     private DatabaseReference Solicitud,DatosDeAdoptante;
@@ -76,33 +74,36 @@ public class MisDatosDeAdopcion extends Fragment {
 
         MascotaTubo = (CheckBox) view.findViewById(R.id.checkMascotaSolicitud2);
 
-        DatosDeAdoptante = FirebaseDatabase.getInstance().getReference().child("DatosDeAdopcionApp");
-        Query DatosQuery = DatosDeAdoptante.orderByChild("usuario").equalTo(auth.getCurrentUser().getEmail());
+        DatosDeAdoptante = FirebaseDatabase.getInstance().getReference();
 
-if (DatosQuery == null){
-
-        DatosQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        DatosDeAdoptante.child("DatosDeAdopcionApp").orderByChild("usuario")
+                .equalTo(auth.getCurrentUser().getEmail())
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                DatosDeAdopcionApp datos = dataSnapshot.getValue(DatosDeAdopcionApp.class);
-                Nombre.setText(datos.getNombres());
-                Telefono.setText(datos.getTelefono());
-                Direccion.setText(datos.getDireccion());
-                Barrio.setText(datos.getBarrio());
-                ActividadEconomica.setTransitionName(datos.getActividadEconomica());
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                     Usuario = snapshot.getValue(DatosDeAdopcionApp.class);
+                    final String Correo = Usuario.getUsuario();
+
+                    if(Correo.equals(auth.getCurrentUser().getEmail())) {
+                        Nombre.setText(Usuario.getNombres());
+                        Telefono.setText(Usuario.getTelefono());
+                        Direccion.setText(Usuario.getDireccion());
+                        Barrio.setText(Usuario.getBarrio());
+                    }else {
+                        startActivity(new Intent(getContext(), DatosDeAdopcion.class));
+                    }
+                }
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(getContext(),"no hay datos",Toast.LENGTH_LONG).show();
             }
-        });}else {
+        });
 
-
-
-        }
 
 
 
@@ -127,6 +128,45 @@ if (DatosQuery == null){
             public void onClick(View v) {
                 Intent volver = new Intent(getActivity(), InterfazPrincipalUsuarios.class);
                 startActivity(volver);
+            }
+        });
+
+
+
+        Enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                idSolicitud = Usuario.getIdDatos();
+                nombres = Nombre.getText().toString();
+                telefono = Telefono.getText().toString();
+                direccion= Direccion.getText().toString();
+                barrio=Barrio.getText().toString();
+                actividadEconomica = ActividadEconomica.getSelectedItem().toString();
+                tuboMascota= Mascota;
+                usuario= user.getEmail();
+
+                if (telefono.isEmpty()){
+                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                }else if (direccion.isEmpty()){
+                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                }else if (barrio.isEmpty()){
+                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                }else if (actividadEconomica.isEmpty()){
+                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                }else {
+                    DatosDeAdopcionApp datosadoptante = new DatosDeAdopcionApp(idSolicitud,nombres,telefono,direccion,barrio,actividadEconomica,tuboMascota,usuario);
+                    DatosDeAdoptante.child("DatosDeAdopcionApp").child(idSolicitud).setValue(datosadoptante);
+                    Toast.makeText(getContext(),"Datos actualizados correctamente",Toast.LENGTH_LONG).show();
+
+                    Intent volver = new Intent(getContext(), InterfazPrincipalUsuarios.class);
+                    startActivity(volver);
+                }
+
+
+
+
             }
         });
 

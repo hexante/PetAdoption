@@ -26,12 +26,12 @@ import com.squareup.picasso.Picasso;
 public class AdoptarMascotas extends AppCompatActivity {
 
     private  TextView Nombre,Tamaño,Fundacion,Raza,Edad,Descripcion;
-    private String imagen,CorreoUsuario;
+    private String imagen,CorreoUsuario,idMascota,fundacion;
     private ImageView Fotomasc;
     private Boolean cancelar;
     private Button AdoptarMascota,Cancelar;
 
-    private DatabaseReference DatosDeAdoptante,Solicitud;
+    private DatabaseReference DatosDeAdoptante,Solicitud,mascota;
     private FirebaseUser auth;
 
     @Override
@@ -69,17 +69,19 @@ public class AdoptarMascotas extends AppCompatActivity {
 
         Solicitud = FirebaseDatabase.getInstance().getReference("SolicitudMascotaApp");
 
+        mascota = FirebaseDatabase.getInstance().getReference("MascotasApp");
+
         AdoptarMascota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                DatosDeAdoptante.addValueEventListener(new ValueEventListener() {
+                DatosDeAdoptante.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         if (dataSnapshot.exists() == false){
-                            Intent vista = new Intent(AdoptarMascotas.this, DatosDeAdopcion.class);
+                            Intent vista = new Intent(AdoptarMascotas.this, DatosDeAdopcion.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             vista.putExtra("Fundacion",Fundacion.getText().toString());
                             vista.putExtra("IdMascota",intent.getStringExtra("IdMascota"));
                             startActivity(vista);}
@@ -89,26 +91,27 @@ public class AdoptarMascotas extends AppCompatActivity {
                             DatosDeAdopcionApp nuevasolicitud = snapshot.getValue(DatosDeAdopcionApp.class);
                             String correo = nuevasolicitud.getUsuario();
                             CorreoUsuario = auth.getEmail();
+                            fundacion = intent.getStringExtra("Fundacion");
+                            idMascota = intent.getStringExtra("IdMascota");
 
                             Log.e("Correro",correo);
                             Log.e("usuario",nuevasolicitud.getUsuario());
 
                             if (nuevasolicitud.getUsuario().equals(CorreoUsuario)){
-                                Toast.makeText(AdoptarMascotas.this,"ya tienes los datos",Toast.LENGTH_LONG).show();
 
                                 String IdsolicitudAdiopcion = Solicitud.push().getKey();
 
-                                SolicitudMascotaApp SolicitudAdopcion = new SolicitudMascotaApp(IdsolicitudAdiopcion,CorreoUsuario,Fundacion.getText().toString(),intent.getStringExtra("IdMascota"),"Pendiente");
+                                SolicitudMascotaApp SolicitudAdopcion = new SolicitudMascotaApp(IdsolicitudAdiopcion,CorreoUsuario,fundacion,idMascota,"Pendiente");
                                 Solicitud.child(IdsolicitudAdiopcion).setValue(SolicitudAdopcion);
+                                mascota.child(idMascota).child("estado").setValue("Pendiente");
 
                                 Toast.makeText(AdoptarMascotas.this,"Solicitud Enviada",Toast.LENGTH_LONG).show();
 
-                                Intent vista = new Intent(AdoptarMascotas.this, InterfazPrincipalUsuarios.class);
+                                Intent vista = new Intent(AdoptarMascotas.this, InterfazPrincipalUsuarios.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                 startActivity(vista);
 
                             }else {
-                                Toast.makeText(AdoptarMascotas.this,"otro usuarios",Toast.LENGTH_LONG).show();
-                                Intent vista = new Intent(AdoptarMascotas.this, DatosDeAdopcion.class);
+                                Intent vista = new Intent(AdoptarMascotas.this, DatosDeAdopcion.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                 vista.putExtra("Fundacion",Fundacion.getText().toString());
                                 startActivity(vista);
                             }
@@ -139,7 +142,7 @@ public class AdoptarMascotas extends AppCompatActivity {
 
                 cancelar = true;
 
-                Intent vista = new Intent(AdoptarMascotas.this, InterfazPrincipalUsuarios.class);
+                Intent vista = new Intent(AdoptarMascotas.this, InterfazPrincipalUsuarios.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 vista.putExtra("cancelar",cancelar);
                 startActivity(vista);
 

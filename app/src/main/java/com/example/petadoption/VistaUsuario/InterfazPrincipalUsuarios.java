@@ -25,9 +25,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.petadoption.AccoutActivity.InicioActivity;
 import com.example.petadoption.AcercaDeNosotros;
+import com.example.petadoption.MiCuenta;
 import com.example.petadoption.R;
 import com.example.petadoption.Firebase.UsuariosApp;
-import com.example.petadoption.VistaFundacion.FragMenuFundacion;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +39,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import static android.R.id.home;
 
 public class InterfazPrincipalUsuarios extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -196,7 +195,8 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             CargarFragmentos(new FragMenuUsuario());
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_MiCuenta) {
+            CargarFragmentos(new MiCuenta());
         }
         else if (id == R.id.nav_slideshow)  {
             CargarFragmentos(new AcercaDeNosotros());

@@ -61,8 +61,8 @@ public class FragMenuFundacion extends Fragment {
                         if(items[item].equals("Buscar Mascota")){
                             CargarFragmentos(new FragVistasMascotas());
                         }
-                        if(items[item].equals("Solicitudes adopcion")){
-                            CargarFragmentos(new FragReMascota());
+                        if(items[item].equals("Solicitudes Adopcion")){
+                            CargarFragmentos(new FregSolicitudesAdoptantes());
                         }
                         dialog.dismiss();
 

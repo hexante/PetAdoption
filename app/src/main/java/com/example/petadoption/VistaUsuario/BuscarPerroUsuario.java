@@ -56,6 +56,7 @@ public class BuscarPerroUsuario extends Fragment {
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference().child("MascotasApp");
         Query personsQuery = mRef.orderByChild("tipo").equalTo("Perro");
 
+
         FirebaseRecyclerOptions personsOptions = new FirebaseRecyclerOptions.Builder<MascotasApp>().setQuery(personsQuery, MascotasApp.class).build();
 
 
@@ -77,7 +78,8 @@ public class BuscarPerroUsuario extends Fragment {
             @Override
             public viewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.now, viewGroup, false);
+
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.now, viewGroup, true);
 
 
                 return new viewHolder(view);
@@ -86,6 +88,7 @@ public class BuscarPerroUsuario extends Fragment {
             }
         };
         bmrecyclerView.setAdapter(bmPeopleRVAdapter);
+
 
 
         return view;

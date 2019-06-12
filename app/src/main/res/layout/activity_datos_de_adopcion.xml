@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/Nombres"
+                android:textStyle="bold"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -38,14 +39,16 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/Numero_Telefonico"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/txtDireccionSolicitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Direccion de recidencia"
+                android:textStyle="bold"
+                android:hint="@string/direccion_de_residencia"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -53,18 +56,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textStyle="bold"
                 android:hint="Barrio"
                 android:inputType="textPersonName" />
 
             <Spinner
                 android:id="@+id/SpinnerActivadadSolicitud"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
 
             <CheckBox
                 android:id="@+id/checkMascotaSolicitud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="A Tenido Mascotas?" />
 
             <LinearLayout

@@ -3,22 +3,24 @@ package com.example.petadoption.AccoutActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.petadoption.Firebase.UsuariosApp;
 import com.example.petadoption.R;
 import com.example.petadoption.TerminosCondiciones;
-import com.example.petadoption.Firebase.UsuariosApp;
 import com.example.petadoption.VistaFundacion.InterfazPrincipal;
 import com.example.petadoption.VistaUsuario.InterfazPrincipalUsuarios;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,6 +41,8 @@ public class InicioActivity extends AppCompatActivity {
     private DatabaseReference ValidarUsuarios;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset,terminos;
+
+    private CheckBox aceptarTerminos;
 
 
     @Override
@@ -69,6 +73,9 @@ public class InicioActivity extends AppCompatActivity {
         btnReset = (Button) findViewById(R.id.btn_reset_password);
 
         terminos = (Button) findViewById(R.id.btnTerminos);
+        aceptarTerminos = (CheckBox) findViewById(R.id.AceptarTerminos);
+
+
 
 
 
@@ -99,9 +106,25 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+        aceptarTerminos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if ( isChecked )
+                {
+                    btnLogin.setEnabled(true);
+
+                }else{
+                    btnLogin.setEnabled(false);
+                }
+
+            }
+        });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnLogin.setEnabled(false);
                 String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
 
@@ -115,7 +138,6 @@ public class InicioActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
 
                 //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
@@ -158,8 +180,7 @@ public class InicioActivity extends AppCompatActivity {
                                                         finish();
                                                     }else
                                                     {
-                                                        userapp.delete();
-                                                        auth.signOut();
+
                                                     }
                                                 }
 
@@ -178,6 +199,7 @@ public class InicioActivity extends AppCompatActivity {
 
                                 }
                             }
+
                         });
             }
         });
@@ -195,4 +217,7 @@ public class InicioActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 }

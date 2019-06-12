@@ -60,17 +60,17 @@ public class RegitrarseActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "\n" + "¡Introduzca la dirección de correo electrónico!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "¡Introducir la contraseña!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Contraseña demasiado corta, ingrese un mínimo de 6 caracteres!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -80,16 +80,15 @@ public class RegitrarseActivity extends AppCompatActivity {
                         .addOnCompleteListener(RegitrarseActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(RegitrarseActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegitrarseActivity.this, "Usuario Registrado Con Exito.", Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(RegitrarseActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegitrarseActivity.this, "Autenticación fallida. Por favor intente de nuevo.",Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(RegitrarseActivity.this, "Creo usuario" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegitrarseActivity.this, "Creo usuario", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(RegitrarseActivity.this, DatosUsuario.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                     startActivity(intent);
                                     finish();

@@ -1,7 +1,6 @@
 package com.example.petadoption.VistaUsuario;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
