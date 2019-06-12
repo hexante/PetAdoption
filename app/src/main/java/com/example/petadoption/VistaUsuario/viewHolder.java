@@ -59,8 +59,8 @@ public class viewHolder extends RecyclerView.ViewHolder {
 
     public void SetDetail(MascotasApp modelo){
 
-        if (modelo.getEstado().equals("en adopcion")){
-             mView.setVisibility(View.VISIBLE);
+
+        mView.setVisibility(View.VISIBLE);
 
               model = modelo;
 
@@ -74,13 +74,6 @@ public class viewHolder extends RecyclerView.ViewHolder {
                Edad.setText(model.getEdad());
                Descripcion.setText(model.getDescripLesion());
                 Picasso.get().load(Imagen).into(Fotomasc);
-        }else {
-            mView.setVisibility(View.INVISIBLE);       }
-
-
-
-
-
 
 
     }

@@ -67,9 +67,9 @@ public class BuscarPerroUsuario extends Fragment {
                 holder.SetDetail(model);
 
                 if (position % 3 != 0) {
-                    holder.itemView.setBackgroundColor(Color.BLUE);
+                    holder.itemView.setBackgroundColor(Color.rgb(165, 214, 167));
                 } else {
-                    holder.itemView.setBackgroundColor(Color.GREEN);
+                    holder.itemView.setBackgroundColor(Color.rgb(129, 199, 132));
                 }
 
             }
@@ -79,7 +79,7 @@ public class BuscarPerroUsuario extends Fragment {
             public viewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.now, viewGroup, true);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.now, viewGroup, false);
 
 
                 return new viewHolder(view);

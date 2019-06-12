@@ -124,83 +124,86 @@ public class InicioActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnLogin.setEnabled(false);
-                String email = inputEmail.getText().toString();
-                final String password = inputPassword.getText().toString();
-
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Ingresa Correo!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Ingresa Contraseña!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
 
-                //authenticate user
-                auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(InicioActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                progressBar.setVisibility(View.VISIBLE);
-                                if (!task.isSuccessful()) {
-                                    // there was an error
-                                    if (password.length() < 6) {
-                                        inputPassword.setError(getString(R.string.minimum_password));
+                if (aceptarTerminos.isChecked()) {
+                    btnLogin.setEnabled(false);
+                    String email = inputEmail.getText().toString();
+                    final String password = inputPassword.getText().toString();
+
+                    if (TextUtils.isEmpty(email)) {
+                        Toast.makeText(getApplicationContext(), "Ingresa Correo!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (TextUtils.isEmpty(password)) {
+                        Toast.makeText(getApplicationContext(), "Ingresa Contraseña!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+
+                    //authenticate user
+                    auth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(InicioActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    progressBar.setVisibility(View.VISIBLE);
+                                    if (!task.isSuccessful()) {
+                                        // there was an error
+                                        if (password.length() < 6) {
+                                            inputPassword.setError(getString(R.string.minimum_password));
+                                        } else {
+                                            Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                        }
                                     } else {
-                                        Toast.makeText(InicioActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
-                                    }
-                                } else {
 
-                                    ValidarUsuarios.child("UsuariosApp").addValueEventListener(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            for ( DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                        ValidarUsuarios.child("UsuariosApp").addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                for ( DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
 
-                                                UsuariosApp user = snapshot.getValue(UsuariosApp.class);
-                                                String Correo = user.getCorreo();
-                                                String TipoUsuario = user.getTipoUsuario();
+                                                    UsuariosApp user = snapshot.getValue(UsuariosApp.class);
+                                                    String Correo = user.getCorreo();
+                                                    String TipoUsuario = user.getTipoUsuario();
 
-                                                if(inputEmail.getText().toString().equals(Correo)) {
+                                                    if(inputEmail.getText().toString().equals(Correo)) {
 
 
-                                                    if (TipoUsuario.equals("Usuario")) {
-                                                        Intent intent = new Intent(InicioActivity.this, InterfazPrincipalUsuarios.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    } else if (TipoUsuario.equals("Fundacion")) {
-                                                        Intent intent = new Intent(InicioActivity.this, InterfazPrincipal.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    }else
-                                                    {
+                                                        if (TipoUsuario.equals("Usuario")) {
+                                                            Intent intent = new Intent(InicioActivity.this, InterfazPrincipalUsuarios.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        } else if (TipoUsuario.equals("Fundacion")) {
+                                                            Intent intent = new Intent(InicioActivity.this, InterfazPrincipal.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        }else {
 
+                                                        }
                                                     }
-                                                }
 
+
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
 
                                             }
-                                        }
+                                        });
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-
-                                        }
-                                    });
-
+                                    }
                                 }
-                            }
 
-                        });
+                            });
+                } else {
+                    Toast.makeText(InicioActivity.this, "Por Favor Acepte Terminos Y Condiciones", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
