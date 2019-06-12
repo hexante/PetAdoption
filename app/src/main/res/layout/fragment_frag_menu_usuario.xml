@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VistaUsuario.FragMenuUsuario">
-
     <!-- TODO: Update blank fragment layout -->
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#daf7a6">
 
 
         <Button
             android:id="@+id/btnConsultarMascotas"
+            style="@style/FirebaseUI.Button"
             android:layout_width="201dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
@@ -28,6 +29,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:background="#038387"
+            android:fontFamily="@font/aclonica"
             android:text="Buscar Mascotas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +40,7 @@
 
         <Button
             android:id="@+id/btnBfundaciones"
+            style="@style/FirebaseUI.Button"
             android:layout_width="203dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -48,6 +52,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:background="#e74856"
+            android:fontFamily="@font/aclonica"
             android:text="FUNDACIONES"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +64,7 @@
 
         <Button
             android:id="@+id/btnMascotasPerdidasUsuario"
+            style="@style/FirebaseUI.Button"
             android:layout_width="203dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -66,6 +73,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:background="#00b294"
+            android:fontFamily="@font/aclonica"
             android:text="Mascotas Perdidas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +82,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnBfundaciones"
             app:layout_constraintVertical_bias="0.109" />
-
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

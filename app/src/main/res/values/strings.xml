@@ -117,9 +117,13 @@
     <string name="Lugar_evento">Lugar del evento</string>
     <string name="direccion_de_residencia">Direccion de residencia</string>
     <string name="title_activity_detalle_amplio_solicitudes">DetalleAmplioSolicitudes</string>
-    <string name="tituTip">Titulo Tip</string>
-    <string name="descripciont">Descripcion del tips</string>
     <string name="link">Link del tips</string>
+    <string name="titulotip">Titulo del tip</string>
+    <string name="Descripciontip">Descripcion del tip</string>
+    <string name="Escribatip">Escriba su tip</string>
+    <string name="titulostip">Titulo Tip</string>
+    <string name="descripciont">Descripcion Tips</string>
+    <string name="tituTip">Titulo del Tips</string>
 
 
 </resources>

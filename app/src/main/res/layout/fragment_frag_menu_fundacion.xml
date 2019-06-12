@@ -9,59 +9,63 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark">
+        android:background="#daf7a6">
 
         <Button
             android:id="@+id/btnRegistrarMascotas"
-            android:layout_width="203dp"
-            android:layout_height="41dp"
+            android:layout_width="201dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/btn_logut_bg"
+            android:background="#e74856"
+            android:fontFamily="@font/aclonica"
             android:text="Registrar Mascota"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041" />
+            app:layout_constraintVertical_bias="0.082" />
 
         <Button
             android:id="@+id/BtnConsultar"
             android:layout_width="201dp"
-            android:layout_height="39dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/colorAccent"
+            android:background="#038387"
+            android:fontFamily="@font/aclonica"
             android:text="Consultar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.155" />
+            app:layout_constraintVertical_bias="0.241" />
 
         <Button
             android:id="@+id/btnEventos"
-            android:layout_width="206dp"
-            android:layout_height="54dp"
+            android:layout_width="201dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:background="#00b294"
+            android:fontFamily="@font/aclonica"
             android:text="Eventos"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BtnConsultar"
-            app:layout_constraintVertical_bias="0.049" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.427" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
