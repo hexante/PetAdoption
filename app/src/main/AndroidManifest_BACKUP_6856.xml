@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.petadoption">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".VistaFundacion.DetalleAmplioSolicitudes"></activity>
+        <activity
+            android:name=".AccoutActivity.SplashScreen"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TerminosCondiciones"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VistaUsuario.DatosDeAdopcion"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VistaUsuario.AdoptarMascotas"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".VistaUsuario.InterfazPrincipalUsuarios"
+            android:label="@string/title_activity_interfaz_principal_usuarios"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".VistaFundacion.InterfazPrincipal"
+            android:label="@string/title_activity_interfaz_principal"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AccoutActivity.DatosUsuario"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccoutActivity.RecuperarContrasenaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccoutActivity.RegitrarseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AccoutActivity.InicioActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
