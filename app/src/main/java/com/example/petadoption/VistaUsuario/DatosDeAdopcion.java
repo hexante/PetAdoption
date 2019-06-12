@@ -1,18 +1,19 @@
 package com.example.petadoption.VistaUsuario;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.petadoption.Firebase.DatosDeAdopcionApp;
-import com.example.petadoption.R;
 import com.example.petadoption.Firebase.SolicitudMascotaApp;
+import com.example.petadoption.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -100,6 +101,18 @@ public class DatosDeAdopcion extends AppCompatActivity {
 
                 usuario= user.getEmail();
 
+                if (nombres.isEmpty()){
+                    Toast.makeText(DatosDeAdopcion.this,"Por favor escriba un nombre",Toast.LENGTH_LONG).show();
+                }else if (telefono.isEmpty()){
+                    Toast.makeText(DatosDeAdopcion.this,"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                }else if (direccion.isEmpty()){
+                    Toast.makeText(DatosDeAdopcion.this,"Por favor escriba una direccion",Toast.LENGTH_LONG).show();
+                }else if (barrio.isEmpty()){
+                    Toast.makeText(DatosDeAdopcion.this,"Por favor escriba un barrio",Toast.LENGTH_LONG).show();
+                }else if (actividadEconomica.isEmpty()){
+                    Toast.makeText(DatosDeAdopcion.this,"Por favor elija una actividad economica",Toast.LENGTH_LONG).show();
+                }else{
+
                 DatosDeAdopcionApp datosadoptante = new DatosDeAdopcionApp(idSolicitud,nombres,telefono,direccion,barrio,actividadEconomica,tuboMascota,usuario);
 
                 DatosDeAdoptante.child(idSolicitud).setValue(datosadoptante);
@@ -112,7 +125,7 @@ public class DatosDeAdopcion extends AppCompatActivity {
 
 
                 Intent volver = new Intent(DatosDeAdopcion.this, InterfazPrincipalUsuarios.class);
-                startActivity(volver);
+                startActivity(volver);}
 
             }
         });

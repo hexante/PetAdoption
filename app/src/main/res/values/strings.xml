@@ -116,6 +116,7 @@
     <string name="Descripcion_evento">Descripcion del evento</string>
     <string name="Lugar_evento">Lugar del evento</string>
     <string name="direccion_de_residencia">Direccion de residencia</string>
+    <string name="title_activity_detalle_amplio_solicitudes">DetalleAmplioSolicitudes</string>
 
 
 </resources>

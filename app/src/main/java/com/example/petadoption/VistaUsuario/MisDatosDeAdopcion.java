@@ -150,11 +150,11 @@ public class MisDatosDeAdopcion extends Fragment {
                 if (telefono.isEmpty()){
                     Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
                 }else if (direccion.isEmpty()){
-                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"Por favor escriba una direccion",Toast.LENGTH_LONG).show();
                 }else if (barrio.isEmpty()){
-                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
-                }else if (actividadEconomica.isEmpty()){
-                    Toast.makeText(getContext(),"Por favor escriba un numero de contacto",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(),"Por favor escriba un barrio",Toast.LENGTH_LONG).show();
+                }else if (actividadEconomica.equals("Actividad economica")){
+                    Toast.makeText(getContext(),"Por favor elija una actividad economica",Toast.LENGTH_LONG).show();
                 }else {
                     DatosDeAdopcionApp datosadoptante = new DatosDeAdopcionApp(idSolicitud,nombres,telefono,direccion,barrio,actividadEconomica,tuboMascota,usuario);
                     DatosDeAdoptante.child("DatosDeAdopcionApp").child(idSolicitud).setValue(datosadoptante);

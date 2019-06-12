@@ -84,7 +84,7 @@ public class AdoptarMascotas extends AppCompatActivity {
                             Intent vista = new Intent(AdoptarMascotas.this, DatosDeAdopcion.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                             vista.putExtra("Fundacion",Fundacion.getText().toString());
                             vista.putExtra("IdMascota",intent.getStringExtra("IdMascota"));
-                            startActivity(vista);}
+                            startActivity(vista);}else{
 
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()){
 
@@ -118,7 +118,7 @@ public class AdoptarMascotas extends AppCompatActivity {
 
 
 
-                        }
+                        }}
 
                     }
 

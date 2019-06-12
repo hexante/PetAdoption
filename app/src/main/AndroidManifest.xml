@@ -19,20 +19,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AccoutActivity.SplashScreen" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:name=".VistaFundacion.DetalleAmplioSolicitudes"></activity>
+        <activity
+            android:name=".AccoutActivity.SplashScreen"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TerminosCondiciones" />
-        <activity android:name=".VistaUsuario.DatosDeAdopcion" />
-        <activity android:name=".VistaUsuario.AdoptarMascotas" />
+        <activity android:name=".TerminosCondiciones"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VistaUsuario.DatosDeAdopcion"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VistaUsuario.AdoptarMascotas"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".VistaUsuario.InterfazPrincipalUsuarios"
             android:label="@string/title_activity_interfaz_principal_usuarios"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".VistaFundacion.InterfazPrincipal"
             android:label="@string/title_activity_interfaz_principal"
@@ -61,9 +68,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".AccoutActivity.InicioActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

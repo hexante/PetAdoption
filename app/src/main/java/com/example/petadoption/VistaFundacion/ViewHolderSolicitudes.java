@@ -1,6 +1,6 @@
 package com.example.petadoption.VistaFundacion;
 
-import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +27,8 @@ public class ViewHolderSolicitudes extends RecyclerView.ViewHolder {
     String Imagen,NombreMascota,NombreUsuarios;
     SolicitudMascotaApp model;
     DatabaseReference MascotaRef,UsuarioRef;
-    private Context context;
+    private MascotasApp mascota ;
+    private UsuariosApp usuarios;
 
     public ViewHolderSolicitudes(@NonNull final View itemView) {
         super(itemView);
@@ -55,6 +56,16 @@ public class ViewHolderSolicitudes extends RecyclerView.ViewHolder {
                         Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
+                Intent intent = new Intent(mView.getContext(),DetalleAmplioSolicitudes.class);
+                intent.putExtra("IdMascota",  model.getIdMascota());
+                intent.putExtra("IdUsuario",  model.getIdUsuario());
+                intent.putExtra("IdSolicitud", model.getIdSolicitud());
+
+
+
+
+                itemView.getContext().startActivity(intent);
+
 
 
             }
@@ -74,7 +85,7 @@ public class ViewHolderSolicitudes extends RecyclerView.ViewHolder {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
 
-                            MascotasApp mascota = snapshot.getValue(MascotasApp.class);
+                            mascota = snapshot.getValue(MascotasApp.class);
                             if (mascota.getIdMascota().equals(model.getIdMascota())){
                             NombreMascota = mascota.getNombreMascota();
                             Nombremascota.setText(NombreMascota);}
@@ -95,7 +106,7 @@ public class ViewHolderSolicitudes extends RecyclerView.ViewHolder {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
-                            UsuariosApp usuarios = snapshot.getValue(UsuariosApp.class);
+                            usuarios = snapshot.getValue(UsuariosApp.class);
 
                             NombreUsuarios = usuarios.getNombres()+usuarios.getApellidos();
                             Imagen = usuarios.getUrimagen();
@@ -114,6 +125,7 @@ public class ViewHolderSolicitudes extends RecyclerView.ViewHolder {
 
     }
 
+    
 
 
 }

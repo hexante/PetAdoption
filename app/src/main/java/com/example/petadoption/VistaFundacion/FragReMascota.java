@@ -183,6 +183,20 @@ public class FragReMascota extends Fragment {
 
                 if(idM.isEmpty()){
                     Toast.makeText(getActivity(),"Nada",Toast.LENGTH_LONG).show();
+                }else if (NombreM.isEmpty()) {
+                        Toast.makeText(getActivity(),"Por Favor Escriba El Nombre De La Mascota",Toast.LENGTH_LONG).show();
+                }else if (Raza.isEmpty()) {
+                    Toast.makeText(getActivity(),"Por Favor Escriba La Raza De La Mascota",Toast.LENGTH_LONG).show();
+                }else if (Tamaño.isEmpty()) {
+                    Toast.makeText(getActivity(),"Por Favor Escriba El Tamaño De La Mascota",Toast.LENGTH_LONG).show();
+                }else if (Edad.isEmpty()) {
+                    Toast.makeText(getActivity(),"Por Favor Escriba La Edad De La Mascota",Toast.LENGTH_LONG).show();
+                }else if (Color.isEmpty()) {
+                    Toast.makeText(getActivity(),"Por Favor Escriba El Color De La Mascota",Toast.LENGTH_LONG).show();
+                }else if (Descripcio_les.isEmpty()) {
+                    Toast.makeText(getActivity(),"Por Favor Escriba Una Descripcion De La Mascota",Toast.LENGTH_LONG).show();
+                }else if (TipoM.equals("TipoMascota")) {
+                    Toast.makeText(getActivity(),"Por Favor Escoja El Tipo De Mascota",Toast.LENGTH_LONG).show();
                 }else {
 
                    FotoR = storageRef.child(" FotosMascotas/"+idM+".jpg");
