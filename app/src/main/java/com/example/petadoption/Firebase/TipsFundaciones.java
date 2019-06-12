@@ -2,16 +2,15 @@ package com.example.petadoption.Firebase;
 
 public class TipsFundaciones {
 
-    private String Idfundacion,Idtip,Nombretip,descripciontip,autor,imagentip;
+    private String Idfundacion,Idtip,Nombretip,descripciontip,autor,link;
 
-    public TipsFundaciones( String idtip,String idfundacion, String nombretip, String descripciontip, String imagentip,String autor) {
+    public TipsFundaciones(String idfundacion, String idtip, String nombretip, String descripciontip, String autor, String link) {
         Idfundacion = idfundacion;
         Idtip = idtip;
         Nombretip = nombretip;
         this.descripciontip = descripciontip;
         this.autor = autor;
-        this.imagentip = imagentip;
-
+        this.link = link;
     }
 
     public TipsFundaciones() {
@@ -57,11 +56,11 @@ public class TipsFundaciones {
         this.autor = autor;
     }
 
-    public String getImagentip() {
-        return imagentip;
+    public String getLink() {
+        return link;
     }
 
-    public void setImagentip(String imagentip) {
-        this.imagentip = imagentip;
+    public void setLink(String link) {
+        this.link = link;
     }
 }

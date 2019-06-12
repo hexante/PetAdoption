@@ -13,8 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.example.petadoption.R;
-import com.example.petadoption.VistaFundacion.FragReMascota;
-import com.example.petadoption.VistaFundacion.FragVistasMascotas;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,7 +73,7 @@ public class FragMenuUsuario extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final CharSequence[] items = { "Ver fundaciones", "Eventos fundaciones"};
+                final CharSequence[] items = { "Ver fundaciones", "Eventos fundaciones","Tips fundaciones"};
 
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
                 builder.setTitle("Que deseas consultar");
@@ -91,6 +89,11 @@ public class FragMenuUsuario extends Fragment {
                             CargarFragmentos(new ListaEventos());
 
                         }
+                        if(items[item].equals("Tips fundaciones")) {
+                            CargarFragmentos(new VideosTips());
+                        }
+
+
                         dialog.dismiss();
 
                     }

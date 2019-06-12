@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,8 +18,8 @@ public class ViewHolderMisTip extends RecyclerView.ViewHolder {
 
     View mView;
     TextView NombreTip,Descripciontip,Autor;
-    ImageView fototip;
-    String Imagen;
+    WebView Link;
+    String links;
    TipsFundaciones model;
     private Context context;
 
@@ -52,15 +53,15 @@ public class ViewHolderMisTip extends RecyclerView.ViewHolder {
         NombreTip = mView.findViewById(R.id.txtTTip);
         Descripciontip = mView.findViewById(R.id.txtdesTip);
         Autor = mView.findViewById(R.id.Autip);
-        fototip = mView.findViewById(R.id.imaTip);
+        Link = mView.findViewById(R.id.WVtip);
 
-        Imagen = model.getImagentip();
+        links = model.getLink();
         NombreTip.setText(model.getNombretip());
         Descripciontip.setText(model.getDescripciontip());
         Autor.setText(model.getAutor());
 
 
-        Picasso.get().load(Imagen).into(fototip);
+        //Picasso.get().load(links).into( Link );
 
 
 

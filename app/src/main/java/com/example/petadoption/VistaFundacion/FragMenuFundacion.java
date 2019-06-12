@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.petadoption.R;
+import com.example.petadoption.VistaUsuario.VideosTips;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -115,7 +116,7 @@ public class FragMenuFundacion extends Fragment {
                             CargarFragmentos(new CrearTipFundacion());
                         }
                         if(items[item].equals("Mis Tips")){
-                            CargarFragmentos(new ListadeMisTipFund());
+                            CargarFragmentos(new VideosTips());
                         }
                         dialog.dismiss();
 

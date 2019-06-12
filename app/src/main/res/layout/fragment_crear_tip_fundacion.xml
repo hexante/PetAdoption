@@ -11,9 +11,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/txtNombretip"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:contentDescription="@string/tituTip"
+            android:ems="10"
+            android:fontFamily="serif"
+            android:hint="@string/tituTip"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/linktips"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:hint="@string/link"
+            android:textSize="18sp" />
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="313dp">
+            android:layout_height="138dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -21,30 +38,13 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/txtNombretip"
-                    android:layout_width="match_parent"
-                    android:layout_height="65dp"
-                    android:contentDescription="@string/titulostip"
-                    android:ems="10"
-                    android:fontFamily="serif"
-                    android:inputType="textPersonName"
-                    android:text="@string/titulotip" />
-
-                <ImageButton
-                    android:id="@+id/fototip"
-                    android:layout_width="match_parent"
-                    android:layout_height="128dp"
-                    tools:src="@tools:sample/avatars" />
-
-                <EditText
                     android:id="@+id/Descripciontip"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:contentDescription="@string/Escribatip"
                     android:ems="10"
                     android:gravity="start|top"
-                    android:inputType="textMultiLine"
-                    android:text="@string/Descripciontip" />
+                    android:hint="@string/descripciont"
+                    android:inputType="textMultiLine" />
 
             </LinearLayout>
         </ScrollView>

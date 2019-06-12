@@ -47,9 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:textStyle="bold"
-                android:hint="@string/direccion_de_residencia"
-                android:inputType="textPersonName" />
+                android:hint="@string/Direccion"
+                android:inputType="textPersonName"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/txtBarrioSolicitud"
