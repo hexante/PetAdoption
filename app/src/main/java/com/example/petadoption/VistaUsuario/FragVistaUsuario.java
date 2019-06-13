@@ -48,7 +48,7 @@ public class FragVistaUsuario extends Fragment {
 
 
         urecyclerView = view.findViewById(R.id.Recycler2);
-        glm = new GridLayoutManager(getActivity(), 2);
+        glm = new GridLayoutManager(getActivity(), 1);
         urecyclerView.setLayoutManager(glm);
         urecyclerView.setItemAnimator(new DefaultItemAnimator());
 

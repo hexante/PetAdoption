@@ -2,7 +2,6 @@ package com.example.petadoption.VistaUsuario;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,10 +33,10 @@ public class ViewEventos extends RecyclerView.ViewHolder{
 
                 int position = getAdapterPosition();
 
-                Snackbar.make(v, "Click detected on item " + position,
-                        Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
+                // Snackbar.make(v, "Click detected on item " + position,
+                //         Snackbar.LENGTH_LONG)
+                //         .setAction("Action", null).show();
+                //
 
 
             }

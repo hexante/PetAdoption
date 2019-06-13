@@ -2,17 +2,13 @@ package com.example.petadoption.VistaFundacion;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.petadoption.Firebase.EventosFundaciones;
 import com.example.petadoption.Firebase.TipsFundaciones;
 import com.example.petadoption.R;
-import com.squareup.picasso.Picasso;
 
 public class ViewHolderMisTip extends RecyclerView.ViewHolder {
 
@@ -34,11 +30,11 @@ public class ViewHolderMisTip extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
 
-                int position = getAdapterPosition();
-
-                Snackbar.make(v, "Click detected on item " + position,
-                        Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                // int position = getAdapterPosition();
+                //
+                // Snackbar.make(v, "Click detected on item " + position,
+                //         Snackbar.LENGTH_LONG)
+                //         .setAction("Action", null).show();
 
 
 

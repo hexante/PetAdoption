@@ -13,8 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.example.petadoption.R;
-import com.example.petadoption.VistaFundacion.FragReMascota;
-import com.example.petadoption.VistaFundacion.FragVistasMascotas;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,7 +89,7 @@ public class FragMenuUsuario extends Fragment {
                             CargarFragmentos(new ListaEventos());
 
                         }
-                        if(items[item].equals("Eventos fundaciones")){
+                        if (items[item].equals("ver tips fundaciones")) {
                             CargarFragmentos(new VideosTips());
 
                         }
