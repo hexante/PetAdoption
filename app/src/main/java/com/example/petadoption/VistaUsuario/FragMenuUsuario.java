@@ -75,7 +75,7 @@ public class FragMenuUsuario extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final CharSequence[] items = { "Ver fundaciones", "Eventos fundaciones"};
+                final CharSequence[] items = { "Ver fundaciones", "Eventos fundaciones", "ver tips fundaciones"};
 
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
                 builder.setTitle("Que deseas consultar");
@@ -89,6 +89,10 @@ public class FragMenuUsuario extends Fragment {
                         }
                         if(items[item].equals("Eventos fundaciones")){
                             CargarFragmentos(new ListaEventos());
+
+                        }
+                        if(items[item].equals("Eventos fundaciones")){
+                            CargarFragmentos(new VideosTips());
 
                         }
                         dialog.dismiss();

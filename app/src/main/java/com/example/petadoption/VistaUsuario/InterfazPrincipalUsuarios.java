@@ -195,7 +195,7 @@ public class InterfazPrincipalUsuarios extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             CargarFragmentos(new FragMenuUsuario());
-        } else if (id == R.id.nav_MiCuenta) {
+        } else if (id == R.id.nav_misdatos) {
             CargarFragmentos(new MiCuenta());
         }
         else if (id == R.id.nav_slideshow)  {

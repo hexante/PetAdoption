@@ -5,7 +5,7 @@
         xmlns:card_view="http://schemas.android.com/tools"
         android:id="@+id/CardEventoFundacionU"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:clickable="true"
         android:orientation="vertical"
@@ -17,68 +17,118 @@
         card_view:cardCornerRadius="10dp"
         card_view:cardElevation="4dp">
 
-        <android.support.v7.widget.LinearLayoutCompat
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/FotoEventoU"
+            <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:background="@drawable/ic_launcher_foreground"
-                android:scaleType="centerCrop" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <android.support.v7.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <ImageView
+                        android:id="@+id/FotoEventoU"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:background="@drawable/ic_launcher_foreground"
+                        android:scaleType="centerCrop" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical" />
+                        android:background="#ffffd0"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="169dp"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre del evento:"
+                            android:textColor="@color/btn_logut_bg"
+                            android:textSize="18sp"
+                            card_view:text="Nombre del evento:" />
+
+                        <TextView
+                            android:id="@+id/NombreEvento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="nombre even"
+                            android:textColor="#000"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fecha del evento:"
+                            android:textColor="@color/btn_logut_bg"
+                            android:textSize="18sp"
+                            card_view:text="Fecha del evento:" />
+
+                        <TextView
+                            android:id="@+id/FechaEventoU"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="fecha"
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Descripcion del evento:"
+                            android:textColor="@color/btn_logut_bg"
+                            android:textSize="18sp"
+                            card_view:text="Descripcion del evento:" />
+
+                        <TextView
+                            android:id="@+id/DescripEventoU"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:gravity="start|top"
+                            android:inputType="textMultiLine"
+                            android:text="descripcion"
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lugar del evento"
+                            android:textColor="@color/btn_logut_bg"
+                            android:textSize="18sp"
+                            card_view:text="Lugar del evento" />
+
+                        <TextView
+                            android:id="@+id/LugarEventoU"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="lugar"
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
 
-                    <TextView
-                        android:id="@+id/NombreEvento"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/FechaEventoU"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/DescripEventoU"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:gravity="start|top"
-                        android:inputType="textMultiLine" />
-
-                    <TextView
-                        android:id="@+id/LugarEventoU"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:textSize="20sp" />
-
-
-                </android.support.v7.widget.LinearLayoutCompat>
-            </ScrollView>
-        </android.support.v7.widget.LinearLayoutCompat>
+            </android.support.v7.widget.LinearLayoutCompat>
+        </ScrollView>
+    </android.support.v7.widget.LinearLayoutCompat>
     </android.support.v7.widget.CardView>

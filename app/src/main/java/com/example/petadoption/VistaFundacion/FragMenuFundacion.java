@@ -12,13 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.petadoption.R;
+import com.example.petadoption.VistaUsuario.VideosTips;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FragMenuFundacion extends Fragment {
 
-    private Button Consultar,Registrar,Eventos;
+    private Button Consultar,Registrar,Eventos,Tips;
 
 
 
@@ -36,6 +37,7 @@ public class FragMenuFundacion extends Fragment {
         Consultar = (Button) view.findViewById(R.id.BtnConsultar);
         Registrar = (Button) view.findViewById(R.id.btnRegistrarMascotas);
         Eventos = (Button) view.findViewById(R.id.btnEventos);
+        Tips = (Button) view.findViewById(R.id.btntips);
 
         Registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +50,7 @@ public class FragMenuFundacion extends Fragment {
         Consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final CharSequence[] items = {"Buscar Animal", "Solicitudes Adopcion"};
+                final CharSequence[] items = { "Buscar Mascota", "Solicitudes Adopcion"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Que deseas consultar");
@@ -57,7 +59,7 @@ public class FragMenuFundacion extends Fragment {
 
                         // will toast your selection
                        //showToast("Name: " + items[item]);
-                        if (items[item].equals("Buscar Animal")) {
+                        if(items[item].equals("Buscar Mascota")){
                             CargarFragmentos(new FragVistasMascotas());
                         }
                         if(items[item].equals("Solicitudes Adopcion")){
@@ -96,6 +98,34 @@ public class FragMenuFundacion extends Fragment {
 
             }
         });
+
+        Tips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final CharSequence[] items = { "Crear Tip", "Mis Tips"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Que Hacer");
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+
+                        // will toast your selection
+                        //showToast("Name: " + items[item]);
+                        if(items[item].equals("Crear Tip")){
+                            CargarFragmentos(new CrearTipFundacion());
+                        }
+                        if(items[item].equals("Mis Tips")){
+                            CargarFragmentos(new ListaTipsFundaciones());
+                        }
+                        dialog.dismiss();
+
+                    }
+                }).show();
+
+            }
+        });
+
 
         return view;
     }

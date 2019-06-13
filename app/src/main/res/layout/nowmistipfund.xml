@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#45c7b3"
+    app:cardBackgroundColor="#daf7a6"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp"
     app:contentPadding="5dp"
@@ -15,50 +15,40 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="169dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtTTip"
             android:layout_width="match_parent"
             android:layout_height="49dp"
+            android:background="#000000"
             android:text="TextView"
+            android:textColor="@color/fui_bgAnonymous"
             android:textSize="24sp" />
 
-        <ImageView
-            android:id="@+id/imaTip"
+        <TextView
+            android:id="@+id/txtdesTip"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="78dp"
+            android:background="#ffb900"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="214dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtdesTip"
-                        android:layout_width="match_parent"
-                        android:layout_height="146dp"
-                        android:text="TextView" />
-
-                    <TextView
-                        android:id="@+id/Autip"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:text="TextView" />
-                </LinearLayout>
-            </ScrollView>
+            <TextView
+                android:id="@+id/Autip"
+                android:layout_width="318dp"
+                android:layout_height="32dp"
+                android:text="TextView"
+                android:textColor="@color/browser_actions_text_color" />
 
         </LinearLayout>
+
     </LinearLayout>
 </android.support.v7.widget.CardView>

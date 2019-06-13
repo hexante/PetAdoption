@@ -20,7 +20,7 @@ import com.example.petadoption.R;
  */
 public class VideosTips extends Fragment {
 
-    private TextView TituloTip, DescripcionTip;
+    private TextView TituloTip,DescripcionTip;
     private Spinner Spin;
     private WebView browser;
     private ProgressBar progressBar;
@@ -36,11 +36,11 @@ public class VideosTips extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_videos_tips, container, false);
 
-        Spin = (Spinner) view.findViewById(R.id.spinnertips);
+
         TituloTip = (TextView) view.findViewById(R.id.titulovideo);
         DescripcionTip = (TextView) view.findViewById(R.id.Descrivideo);
         // Definimos el webView
-        browser = (WebView) view.findViewById(R.id.WVtip);
+        browser=(WebView)view.findViewById(R.id.WVtip);
 
         //Habilitamos JavaScript
         browser.getSettings().setJavaScriptEnabled(true);
@@ -61,7 +61,7 @@ public class VideosTips extends Fragment {
         browser.loadUrl("https://youtu.be/g31Dn3fbBuI");
 
         //Sincronizamos la barra de progreso de la web
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar = (ProgressBar)view.findViewById(R.id.progressBar);
 
         browser.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -82,7 +82,7 @@ public class VideosTips extends Fragment {
 
     }
 
-}
+   }
 
 
 

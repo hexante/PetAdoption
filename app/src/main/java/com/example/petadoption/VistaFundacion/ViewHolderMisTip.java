@@ -6,24 +6,28 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.petadoption.Firebase.EventosFundaciones;
 import com.example.petadoption.Firebase.TipsFundaciones;
 import com.example.petadoption.R;
+import com.squareup.picasso.Picasso;
 
 public class ViewHolderMisTip extends RecyclerView.ViewHolder {
 
     View mView;
-    TextView NombreTip, Descripciontip, Autor;
+    TextView NombreTip,Descripciontip,Autor;
     WebView Link;
     String links;
-    TipsFundaciones model;
+   TipsFundaciones model;
     private Context context;
 
     public ViewHolderMisTip(@NonNull final View itemView) {
         super(itemView);
 
         mView = itemView;
+
 
 
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -37,11 +41,12 @@ public class ViewHolderMisTip extends RecyclerView.ViewHolder {
                         .setAction("Action", null).show();
 
 
+
             }
         });
     }
 
-    public void SetDetail(TipsFundaciones modelo) {
+    public void SetDetail(TipsFundaciones modelo){
 
         model = modelo;
 
@@ -57,6 +62,10 @@ public class ViewHolderMisTip extends RecyclerView.ViewHolder {
 
 
         //Picasso.get().load(links).into( Link );
+
+
+
+
 
 
     }
