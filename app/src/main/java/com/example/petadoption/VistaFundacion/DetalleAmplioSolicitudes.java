@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.petadoption.Firebase.DatosDeAdopcionApp;
 import com.example.petadoption.Firebase.MascotasApp;
@@ -30,10 +33,12 @@ public class DetalleAmplioSolicitudes extends AppCompatActivity {
 
     private ImageView fotousuario,fotomascota;
 
+    private Button Aceptar, Denegar, Proceso, Atras;
+
     private MascotasApp mascota ;
     private UsuariosApp usuarios;
     private DatosDeAdopcionApp datos;
-    DatabaseReference MascotaRef,UsuarioRef,DatosRef;
+    DatabaseReference MascotaRef, UsuarioRef, DatosRef, Solicitud;
     Intent intent;
 
     @Override
@@ -46,6 +51,7 @@ public class DetalleAmplioSolicitudes extends AppCompatActivity {
         MascotaRef = FirebaseDatabase.getInstance().getReference();
         UsuarioRef = FirebaseDatabase.getInstance().getReference();
         DatosRef = FirebaseDatabase.getInstance().getReference();
+        Solicitud = FirebaseDatabase.getInstance().getReference("SolicitudMascotaApp");
 
         IdMascota = intent.getStringExtra("IdMascota");
         Idusuario = intent.getStringExtra("IdUsuario");
@@ -61,6 +67,11 @@ public class DetalleAmplioSolicitudes extends AppCompatActivity {
 
         fotomascota = (ImageView) findViewById(R.id.FotoMascotaSolicitada);
         fotousuario = (ImageView) findViewById(R.id.FotoSolicitante);
+
+        Aceptar = (Button) findViewById(R.id.SolicitudAceptada);
+        Denegar = (Button) findViewById(R.id.SolicitudDenegada);
+        Proceso = (Button) findViewById(R.id.solicitudProceso);
+        Atras = (Button) findViewById(R.id.Atras);
 
 
 
@@ -158,6 +169,44 @@ public class DetalleAmplioSolicitudes extends AppCompatActivity {
 
                     }
                 });
+
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Solicitud.child(IdSolicitud).child("estadoSolicitud").setValue("Aceptada");
+                Toast.makeText(DetalleAmplioSolicitudes.this, "La Solicitud Fue Aceptada", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Denegar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Solicitud.child(IdSolicitud).child("estadoSolicitud").setValue("Denegada");
+                Toast.makeText(DetalleAmplioSolicitudes.this, "La Solicitud Fue denegada", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        Proceso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Solicitud.child(IdSolicitud).child("estadoSolicitud").setValue("En Proseso");
+                Toast.makeText(DetalleAmplioSolicitudes.this, "La Solicitud Esta En Proceso", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(DetalleAmplioSolicitudes.this, InterfazPrincipal.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 

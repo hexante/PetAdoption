@@ -9,62 +9,78 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="0dp">
 
-
-        <ImageView
-            android:id="@+id/FotoMascotaPerdida"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:contentDescription="TODO"
-            android:clickable="true"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/logo" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/txtMascotaPerdida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/nombre_mascota_perdida"
-            android:inputType="textPersonName" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtDescripcionPerdida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/descripcion_perdida_lugar_fecha_hora_motivo"
-            android:inputType="textMultiLine"/>
 
-        <EditText
-            android:id="@+id/txtContactoPerdida"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/telefono_contacto"
-            android:inputType="phone" />
+                <ImageView
+                    android:id="@+id/FotoMascotaPerdida"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center_horizontal"
+                    android:clickable="true"
+                    android:contentDescription="TODO"
+                    android:src="@mipmap/logo" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/txtMascotaPerdida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/nombre_mascota_perdida"
+                    android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/btnCrearPerdida"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/crear" />
+                <EditText
+                    android:id="@+id/txtDescripcionPerdida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/descripcion_perdida_lugar_fecha_hora_motivo"
+                    android:inputType="textMultiLine" />
 
-            <Button
-                android:id="@+id/btnCancelarPerdida"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Cancelar" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/txtContactoPerdida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/telefono_contacto"
+                    android:inputType="phone" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCrearPerdida"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/crear" />
+
+                    <Button
+                        android:id="@+id/btnCancelarPerdida"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/Cancelar" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </FrameLayout>
 

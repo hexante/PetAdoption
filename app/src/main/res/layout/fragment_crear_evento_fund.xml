@@ -8,14 +8,16 @@
 
 
     <LinearLayout
-        android:layout_width="554dp"
-        android:layout_height="437dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/FotoEvento"
             android:layout_width="match_parent"
             android:layout_height="172dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="TODO"
             android:background="@drawable/ic_menu_camera" />
 
         <EditText

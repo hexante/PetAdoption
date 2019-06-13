@@ -84,7 +84,6 @@ public class DatosUsuario extends AppCompatActivity {
         USUARIOS = FirebaseDatabase.getInstance().getReference("UsuariosApp");
 
         TipoDocumento = (Spinner) findViewById(R.id.spinner);
-        TipoUsuario = (Spinner) findViewById(R.id.spinTipoU);
 
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -94,10 +93,7 @@ public class DatosUsuario extends AppCompatActivity {
 // Apply the adapter to the spinner
         TipoDocumento.setAdapter(adapter);
 
-        ArrayAdapter<CharSequence> adapteru = ArrayAdapter.createFromResource(this,
-                R.array.TipoUsuario, android.R.layout.simple_spinner_item);
-        adapteru.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        TipoUsuario.setAdapter(adapteru);
+
 
         CorreoU.setText(user.getEmail());
 
@@ -123,7 +119,7 @@ public class DatosUsuario extends AppCompatActivity {
                  ciudad=CiudadU.getText().toString();
                  telefono=TelefonoU.getText().toString();
                  correo=CorreoU.getText().toString();
-                 tipou = TipoUsuario.getSelectedItem().toString();
+                tipou = "Usuario";
 
 
                 if ("Tipo Documento".equals(tipod)){
@@ -150,8 +146,8 @@ public class DatosUsuario extends AppCompatActivity {
                                             if (correo.isEmpty()){
                                                 Toast.makeText(DatosUsuario.this,"Campo correo vacio" , Toast.LENGTH_LONG).show();
                                             }else {
-                                                if ("Tipo De Usuario".equals(tipou)){
-                                                    Toast.makeText(DatosUsuario.this,"Elija tipo de usuario " , Toast.LENGTH_LONG).show();
+                                                if (tipou.isEmpty()) {
+                                                    Toast.makeText(DatosUsuario.this, " ", Toast.LENGTH_LONG).show();
                                                 }else {
                                                     if (bitmap != null){
                                                      id=USUARIOS.push().getKey();

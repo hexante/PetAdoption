@@ -46,11 +46,11 @@
     <string name="Correo">Correo</string>
     <string name="Numero_Telefonico">Numero Telefonico</string>
     <string name="Terminar">Terminar</string>
-    <string name="Edad">Edad Mascota</string>
+    <string name="Edad">Edad Del Animal</string>
     <string name="Color">Color</string>
-    <string name="Raza">Raza Mascota</string>
-    <string name="RazaMascota">Raza Mascota</string>
-    <string name="Clasedemascota">Clase de mascota</string>
+    <string name="Raza">Raza Del Animal</string>
+    <string name="RazaMascota">Raza Del Animal</string>
+    <string name="Clasedemascota">Clase De Animal</string>
     <string name="Cancelar">Cancelar</string>
 
 
@@ -58,7 +58,6 @@
         <item>Tipo Documento</item>
         <item>Cedula</item>
         <item>Nit</item>
-        <item>Tarjeta identida</item>
     </string-array>
 
     <string-array name="TipoUsuario">
@@ -90,8 +89,8 @@
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
     <string name="title_activity_interfaz_principal_usuarios">InterfazPrincipalUsuarios</string>
     <string name="cerrar_secion">Cerrar Secion</string>
-    <string name="RegistrarMascotas">Registrar Mascotas</string>
-    <string name="BuscarMascotas">Buscar Mascotas</string>
+    <string name="RegistrarMascotas">Registrar Animal</string>
+    <string name="BuscarMascotas">Buscar Animal</string>
     <string name="nombre_mascota_perdida">Nombre Mascota Perdida</string>
     <string name="descripcion_perdida_lugar_fecha_hora_motivo">Descripcion Perdida (Lugar,fecha,hora,motivo)</string>
     <string name="telefono_contacto">Telefono Contacto</string>

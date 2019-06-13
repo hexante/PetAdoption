@@ -48,7 +48,7 @@ public class FragMenuFundacion extends Fragment {
         Consultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final CharSequence[] items = { "Buscar Mascota", "Solicitudes Adopcion"};
+                final CharSequence[] items = {"Buscar Animal", "Solicitudes Adopcion"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Que deseas consultar");
@@ -57,7 +57,7 @@ public class FragMenuFundacion extends Fragment {
 
                         // will toast your selection
                        //showToast("Name: " + items[item]);
-                        if(items[item].equals("Buscar Mascota")){
+                        if (items[item].equals("Buscar Animal")) {
                             CargarFragmentos(new FragVistasMascotas());
                         }
                         if(items[item].equals("Solicitudes Adopcion")){
