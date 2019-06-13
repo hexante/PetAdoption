@@ -17,12 +17,13 @@
             android:text="Mi Correo :"
             android:textColor="#0E0808"
             android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintHorizontal_bias="0.168"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.384" />
+            app:layout_constraintVertical_bias="0.393" />
 
         <TextView
             android:id="@+id/CorreoMiCuenta"
@@ -35,14 +36,13 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:text="TextView"
-            android:textSize="30sp"
             android:textColor="#0E0808"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintHorizontal_bias="0.132"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.549" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView15"
@@ -53,6 +53,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
+            android:textStyle="bold"
             android:text="Bienvenido :"
             android:textColor="#0E0808"
             android:textSize="30sp"
@@ -75,12 +76,12 @@
             android:layout_marginBottom="8dp"
             android:text="TextView"
             android:textColor="#0E0808"
-            android:textSize="24sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintHorizontal_bias="0.132"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.236" />
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
